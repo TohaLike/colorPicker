@@ -1,0 +1,35 @@
+
+.color__circle {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #000;
+    /* border-radius: 300px; */
+    position: relative;
+}
+
+
+.picker { 
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+}
+
+.color__container {
+    width: 400px;
+    height: 400px;
+    border: 2px solid #000;
+}
+
+/* 
+.picker__stroke {
+    display: flex;
+    width: 19px;
+    height: 19px;
+    border: 1px solid #fff;
+    border-radius: 19px;
+
+} */
