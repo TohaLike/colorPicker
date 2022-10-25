@@ -1,10 +1,19 @@
-
-.color__circle {
+.color__picker__container {
     width: 300px;
     height: 300px;
+    border: 1px solid #000;
+    position: relative;
+}
+
+.color__circle {
+    width: 291px;
+    height: 296px;
+    display: block;
     border: 2px solid #000;
     /* border-radius: 300px; */
+    padding-right: 5px;
     position: relative;
+    
 }
 
 
@@ -14,22 +23,13 @@
     height: 20px;
     border: 2px solid #000;
     border-radius: 20px;
-    top: 0;
-    left: 0;
+    top: 136px;
+    left: 136px;
 }
 
 .color__container {
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     border: 2px solid #000;
+    margin-top: 15px;
 }
-
-/* 
-.picker__stroke {
-    display: flex;
-    width: 19px;
-    height: 19px;
-    border: 1px solid #fff;
-    border-radius: 19px;
-
-} */
