@@ -16,6 +16,11 @@ colorBox.style.background = `conic-gradient(${colorStorage})`;
 pickerColor.onmousedown = (event) => {
     event.preventDefault();
 
+    // let canvas = document.getElementById('colorCanvas');
+    // let ctx = canvas.getContex('2d');
+    // ctx.fillStyle = 'rgba( 1, 1, 1, 1)';
+    // ctx.fillRect(0, 0, colorBox.getAttribute("height"), colorBox.getAttribute("width"));
+
     let shiftX = event.clientX - pickerColor.getBoundingClientRect().left;
     let shiftY = event.clientY - pickerColor.getBoundingClientRect().top;
     

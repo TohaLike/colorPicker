@@ -1,10 +1,3 @@
-.color__picker__container {
-    width: 300px;
-    height: 300px;
-    border: 1px solid #000;
-    position: relative;
-}
-
 .color__box {
     width: 291px;
     height: 296px;
@@ -12,7 +5,6 @@
     border: 2px solid #000;
     padding-right: 5px;
     position: relative;
-    
 }
 
 .picker { 
