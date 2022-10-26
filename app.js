@@ -4,7 +4,6 @@ let colorStorage = [];
 
 for (let i = 0; i <= 360; i++) {
     colorStorage.push(`hsl(${i - 5}, 100%, 50%)`);
-    // console.log(colorStorage);
 };
 
 colorStorage = colorStorage.toString();
