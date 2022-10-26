@@ -1,21 +1,11 @@
-.color__picker__container {
-    width: 300px;
-    height: 300px;
-    border: 1px solid #000;
-    position: relative;
-}
-
-.color__circle {
+.color__box {
     width: 291px;
     height: 296px;
     display: block;
     border: 2px solid #000;
-    /* border-radius: 300px; */
     padding-right: 5px;
     position: relative;
-    
 }
-
 
 .picker { 
     position: absolute;
