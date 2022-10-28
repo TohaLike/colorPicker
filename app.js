@@ -1,14 +1,15 @@
 const colorBox = document.querySelector('.color__box');
 const pickerColor = document.querySelector('.picker');
 const colorContainer = document.querySelector('.color__container');
-
 const canvas = document.getElementById('colorCanvas');
 const context = canvas.getContext('2d', { willReadFrequently: true });   
    
-
 let width = colorBox.width;
 let height = colorBox.height;
+let positionX = 0;
+let positionY = 0;
 
+// context.rect(0, 0, width, height);
 let colorBackGround = context.createLinearGradient(0, 0, width, 0);
     colorBackGround.addColorStop(0, 'rgba(255, 0, 0, 1)');
     colorBackGround.addColorStop(0.17, 'rgba(255, 255, 0, 1)');
@@ -17,11 +18,17 @@ let colorBackGround = context.createLinearGradient(0, 0, width, 0);
     colorBackGround.addColorStop(0.68, 'rgba(0, 0, 255, 1)');
     colorBackGround.addColorStop(0.85, 'rgba(255, 0, 255, 1)');
     colorBackGround.addColorStop(1, 'rgba(255, 0, 0, 1)');
-
-    colorBox.style.backgroundColor = colorBackGround;
-
+    context.fillStyle = colorBackGround; 
+    context.fillRect(0, 0, width, height);
+    colorBackGround = context.createLinearGradient(0, 0, 0, height);
+    colorBackGround.addColorStop(0, 'rgba(255, 255, 255, 1');
+    colorBackGround.addColorStop(0.5, 'rgba(255, 255, 255, 0)');
+    colorBackGround.addColorStop(0.5, 'rgba(0, 0, 0, 0)');
+    colorBackGround.addColorStop(1, 'rgba(0, 0, 0, 1)');
     context.fillStyle = colorBackGround;
     context.fillRect(0, 0, width, height);
+    context.fillRect(width, 0, 0, 0);
+
 // ---------------------------------------------------------------
 
 pickerColor.onmousedown = (event) => {
@@ -33,9 +40,6 @@ pickerColor.onmousedown = (event) => {
     document.addEventListener('mousemove', getColorPicker);
     document.addEventListener('mouseup', onMouseUp);
     
-    let positionX = 0;
-    let positionY = 0;
-
     function onMouseMove(event) { 
         let newLeft = event.clientX - shiftX - colorBox.getBoundingClientRect().left;
         let newTop = event.clientY - shiftY - colorBox.getBoundingClientRect().top;
@@ -53,7 +57,8 @@ pickerColor.onmousedown = (event) => {
        
     function getColorPicker() { 
         let imageData = context.getImageData(positionX, positionY, 1, 1).data;
-        colorContainer.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;
+        colorContainer.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
+        colorBox.style.backgroundColor = colorBackGround;
     };
     
     

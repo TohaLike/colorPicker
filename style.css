@@ -5,13 +5,12 @@ body {
 .color__picker__container {
      position: relative;
 }
+
 .color__box {
-    width: 291px;
-    height: 296px;
+    width: 300px;
+    height: 300px;
     display: block;
     border: 2px solid #000;
-    padding-right: 5px;
-    /* position: relative; */
 }
 
 .picker { 
@@ -21,12 +20,11 @@ body {
     height: 20px;
     border: 2px solid #000;
     border-radius: 20px;
-    top: 137px;
-    left: 137px;
+    top: 0;
+    left: 0;
 }
 
 .color__container {
-    margin-top: 0;
     width: 200px;
     height: 200px;
     border: 2px solid #000;
