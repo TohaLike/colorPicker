@@ -1,3 +1,4 @@
+
 const colorBox = document.querySelector('.color__box');
 const pickerCursor = document.querySelector('.picker__cursor');
 const colorContainer = document.querySelector('.color__container');
@@ -24,15 +25,13 @@ let colorBackGround = context.createLinearGradient(0, 0, width, 0);
     context.fillStyle = colorBackGround;
     context.fillRect(0, 0, width, height);
 
-// ---------------------------------------------------------------
-
 pickerCursor.onmousedown = (event) => {
     event.preventDefault();
     let shiftX = event.clientX - pickerCursor.getBoundingClientRect().left;
     let shiftY = event.clientY - pickerCursor.getBoundingClientRect().top;
     let positionX = 0;
-    let positionY = 0;    
-    
+    let positionY = 0;
+
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mousemove', getColorPicker);
     document.addEventListener('mouseup', onMouseUp);
@@ -47,15 +46,27 @@ pickerCursor.onmousedown = (event) => {
         if (newLeft > rightEdge) newLeft = rightEdge;
         if (newTop > topEdge) newTop = topEdge;
         pickerCursor.style.left = newLeft + 'px';
-        pickerCursor.style.top = newTop + 'px'; 
+        pickerCursor.style.top = newTop + 'px';
         positionX = newLeft;
-        positionY = newTop;
+        positionY = newTop; 
+        console.log(positionX, positionY)
     };
-       
+
     function getColorPicker() { 
         let imageData = context.getImageData(positionX, positionY, 1, 1).data;
-        colorContainer.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
-    };
+        colorContainer.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;  
+        if (positionX === 0 && positionY === 0) {
+            colorContainer.style.backgroundColor = 'rgb(255, 255, 255)';
+            console.log(positionX, positionY)
+        } else if (positionX === 325 && positionY === 0) {
+            colorContainer.style.backgroundColor = 'rgb(255, 255, 255)';
+        };
+        if (positionX === 0 && positionY === 325) {
+            colorContainer.style.backgroundColor = 'rgb(0, 0, 0)';
+        } else if (positionX === 325 && positionY === 325) {
+            colorContainer.style.backgroundColor = 'rgb(0, 0, 0)';
+        };
+    }; 
     
     function onMouseUp() {
         document.removeEventListener('mouseup', onMouseUp);

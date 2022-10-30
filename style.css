@@ -6,11 +6,11 @@
     position: relative;
     display: block;
     border: 2px solid #000;
+    border-radius: 15px;
 }
 
 .picker__cursor { 
     z-index: 1;
-    display: block;
     position: absolute;
     display: flex;
     align-items: center;
