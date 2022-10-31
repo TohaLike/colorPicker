@@ -3,8 +3,9 @@ body {
     color: #fff;
 }
 
+/* Scroll Section */
 body::-webkit-scrollbar {
-    width: 1em;
+    width: 13px;
 }
    
 body::-webkit-scrollbar-track {
@@ -16,34 +17,50 @@ body::-webkit-scrollbar-thumb {
     outline: 1px solid slategrey;
 
 }
+
+/* Main */
 .container {
-    padding-left: 122px;
-    padding-right: 122px;
+    padding-left: 277px;
+    padding-right: 277px;
+}
+
+
+/* Logo Section */
+.wrapper {
+    height: 856px;
+    background: #454545;
+    box-shadow: 17px 25px 23px 11px rgba(0, 0, 0, 0.25), -17px 25px 23px 11px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    position: relative;
 }
 
 .logo__section {
-    margin: 0 auto;
-
+    margin-top: 38px;
+    margin-bottom: 5px;
 }
 
 .header__logo {
-    background-image: url(/image/ColorStorage.svg);
-    display: block;
-    width: 669px;
-    height: 132px;
+    user-select: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;   
+    font-size: 110px;
+    line-height: 104px; 
     margin: 0 auto;
+    padding-bottom: 30px;
+    background: linear-gradient(180deg, #ffffff 29.9%, #ffffff 57.73%, #2e2e2e 105.15%, #ffffff 105.15%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;    
+    text-shadow: 0px 5.6px 50.4px rgba(0, 0, 0, 0.5);
 }
 
-.wrapper {
-    height: 856px;
-    margin-top: 17px;
-    background: #454545;
-    box-shadow: 17px 25px 23px 11px rgba(0, 0, 0, 0.25), -17px 25px 23px 11px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-}
 
-.color__section {
-    position: relative;
+/* ColorPicker */
+.color__picker {
+    position: absolute;
+    top: 179px;
+    left: 897px;
 }
 
 .color__box {

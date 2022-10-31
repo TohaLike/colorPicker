@@ -2,7 +2,7 @@ const colorBox = document.querySelector('.color__box');
 const pickerCursor = document.querySelector('.picker__cursor');
 const colorContainer = document.querySelector('.color__container');
 const colorIndex = document.querySelector('.color__index');
-const canvas = document.getElementById('colorCanvas');
+const canvas = document.getElementById('color__canvas');
 const context = canvas.getContext('2d', { willReadFrequently: true });   
    
 let width = colorBox.width;
