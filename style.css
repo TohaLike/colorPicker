@@ -1,9 +1,3 @@
-body {
-    background-color: #252525;
-}
-
-
-
 .color__section {
     position: relative;
 }
@@ -24,9 +18,15 @@ body {
     height: 25px;
     border: 2px solid #000;
     border-radius: 20px;
-    outline: 1px solid #fff;
-    outline-offset: -3px;
-} 
+}
+
+.picker__cursor__inner {
+    position: absolute;
+    border: 1px solid rgb(255, 255, 255);
+    width: 23px;
+    height: 23px; 
+    border-radius: 18px;
+}
 
 .color__container {
     width: 200px;
