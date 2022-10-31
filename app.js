@@ -78,3 +78,4 @@ pickerCursor.onmousedown = (event) => {
         document.removeEventListener('mousemove', getColorPicker);
     };
 };
+
