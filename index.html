@@ -8,24 +8,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/adaptive.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>ColorStorage</title>
 </head>
 <body>
     
     <div class="container">
-        <div class="logo__section">
-            <h1 class="header__logo">ColorStorage</h1>
+        <div class="header">
+            <div class="logo__section">
+                <h1 class="header__logo">ColorStorage</h1>                
+            </div>
         </div>
-
         <div class="wrapper">
+            <div class="color__picker__form">            
+                <div class="color__buttons">
+                    <div class="color__buttons__position">
+                        <button class="btn "></button>
+                        <button class="btn "></button>
+                        <button class="btn "></button>
+                        <button class="btn "></button>
+                        <button class="btn "></button>
+                        <button class="btn "></button>
+                        <button class="btn "></button>
+                        <button class="btn "></button>
+                        <button class="btn "></button>
+                        <button class="btn "></button>            
+                    </div>
+                </div>
+                <div class="color__picker">
+                    <div class="picker__cursor"></div>
+                    <canvas id="color__canvas" class="color__box" height="350" width="350"></canvas>
+                    <div class="inputs__color">
+                        <input class="input rgb__input" type="text">
+                        <input class="input hsl__input" type="text">
+                        <input class="input hex__input" type="text">
+                    </div>
+                </div>
+            </div>
 
-
-            <div class="color__picker">
-                <div class="picker__cursor"></div>
-                <canvas id="color__canvas" class="color__box" height="350" width="350"></canvas>
-            </div> 
 
             <div class="color__container"></div>
             <span class="color__index" type="text"></span>

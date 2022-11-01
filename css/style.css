@@ -15,28 +15,32 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
-
 }
 
-/* Main */
+
+/* Container */
 .container {
-    padding-left: 277px;
-    padding-right: 277px;
+    padding-left: 223px;
+    padding-right: 223px;
 }
 
 
 /* Logo Section */
 .wrapper {
-    height: 856px;
+    height: 923px;
+    max-width: 1366px;
+    margin: 0 auto;
     background: #454545;
-    box-shadow: 17px 25px 23px 11px rgba(0, 0, 0, 0.25), -17px 25px 23px 11px rgba(0, 0, 0, 0.25);
+    box-shadow: 17px 25px 23px 11px rgba(0, 0, 0, 0.25), 
+    -17px 25px 23px 11px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
     position: relative;
 }
 
 .logo__section {
-    margin-top: 38px;
-    margin-bottom: 5px;
+    margin-top: 16px;
+    margin-bottom: -20px;
+    margin-left: 40px;
 }
 
 .header__logo {
@@ -48,7 +52,11 @@ body::-webkit-scrollbar-thumb {
     line-height: 104px; 
     margin: 0 auto;
     padding-bottom: 30px;
-    background: linear-gradient(180deg, #ffffff 29.9%, #ffffff 57.73%, #2e2e2e 105.15%, #ffffff 105.15%);
+    background: linear-gradient(180deg, 
+    #ffffff 29.9%, 
+    #ffffff 57.73%, 
+    #2e2e2e 105.15%, 
+    #ffffff 105.15%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;    
@@ -56,18 +64,67 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+/* ColorButton */
+.color__picker__form {   
+    width: 372px;
+    height: 664px;
+    background: #252525;
+    box-shadow: 6px 6px 7px rgba(0, 0, 0, 0.25),
+    -6px 6px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;
+    left: 960px;
+}
+
+.color__buttons {
+    width: 350px;
+    height: 111px;
+    background: #3E3E3E;
+    border-radius: 15px;
+    filter: drop-shadow(-4px 4px 4px rgba(0, 0, 0, 0.25)) 
+    drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25)); 
+    margin-left: 11px;
+    margin-top: 11px; 
+    display: grid;
+    justify-content: center;
+}
+
+.color__buttons__position {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 23px;
+    grid-template-rows: 56px;
+    align-items: center;
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+    box-shadow: 2px 2px 4px 
+    rgba(0, 0, 0, 0.25), -2px 2px 2px 
+    rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+
 /* ColorPicker */
 .color__picker {
+    border-radius: 15px;
     position: absolute;
-    top: 179px;
-    left: 897px;
+    top: 129px;
+    left: 10px;
 }
 
 .color__box {
+    margin-top: 0;
     position: relative;
     display: block;
     border: 2px solid #000;
-    /* border-radius: 15px; */
+    border-radius: 15px;
+    background-color: #000;
+    filter: drop-shadow(-4px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .picker__cursor { 
@@ -90,3 +147,22 @@ body::-webkit-scrollbar-thumb {
     margin-top: 15px;
     background-color: #fff;
 }
+
+
+/* ColorInput */
+.inputs__color {
+    margin-bottom: 12px;
+}
+
+.input {
+    width: 350px;
+    height: 45px;
+    margin-top: 12px;
+    border: none;
+    background: #454545;
+    border-radius: 30px;
+    outline: none;
+    filter: drop-shadow(-4px 4px 4px rgba(0, 0, 0, 0.25)) 
+    drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
