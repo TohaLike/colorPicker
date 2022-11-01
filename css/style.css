@@ -73,8 +73,8 @@ body::-webkit-scrollbar-thumb {
     -6px 6px 6px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     position: absolute;
-    top: 30px;
-    left: 960px;
+    top: 20px;
+    left: 974px;
 }
 
 .color__buttons {
