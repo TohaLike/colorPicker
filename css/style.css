@@ -29,7 +29,8 @@ body::-webkit-scrollbar-thumb {
 .wrapper {
     height: 856px;
     background: #454545;
-    box-shadow: 17px 25px 23px 11px rgba(0, 0, 0, 0.25), -17px 25px 23px 11px rgba(0, 0, 0, 0.25);
+    box-shadow: 17px 25px 23px 11px rgba(0, 0, 0, 0.25), 
+    -17px 25px 23px 11px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
     position: relative;
 }
@@ -48,7 +49,11 @@ body::-webkit-scrollbar-thumb {
     line-height: 104px; 
     margin: 0 auto;
     padding-bottom: 30px;
-    background: linear-gradient(180deg, #ffffff 29.9%, #ffffff 57.73%, #2e2e2e 105.15%, #ffffff 105.15%);
+    background: linear-gradient(180deg, 
+    #ffffff 29.9%, 
+    #ffffff 57.73%, 
+    #2e2e2e 105.15%, 
+    #ffffff 105.15%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;    
@@ -56,8 +61,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-/* ColorPicker */
-
+/* ColorButton */
 .color__picker__form {   
     width: 372px;
     height: 664px;
@@ -79,7 +83,8 @@ body::-webkit-scrollbar-thumb {
     drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25)); 
     margin-left: 11px;
     margin-top: 11px; 
-   
+    display: grid;
+    justify-content: center;
 }
 
 .color__buttons__position {
@@ -87,8 +92,8 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 23px;
-    grid-template-rows: 55px;
-    
+    grid-template-rows: 56px;
+    align-items: center;
 }
 
 .btn {
@@ -100,11 +105,13 @@ body::-webkit-scrollbar-thumb {
     border-radius: 5px;
 }
 
+
+/* ColorPicker */
 .color__picker {
     border-radius: 15px;
     position: absolute;
-    top: 179px;
-    left: 0;
+    top: 129px;
+    left: 10px;
 }
 
 .color__box {
@@ -136,3 +143,21 @@ body::-webkit-scrollbar-thumb {
     margin-top: 15px;
     background-color: #fff;
 }
+
+
+/* ColorInput */
+.inputs__color {
+    line-height: 25px;
+
+}
+
+.input {
+    width: 350px;
+    height: 45px;
+    border: none;
+    background: #454545;
+    border-radius: 30px;
+    outline: none;
+    /* line-height: 25px; */
+}
+
