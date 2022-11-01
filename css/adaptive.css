@@ -1,9 +1,9 @@
-@media (min-width: 1440px) {
+@media only screen and (max-width: 1440px) {
     
     .logo__section {
         margin-top: 0px;
         margin-bottom: -25px;
-        margin-left: 40px;
+        margin-left: -5px;
     }
 
     .header__logo {
@@ -27,8 +27,8 @@
         -6px 6px 6px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         position: absolute;
-        top: 50px;
-        left: 860px;
+        top: 10px;
+        left: 612px;
     }
     
 
