@@ -4,9 +4,9 @@ const colorContainer = document.querySelector('.color__container');
 const colorIndex = document.querySelector('.color__index');
 const canvas = document.getElementById('color__canvas');
 const context = canvas.getContext('2d', { willReadFrequently: true });   
-const rgbInput = document.querySelector('.rgb__input'); 
-const hslInput = document.querySelector('.hsl__input');
-const hexInput = document.querySelector('.hex__input');
+const rgbIndex = document.querySelector('.rgb__index'); 
+const hslIndex = document.querySelector('.hsl__index');
+const hexIndex = document.querySelector('.hex__index');
 
 let width = colorBox.width;
 let height = colorBox.height;
@@ -27,8 +27,8 @@ let colorBackGround = context.createLinearGradient(0, 0, width, 0);
     colorBackGround.addColorStop(1, 'rgba(0, 0, 0, 1)');
     context.fillStyle = colorBackGround;
     context.fillRect(0, 0, width, height);
-    rgbInput.value = 'rgb(255, 255, 255);';
-    hslInput.value = 'hsl(0, 100%, 100%);';
+    rgbIndex.innerHTML = 'rgb(255, 255, 255);';
+    hslIndex.innerHTML = 'hsl(0, 100%, 100%);';
 
 pickerCursor.onmousedown = (event) => {
     event.preventDefault();
@@ -80,32 +80,30 @@ pickerCursor.onmousedown = (event) => {
         let imageData = context.getImageData(positionX, positionY, 1, 1).data;
         let [r, g, b] = imageData;
         let [h, s, l] = RGBToHSL(r, g, b);
-
         colorContainer.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
-        rgbInput.value = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]});`; 
-        hslInput.value = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%);`;
+        rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]});`; 
+        hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%);`;
 
         if (positionX === 0 && positionY === 0) {
             colorContainer.style.backgroundColor = 'rgb(255, 255, 255)';
-            rgbInput.value = 'rgb(255, 255, 255);';
+            rgbIndex.innerHTML = 'rgb(255, 255, 255);';
         } else if (positionX === 325 && positionY === 0) {
             colorContainer.style.backgroundColor = 'rgb(255, 255, 255)';
-            rgbInput.value = 'rgb(255, 255, 255);';
+            rgbIndex.innerHTML = 'rgb(255, 255, 255);';
         };
         if (positionX === 0 && positionY === 325) {
             colorContainer.style.backgroundColor = 'rgb(0, 0, 0)';
-            rgbInput.value = 'rgb(0, 0, 0);';
-            hslInput.value = 'hsl(0, 100%, 0%);';
+            rgbIndex.innerHTML = 'rgb(0, 0, 0);';
+            hslIndex.innerHTML = 'hsl(0, 100%, 0%);';
         } else if (positionX === 325 && positionY === 325) {
             colorContainer.style.backgroundColor = 'rgb(0, 0, 0)';
-            rgbInput.value = 'rgb(0, 0, 0);';
-            hslInput.value = 'hsl(0, 100%, 0%);';
+            rgbIndex.innerHTML = 'rgb(0, 0, 0);';
+            hslIndex.innerHTML = 'hsl(0, 100%, 0%);';
         };  
     }; 
 
 
 
-    
     function onMouseUp() {
         document.removeEventListener('mouseup', onMouseUp);
         document.removeEventListener('mousemove', onMouseMove);
