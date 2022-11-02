@@ -69,19 +69,17 @@ pickerCursor.onmousedown = (event) => {
           100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
           (100 * (2 * l - s)) / 2,
         ];
-      };
+    };
             
     function getColorPicker() { 
         let imageData = context.getImageData(positionX, positionY, 1, 1).data;
         let [r, g, b] = imageData;
         let [h, s, l] = RGBToHSL(r, g, b);
         let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
-
         colorContainer.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
         rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]});`; 
         hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%);`;
         hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)};`; 
-
         if (positionX === 0 && positionY === 0) {
             colorContainer.style.backgroundColor = 'rgb(255, 255, 255)';
             rgbIndex.innerHTML = 'rgb(255, 255, 255);';
