@@ -29,6 +29,7 @@ let colorBackGround = context.createLinearGradient(0, 0, width, 0);
     context.fillRect(0, 0, width, height);
     rgbIndex.innerHTML = 'rgb(255, 255, 255);';
     hslIndex.innerHTML = 'hsl(0, 100%, 100%);';
+    hexIndex.innerHTML = `#ffffff;`;
 
 pickerCursor.onmousedown = (event) => {
     event.preventDefault();
@@ -62,13 +63,7 @@ pickerCursor.onmousedown = (event) => {
         b /= 255;
         const l = Math.max(r, g, b);
         const s = l - Math.min(r, g, b);
-        const h = s
-          ? l === r
-            ? (g - b) / s
-            : l === g
-            ? 2 + (b - r) / s
-            : 4 + (r - g) / s
-          : 0;
+        const h = s ? l === r ? (g - b) / s : l === g ? 2 + (b - r) / s : 4 + (r - g) / s : 0;
         return [
           60 * h < 0 ? 60 * h + 360 : 60 * h,
           100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
@@ -80,29 +75,34 @@ pickerCursor.onmousedown = (event) => {
         let imageData = context.getImageData(positionX, positionY, 1, 1).data;
         let [r, g, b] = imageData;
         let [h, s, l] = RGBToHSL(r, g, b);
+        let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+
         colorContainer.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
         rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]});`; 
         hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%);`;
+        hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)};`; 
 
         if (positionX === 0 && positionY === 0) {
             colorContainer.style.backgroundColor = 'rgb(255, 255, 255)';
             rgbIndex.innerHTML = 'rgb(255, 255, 255);';
+            hexIndex.innerHTML = `#ffffff;`;
         } else if (positionX === 325 && positionY === 0) {
             colorContainer.style.backgroundColor = 'rgb(255, 255, 255)';
             rgbIndex.innerHTML = 'rgb(255, 255, 255);';
+            hexIndex.innerHTML = `#ffffff;`;
         };
         if (positionX === 0 && positionY === 325) {
             colorContainer.style.backgroundColor = 'rgb(0, 0, 0)';
             rgbIndex.innerHTML = 'rgb(0, 0, 0);';
             hslIndex.innerHTML = 'hsl(0, 100%, 0%);';
+            hexIndex.innerHTML = `#000000;`;
         } else if (positionX === 325 && positionY === 325) {
             colorContainer.style.backgroundColor = 'rgb(0, 0, 0)';
             rgbIndex.innerHTML = 'rgb(0, 0, 0);';
             hslIndex.innerHTML = 'hsl(0, 100%, 0%);';
+            hexIndex.innerHTML = `#000000;`;
         };  
     }; 
-
-
 
     function onMouseUp() {
         document.removeEventListener('mouseup', onMouseUp);
