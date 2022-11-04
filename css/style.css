@@ -78,6 +78,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     list-style-type: none;
+    user-select: none;
 }
 
 .nav li {
@@ -96,7 +97,7 @@ body::-webkit-scrollbar-thumb {
 
 .nav li a:hover {
     color: #ffffff;
-    transition: .2s ease;
+    filter: drop-shadow(2px 2px 7px #000000);
 }
 
 
