@@ -7,7 +7,8 @@ const context = canvas.getContext('2d', { willReadFrequently: true });
 const rgbIndex = document.querySelector('.rgb__index'); 
 const hslIndex = document.querySelector('.hsl__index');
 const hexIndex = document.querySelector('.hex__index');
-
+const inputBtn = document.querySelector('.input__btn');
+const colorInput = document.querySelector('.color__input');
 
 // ColorPicker
 let width = colorBox.width;
@@ -29,9 +30,9 @@ let colorBackGround = context.createLinearGradient(0, 0, width, 0);
     colorBackGround.addColorStop(1, 'rgba(0, 0, 0, 1)');
     context.fillStyle = colorBackGround;
     context.fillRect(0, 0, width, height);
-    rgbIndex.innerHTML = 'rgb(255, 255, 255);';
-    hslIndex.innerHTML = 'hsl(0, 100%, 100%);';
-    hexIndex.innerHTML = `#ffffff;`;
+    rgbIndex.innerHTML = 'rgb(255, 255, 255)';
+    hslIndex.innerHTML = 'hsl(0, 100%, 100%)';
+    hexIndex.innerHTML = `#ffffff`;
 
 pickerCursor.onmousedown = (event) => {
     event.preventDefault();
@@ -79,28 +80,28 @@ pickerCursor.onmousedown = (event) => {
         let [h, s, l] = RGBToHSL(r, g, b);
         let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
         colorResult.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
-        rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]});`; 
-        hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%);`;
-        hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)};`; 
+        rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
+        hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+        hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`; 
         if (positionX === 0 && positionY === 0) {
             colorResult.style.backgroundColor = 'rgb(255, 255, 255)';
-            rgbIndex.innerHTML = 'rgb(255, 255, 255);';
-            hexIndex.innerHTML = `#ffffff;`;
+            rgbIndex.innerHTML = 'rgb(255, 255, 255)';
+            hexIndex.innerHTML = `#ffffff`;
         } else if (positionX === 325 && positionY === 0) {
             colorResult.style.backgroundColor = 'rgb(255, 255, 255)';
-            rgbIndex.innerHTML = 'rgb(255, 255, 255);';
-            hexIndex.innerHTML = `#ffffff;`;
+            rgbIndex.innerHTML = 'rgb(255, 255, 255)';
+            hexIndex.innerHTML = `#ffffff`;
         };
         if (positionX === 0 && positionY === 325) {
             colorResult.style.backgroundColor = 'rgb(0, 0, 0)';
-            rgbIndex.innerHTML = 'rgb(0, 0, 0);';
-            hslIndex.innerHTML = 'hsl(0, 100%, 0%);';
-            hexIndex.innerHTML = `#000000;`;
+            rgbIndex.innerHTML = 'rgb(0, 0, 0)';
+            hslIndex.innerHTML = 'hsl(0, 100%, 0%)';
+            hexIndex.innerHTML = `#000000`;
         } else if (positionX === 325 && positionY === 325) {
             colorResult.style.backgroundColor = 'rgb(0, 0, 0)';
-            rgbIndex.innerHTML = 'rgb(0, 0, 0);';
-            hslIndex.innerHTML = 'hsl(0, 100%, 0%);';
-            hexIndex.innerHTML = `#000000;`;
+            rgbIndex.innerHTML = 'rgb(0, 0, 0)';
+            hslIndex.innerHTML = 'hsl(0, 100%, 0%)';
+            hexIndex.innerHTML = `#000000`;
         };  
     }; 
 
@@ -113,10 +114,6 @@ pickerCursor.onmousedown = (event) => {
 
 
 // ColorSearch
-
-
-const inputBtn = document.querySelector('.input__btn');
-const colorInput = document.querySelector('.color__input');
 let colorStorage = [];
 
 inputBtn.addEventListener('click', () => {
@@ -128,5 +125,4 @@ inputBtn.addEventListener('click', () => {
     function searchColor() {
         if (inputBtn) colorInput.value = '';
     };
-    
 });
