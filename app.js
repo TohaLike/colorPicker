@@ -1,6 +1,6 @@
 const colorBox = document.querySelector('.color__box');
 const pickerCursor = document.querySelector('.picker__cursor');
-const colorContainer = document.querySelector('.color__container');
+const colorResult = document.querySelector('.color__result');
 const colorIndex = document.querySelector('.color__index');
 const canvas = document.getElementById('color__canvas');
 const context = canvas.getContext('2d', { willReadFrequently: true });   
@@ -8,6 +8,8 @@ const rgbIndex = document.querySelector('.rgb__index');
 const hslIndex = document.querySelector('.hsl__index');
 const hexIndex = document.querySelector('.hex__index');
 
+
+// ColorPicker
 let width = colorBox.width;
 let height = colorBox.height;
 let colorBackGround = context.createLinearGradient(0, 0, width, 0);
@@ -76,26 +78,26 @@ pickerCursor.onmousedown = (event) => {
         let [r, g, b] = imageData;
         let [h, s, l] = RGBToHSL(r, g, b);
         let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
-        colorContainer.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
+        colorResult.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
         rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]});`; 
         hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%);`;
         hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)};`; 
         if (positionX === 0 && positionY === 0) {
-            colorContainer.style.backgroundColor = 'rgb(255, 255, 255)';
+            colorResult.style.backgroundColor = 'rgb(255, 255, 255)';
             rgbIndex.innerHTML = 'rgb(255, 255, 255);';
             hexIndex.innerHTML = `#ffffff;`;
         } else if (positionX === 325 && positionY === 0) {
-            colorContainer.style.backgroundColor = 'rgb(255, 255, 255)';
+            colorResult.style.backgroundColor = 'rgb(255, 255, 255)';
             rgbIndex.innerHTML = 'rgb(255, 255, 255);';
             hexIndex.innerHTML = `#ffffff;`;
         };
         if (positionX === 0 && positionY === 325) {
-            colorContainer.style.backgroundColor = 'rgb(0, 0, 0)';
+            colorResult.style.backgroundColor = 'rgb(0, 0, 0)';
             rgbIndex.innerHTML = 'rgb(0, 0, 0);';
             hslIndex.innerHTML = 'hsl(0, 100%, 0%);';
             hexIndex.innerHTML = `#000000;`;
         } else if (positionX === 325 && positionY === 325) {
-            colorContainer.style.backgroundColor = 'rgb(0, 0, 0)';
+            colorResult.style.backgroundColor = 'rgb(0, 0, 0)';
             rgbIndex.innerHTML = 'rgb(0, 0, 0);';
             hslIndex.innerHTML = 'hsl(0, 100%, 0%);';
             hexIndex.innerHTML = `#000000;`;
@@ -108,3 +110,23 @@ pickerCursor.onmousedown = (event) => {
         document.removeEventListener('mousemove', getColorPicker);
     };
 };
+
+
+// ColorSearch
+
+
+const inputBtn = document.querySelector('.input__btn');
+const colorInput = document.querySelector('.color__input');
+let colorStorage = [];
+
+inputBtn.addEventListener('click', () => {
+    if (!colorInput.value) return;
+    colorResult.style.backgroundColor = `${colorInput.value}`;
+    
+    searchColor()
+
+    function searchColor() {
+        if (inputBtn) colorInput.value = '';
+    };
+    
+});

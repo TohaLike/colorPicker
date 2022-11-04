@@ -56,7 +56,7 @@ body::-webkit-scrollbar-thumb {
     line-height: 104px; 
     margin: 0;
     margin-left: -5px;
-    padding-bottom: 30px;
+    padding-bottom: 47px;
     background: linear-gradient(180deg, 
     #ffffff 29.9%, 
     #8a8a8a 57.73%, 
@@ -71,7 +71,6 @@ body::-webkit-scrollbar-thumb {
 .logo__navigation {
     font-family: 'Inter', sans-serif;
     display: flex;
-    margin-top: 30px;
 }
 
 .nav {
@@ -106,8 +105,9 @@ body::-webkit-scrollbar-thumb {
     width: 372px;
     height: 664px;
     background: #252525;
-    box-shadow: 6px 0px 7px rgba(0, 0, 0, 0.25),
-    -6px 0px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: 6px 6px 10px 
+    rgba(0, 0, 0, 0.25), 
+    -6px 6px 10px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     position: absolute;
     top: 5px;
@@ -180,14 +180,6 @@ body::-webkit-scrollbar-thumb {
     outline-offset: -3px;
 } 
 
-.color__container {
-    width: 200px;
-    height: 200px;
-    border: 2px solid #000;
-    margin-top: 15px;
-    background-color: #fff;   
-}
-
 
 /* ColorIndex */
 .index__color {
@@ -211,6 +203,72 @@ body::-webkit-scrollbar-thumb {
     font-size: 20px;
 }
 
+
+/* ColorResult */
+.color__result__form {
+    width: 574px;
+    height: 548px;
+    margin: 0 auto;
+    background-color: #252525;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.25), 
+    -6px 6px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    position: relative;
+    top: 5px;
+}
+
+.color__result {
+    box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25), 
+    4px 4px 4px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    left: 9px;
+    top: -5px;
+    margin: 0;
+    border-radius: 15px;
+    width: 553px;
+    height: 468px;
+    border: 2px solid #000;
+    margin-top: 15px;
+    background-color: rgb(255, 255, 255);   
+}
+
+
+/* ColorSearch */
+
+.color__input {
+    font-family: 'Lato', sans-serif;
+    width: 553px;    
+    height: 45px;
+    margin: 0 auto;
+    border: none;
+    background: #454545;
+    border-radius: 23px;
+    filter: drop-shadow(-4px 4px 4px rgba(0, 0, 0, 0.25)) 
+    drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 20px;
+    position: relative;
+    top: 491px;
+}
+
+.input__btn {
+    font-family: 'Lato', sans-serif;
+    width: 70px;
+    height: 33px;
+    line-height: 15.6px;
+    align-items: center;
+    font-size: 13px;
+    border-radius: 15px;
+    border: none;
+    background-color: #252525;
+    color: #ffffff;
+    position: absolute;
+    top: 498px;
+    left: 485px;
+}
 
 
 
