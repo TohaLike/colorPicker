@@ -57,7 +57,7 @@ pickerCursor.onmousedown = (event) => {
         positionY = newTop; 
     };
     
-    const RGBToHSL = (r, g, b) => {
+    function RGBToHSL(r, g, b) {
         r /= 255;
         g /= 255;
         b /= 255;
