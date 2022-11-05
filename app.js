@@ -12,6 +12,9 @@ const rgbR = document.getElementById('rgb__r');
 const rgbG = document.getElementById('rgb__g');
 const rgbB = document.getElementById('rgb__b');
 const hexInputIndex = document.getElementById('hex__input__index');
+const hslH = document.getElementById('hsl__h');
+const hslS = document.getElementById('hsl__s');
+const hslL = document.getElementById('hsl__l');
 
 const inputRGB = document.querySelector('.color__search__rgb');
 const inputHEX = document.querySelector('.color__search__hex');
@@ -19,6 +22,12 @@ const inputHSL = document.querySelector('.color__search__hsl');
 const typeColorRgb = document.querySelector('.type__color__rgb');
 const typeColorHex = document.querySelector('.type__color__hex');
 const typeColorHsl = document.querySelector('.type__color__hsl');
+
+const searchBtnRgb = document.querySelector('.search__btn__rgb');
+const searchBtnHex = document.querySelector('.search__btn__hex');
+const searchBtnHsl = document.querySelector('.search__btn__hsl');
+
+
 
 
 // ColorPicker
@@ -99,8 +108,9 @@ pickerCursor.onmousedown = (event) => {
         rgbG.value = `${imageData[1]}`;
         rgbB.value = `${imageData[2]}`;
         hexInputIndex.value = `#${hex(r)}${hex(g)}${hex(b)}`;
-
-
+        hslH.value = `${Math.round(h)}`;
+        hslS.value = `${Math.round(s)}`;
+        hslL.value = `${Math.round(l)}`;
 
         if (positionX === 0 && positionY === 0) {
             colorResult.style.backgroundColor = 'rgb(255, 255, 255)';
@@ -132,29 +142,28 @@ pickerCursor.onmousedown = (event) => {
 };
 
 
-// ColorSearch
-let colorStorage = [];
-
-// inputBtn.addEventListener('click', () => {
-//     if (!colorInput.value) return;
-//     colorResult.style.backgroundColor = `${colorInput.value}`;
-    
-// });
-
-
+searchBtnRgb.addEventListener('click', () => {
+    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+});    
 typeColorRgb.addEventListener('click', () => {
-    if (inputHEX.style.display = 'none') {
-        inputRGB.style.display = 'none';
-        inputHEX.style.display = 'block';
-    };
-});
+        if (inputHEX.style.display = 'none') {
+            inputRGB.style.display = 'none';
+            inputHEX.style.display = 'block';
+        };
+    });
 
+
+searchBtnHex.addEventListener('click', () => {
+    colorResult.style.backgroundColor = `${hexInputIndex.value}`;
+});
 typeColorHex.addEventListener('click', () => {
     if (inputHSL.style.display = 'none') {
         inputHEX.style.display = 'none';
         inputHSL.style.display = 'block';
     };
 });
+
+
 
 typeColorHsl.addEventListener('click', () => {
     if (inputRGB.style.display = 'none') {
