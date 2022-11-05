@@ -7,8 +7,17 @@ const context = canvas.getContext('2d', { willReadFrequently: true });
 const rgbIndex = document.querySelector('.rgb__index'); 
 const hslIndex = document.querySelector('.hsl__index');
 const hexIndex = document.querySelector('.hex__index');
-const inputBtn = document.querySelector('.input__btn');
-const colorInput = document.querySelector('.color__input');
+
+const rgbR = document.getElementById('rgb__r');
+const rgbG = document.getElementById('rgb__g');
+const rgbB = document.getElementById('rgb__b');
+
+
+
+const inputRGB = document.querySelector('.color__search__rgb');
+const inputHEX = document.querySelector('.color__search__hex');
+const typeColorRgb = document.querySelector('.type__color__rgb');
+const typeColorHex = document.querySelector('.type__color__hex');
 
 // ColorPicker
 let width = colorBox.width;
@@ -83,6 +92,13 @@ pickerCursor.onmousedown = (event) => {
         rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
         hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
         hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`; 
+
+        rgbR.value = `${imageData[0]}`;
+        rgbG.value = `${imageData[1]}`;
+        rgbB.value = `${imageData[2]}`;
+
+
+
         if (positionX === 0 && positionY === 0) {
             colorResult.style.backgroundColor = 'rgb(255, 255, 255)';
             rgbIndex.innerHTML = 'rgb(255, 255, 255)';
@@ -116,13 +132,23 @@ pickerCursor.onmousedown = (event) => {
 // ColorSearch
 let colorStorage = [];
 
-inputBtn.addEventListener('click', () => {
-    if (!colorInput.value) return;
-    colorResult.style.backgroundColor = `${colorInput.value}`;
+// inputBtn.addEventListener('click', () => {
+//     if (!colorInput.value) return;
+//     colorResult.style.backgroundColor = `${colorInput.value}`;
     
-    searchColor()
+// });
 
-    function searchColor() {
-        if (inputBtn) colorInput.value = '';
+
+typeColorRgb.addEventListener('click', () => {
+    if (inputHEX.style.display = 'none') {
+        inputRGB.style.display = 'none';
+        inputHEX.style.display = 'block';
+    };
+});
+
+typeColorHex.addEventListener('click', () => {
+    if (inputRGB.style.display = 'none') {
+        inputRGB.style.display = 'block';
+        inputHEX.style.display = 'none';
     };
 });
