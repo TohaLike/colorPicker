@@ -57,15 +57,7 @@ let colorBackGround = context.createLinearGradient(0, 0, width, 0);
 
 pickerCursor.onmousedown = (event) => {
     event.preventDefault();    
-    
-    canvas.addEventListener('mousedown', (e) => {
-        e.preventDefault()
-        canvas.addEventListener('mousemove', onMouseMove(e, pickerCursor));
-        document.addEventListener('mousedown', getColorPicker);
-        document.addEventListener('mousemove', getColorPicker);
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
-    });
+
 
     let shiftX = event.clientX - pickerCursor.getBoundingClientRect().left;
     let shiftY = event.clientY - pickerCursor.getBoundingClientRect().top;
@@ -160,6 +152,8 @@ pickerCursor.onmousedown = (event) => {
         document.removeEventListener('mousemove', getColorPicker);
     };
 };
+
+
 
 
 searchBtnRgb.addEventListener('click', () => {
