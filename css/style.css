@@ -240,6 +240,10 @@ body::-webkit-scrollbar-thumb {
     display: block;
 }
 
+.input__rgb::placeholder {
+    color: rgba(255, 255, 255, 0.059);
+}
+
 .input__rgb__section {
     font-family: 'Lato', sans-serif;
     width: 553px;    
@@ -305,6 +309,10 @@ body::-webkit-scrollbar-thumb {
 /* HEX */
 .color__search__hex {
     display: none;
+}
+
+.input__hex::placeholder {
+    color: rgba(255, 255, 255, 0.059);
 }
 
 .name__type {
@@ -391,6 +399,10 @@ body::-webkit-scrollbar-thumb {
 /* HSL */
 .color__search__hsl {
     display: none;
+}
+
+.input__hsl::placeholder {
+    color: rgba(255, 255, 255, 0.059);
 }
 
 .input__hsl__section {

@@ -101,8 +101,9 @@ pickerCursor.onmousedown = (event) => {
         let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
         colorResult.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
         rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`; 
-        hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
         hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`; 
+        hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+        
 
         rgbR.value = `${imageData[0]}`;
         rgbG.value = `${imageData[1]}`;
@@ -156,6 +157,7 @@ typeColorRgb.addEventListener('click', () => {
 searchBtnHex.addEventListener('click', () => {
     colorResult.style.backgroundColor = `${hexInputIndex.value}`;
 });
+
 typeColorHex.addEventListener('click', () => {
     if (inputHSL.style.display = 'none') {
         inputHEX.style.display = 'none';
@@ -163,11 +165,12 @@ typeColorHex.addEventListener('click', () => {
     };
 });
 
-
-
+searchBtnHsl.addEventListener('click', () => {
+    colorResult.style.backgroundColor = `hsl(${hslH.value}, ${hslS.value}%, ${hslL.value}%)`;
+});
 typeColorHsl.addEventListener('click', () => {
     if (inputRGB.style.display = 'none') {
         inputRGB.style.display = 'block';
         inputHSL.style.display = 'none';
     };
-})
+});
