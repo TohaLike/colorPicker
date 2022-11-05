@@ -11,13 +11,15 @@ const hexIndex = document.querySelector('.hex__index');
 const rgbR = document.getElementById('rgb__r');
 const rgbG = document.getElementById('rgb__g');
 const rgbB = document.getElementById('rgb__b');
-
-
+const hexInputIndex = document.getElementById('hex__input__index');
 
 const inputRGB = document.querySelector('.color__search__rgb');
 const inputHEX = document.querySelector('.color__search__hex');
+const inputHSL = document.querySelector('.color__search__hsl');
 const typeColorRgb = document.querySelector('.type__color__rgb');
 const typeColorHex = document.querySelector('.type__color__hex');
+const typeColorHsl = document.querySelector('.type__color__hsl');
+
 
 // ColorPicker
 let width = colorBox.width;
@@ -96,6 +98,7 @@ pickerCursor.onmousedown = (event) => {
         rgbR.value = `${imageData[0]}`;
         rgbG.value = `${imageData[1]}`;
         rgbB.value = `${imageData[2]}`;
+        hexInputIndex.value = `#${hex(r)}${hex(g)}${hex(b)}`;
 
 
 
@@ -147,8 +150,15 @@ typeColorRgb.addEventListener('click', () => {
 });
 
 typeColorHex.addEventListener('click', () => {
-    if (inputRGB.style.display = 'none') {
-        inputRGB.style.display = 'block';
+    if (inputHSL.style.display = 'none') {
         inputHEX.style.display = 'none';
+        inputHSL.style.display = 'block';
     };
 });
+
+typeColorHsl.addEventListener('click', () => {
+    if (inputRGB.style.display = 'none') {
+        inputRGB.style.display = 'block';
+        inputHSL.style.display = 'none';
+    };
+})

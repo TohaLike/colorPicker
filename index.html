@@ -56,9 +56,9 @@
 
             <div class="color__result__form">
                 <div class="color__result"></div>
-
                 <div class="color__search__rgb">
                     <div class="input__rgb__section">
+                        <p class="name__type">Rgb</p>
                         <input id="rgb__r" class="input__position__rgb" type="number" min="0" max="255" placeholder="255"></input>
                         <input id="rgb__g" class="input__position__rgb" type="number" min="0" max="255" placeholder="255"></input>
                         <input id="rgb__b" class="input__position__rgb" type="number" min="0" max="255" placeholder="255"></input>
@@ -68,21 +68,25 @@
                         <button class="search__btn__rgb">Find</button>                                
                     </div>
                 </div> 
-
                 <div class="color__search__hex">
-                    <input class="input__position__hex" type="text" minlength="0" maxlength="7" placeholder="#ffffff"></input>
-                    <div class="btn__hex">
+                    <input id="hex__input__index" class="input__position__hex" type="text" minlength="0" maxlength="7" placeholder="#ffffff"></input>
+                    <div class="hex__buttons__position">
                         <button class="type__color__hex">Hex</button>
                         <button class="search__btn__hex">Find</button>                        
                     </div>
                 </div>
-
-
-                <!-- <div class="color__search__hsl">
-                    <input class="input__position color__input__hsl" minlength="0" maxlength="7" placeholder="hsl(0, 100%, 100%)"></input>
-                    <button class="btn__position type__color__hsl">Hsl</button>
-                    <button class="btn__position search__btn__hsl">Find</button>
-                </div>              -->
+                <div class="color__search__hsl">
+                    <div class="input__hsl__section">
+                        <p class="name__type">Hsl</p>
+                        <input id="hsl__h" class="input__position__hsl" type="number" min="0" max="360" placeholder="0"></input>
+                        <input id="hsl__s" class="input__position__hsl" type="number" min="0" max="100" placeholder="100"></input>
+                        <input id="hsl__l" class="input__position__hsl" type="number" min="0" max="100" placeholder="100"></input>
+                    </div>
+                    <div class="hsl__buttons__position">
+                        <button class="type__color__hsl">Hsl</button>
+                        <button class="search__btn__hsl">Find</button>
+                    </div>
+                </div>  
             </div>
        </div> 
     </div>
