@@ -55,15 +55,26 @@ let colorBackGround = context.createLinearGradient(0, 0, width, 0);
     pickerCursor.style.left = 0;
 
 
-pickerCursor.onmousedown = (event) => {
-    event.preventDefault();    
 
+
+
+
+
+
+
+
+    let positionX = 0;
+    let positionY = 0;  
+
+
+
+function pickerCursorMouseDown(event) {
+    event.preventDefault();    
 
     let shiftX = event.clientX - pickerCursor.getBoundingClientRect().left;
     let shiftY = event.clientY - pickerCursor.getBoundingClientRect().top;
-    let positionX = 0;
-    let positionY = 0;    
     
+  
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mousemove', getColorPicker);
     document.addEventListener('mouseup', onMouseUp);
@@ -82,7 +93,29 @@ pickerCursor.onmousedown = (event) => {
         positionX = newLeft;
         positionY = newTop; 
     };
+
+    function onMouseUp() {
+        document.removeEventListener('mouseup', onMouseUp);
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mousemove', getColorPicker);
+    };  
     
+    // canvas.addEventListener('mousedown', (e) => {
+    //     canvas.addEventListener('mousemove', onMouseMove(e, pickerCursor));
+    //     document.addEventListener('mousedown', getColorPicker);
+    //     document.addEventListener('mousemove', getColorPicker);
+    //     document.addEventListener('mousemove', onMouseMove);
+    //     document.addEventListener('mouseup', onMouseUp);
+    // });
+};
+
+pickerCursor.addEventListener('mousedown', pickerCursorMouseDown)
+canvas.addEventListener('mousedown', e => pickerCursorMouseDown(e, colorBox, pickerCursor));
+
+
+
+
+
     function RGBToHSL(r, g, b) {
         r /= 255;
         g /= 255;
@@ -146,12 +179,13 @@ pickerCursor.onmousedown = (event) => {
         };  
     }; 
 
-    function onMouseUp() {
-        document.removeEventListener('mouseup', onMouseUp);
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mousemove', getColorPicker);
-    };
-};
+
+
+
+
+
+
+
 
 
 
