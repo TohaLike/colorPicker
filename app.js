@@ -51,8 +51,8 @@ hexIndex.innerHTML = `#ffffff`;
 
 
 // Picker
-pickerCursor.style.left = '170px';
-pickerCursor.style.top = '175px';
+pickerCursor.style.left = '0px';
+pickerCursor.style.top = '325px';
 let positionX = 0;
 let positionY = 0;
 let shiftX = 20;
@@ -63,6 +63,7 @@ canvas.addEventListener('mousedown', (event) => {
     onMouseMove(event);
     canvas.addEventListener('mousedown', getColorPicker);
     document.addEventListener('mousemove', getColorPicker);
+    document.addEventListener('mousedown', getColorPicker);
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
 });
@@ -96,8 +97,8 @@ function onMouseUp() {
     document.removeEventListener('mouseup', onMouseUp);
     document.removeEventListener('mousemove', onMouseMove);
     document.removeEventListener('mousemove', getColorPicker);
+    document.removeEventListener('mousedown', getColorPicker);
     canvas.removeEventListener('mousedown', getColorPicker)
-    canvas.removeEventListener('click', getColorPicker);
 };
 
 function RGBToHSL(r, g, b) {
