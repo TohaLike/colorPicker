@@ -7,6 +7,7 @@ const context = canvas.getContext('2d', { willReadFrequently: true });
 const rgbIndex = document.querySelector('.rgb__index'); 
 const hslIndex = document.querySelector('.hsl__index');
 const hexIndex = document.querySelector('.hex__index');
+
 const rgbR = document.getElementById('rgb__r');
 const rgbG = document.getElementById('rgb__g');
 const rgbB = document.getElementById('rgb__b');
@@ -14,12 +15,14 @@ const hexInputIndex = document.getElementById('hex__input__index');
 const hslH = document.getElementById('hsl__h');
 const hslS = document.getElementById('hsl__s');
 const hslL = document.getElementById('hsl__l');
+
 const inputRGB = document.querySelector('.color__search__rgb');
 const inputHEX = document.querySelector('.color__search__hex');
 const inputHSL = document.querySelector('.color__search__hsl');
 const typeColorRgb = document.querySelector('.type__color__rgb');
 const typeColorHex = document.querySelector('.type__color__hex');
 const typeColorHsl = document.querySelector('.type__color__hsl');
+
 const searchBtnRgb = document.querySelector('.search__btn__rgb');
 const searchBtnHex = document.querySelector('.search__btn__hex');
 const searchBtnHsl = document.querySelector('.search__btn__hsl');
@@ -51,34 +54,16 @@ let colorBackGround = context.createLinearGradient(0, 0, width, 0);
     hslIndex.innerHTML = 'hsl(0, 100%, 100%)';
     hexIndex.innerHTML = `#ffffff`;
 
-    pickerCursor.style.top = 0;
-    pickerCursor.style.left = 0;
 
-
-
-
-
-
-
-
-
-
-    let positionX = 0;
-    let positionY = 0;  
-
-
-
-function pickerCursorMouseDown(event) {
-    event.preventDefault();    
-
+pickerCursor.onmousedown = (event) => {
+    event.preventDefault();
     let shiftX = event.clientX - pickerCursor.getBoundingClientRect().left;
     let shiftY = event.clientY - pickerCursor.getBoundingClientRect().top;
-    
-  
+    let positionX = 0;
+    let positionY = 0;    
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mousemove', getColorPicker);
     document.addEventListener('mouseup', onMouseUp);
-
     function onMouseMove(event) { 
         let newLeft = event.clientX - shiftX - colorBox.getBoundingClientRect().left;
         let newTop = event.clientY - shiftY - colorBox.getBoundingClientRect().top;
@@ -93,29 +78,7 @@ function pickerCursorMouseDown(event) {
         positionX = newLeft;
         positionY = newTop; 
     };
-
-    function onMouseUp() {
-        document.removeEventListener('mouseup', onMouseUp);
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mousemove', getColorPicker);
-    };  
     
-    // canvas.addEventListener('mousedown', (e) => {
-    //     canvas.addEventListener('mousemove', onMouseMove(e, pickerCursor));
-    //     document.addEventListener('mousedown', getColorPicker);
-    //     document.addEventListener('mousemove', getColorPicker);
-    //     document.addEventListener('mousemove', onMouseMove);
-    //     document.addEventListener('mouseup', onMouseUp);
-    // });
-};
-
-pickerCursor.addEventListener('mousedown', pickerCursorMouseDown)
-canvas.addEventListener('mousedown', e => pickerCursorMouseDown(e, colorBox, pickerCursor));
-
-
-
-
-
     function RGBToHSL(r, g, b) {
         r /= 255;
         g /= 255;
@@ -179,12 +142,20 @@ canvas.addEventListener('mousedown', e => pickerCursorMouseDown(e, colorBox, pic
         };  
     }; 
 
+    canvas.addEventListener('mousedown', (e) => {
+        e.preventDefault()
+        canvas.addEventListener('mousemove', onMouseMove(e, pickerCursor));
+        document.addEventListener('mousemove', getColorPicker);
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    });
 
-
-
-
-
-
+    function onMouseUp() {
+        document.removeEventListener('mouseup', onMouseUp);
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mousemove', getColorPicker);
+    };
+};
 
 
 
