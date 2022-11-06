@@ -51,8 +51,8 @@ hexIndex.innerHTML = `#ffffff`;
 
 
 // Picker
-pickerCursor.style.left = '0px';
-pickerCursor.style.top = '325px';
+pickerCursor.style.left = '167px';
+pickerCursor.style.top = '170px';
 let positionX = 0;
 let positionY = 0;
 let shiftX = 20;
@@ -139,7 +139,6 @@ function colorBlack() {
     hslL.value = 0;
 };
 
-
 function getColorPicker() {
     let imageData = context.getImageData(positionX, positionY, 1, 1).data;
     let [r, g, b] = imageData;
@@ -163,6 +162,7 @@ function getColorPicker() {
 };
 
 
+// ColorSearch
 searchBtnRgb.addEventListener('click', () => {
     colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
 });
