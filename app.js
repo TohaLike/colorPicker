@@ -23,6 +23,17 @@ const typeColorHsl = document.querySelector('.type__color__hsl');
 const searchBtnRgb = document.querySelector('.search__btn__rgb');
 const searchBtnHex = document.querySelector('.search__btn__hex');
 const searchBtnHsl = document.querySelector('.search__btn__hsl');
+const btnRed = document.querySelector('.btn__red'); 
+const btnGreen = document.querySelector('.btn__green');
+const btnDarkBlue = document.querySelector('.btn__dark__blue');
+const btnViolet = document.querySelector('.btn__violet');
+const btnDarkPink = document.querySelector('.btn__dark__pink');
+const btnYellow = document.querySelector('.btn__yellow');
+const btnOrange = document.querySelector('.btn__orange');
+const btnLilac = document.querySelector('.btn__lilac');
+const btnWhite = document.querySelector('.btn__white');
+const btnBlack = document.querySelector('.btn__black');
+
 
 
 // LinearGradiet ColorPicker
@@ -51,8 +62,8 @@ hexIndex.innerHTML = `#ffffff`;
 
 
 // Picker
-pickerCursor.style.left = '167px';
-pickerCursor.style.top = '170px';
+// pickerCursor.style.left = '167px';
+// pickerCursor.style.top = '170px';
 let positionX = 0;
 let positionY = 0;
 let shiftX = 20;
@@ -159,6 +170,50 @@ function getColorPicker() {
     if (positionX === 325 && positionY === 0) return colorWhite();
     if (positionX === 0 && positionY === 325) return colorBlack();
     if (positionX === 325 && positionY === 325) return colorBlack();
+};
+
+
+// ColorBtn
+btnRed.style.backgroundColor = 'rgb(255, 0, 0)';
+btnGreen.style.backgroundColor = 'rgb(0, 255, 0)';
+btnDarkBlue.style.backgroundColor = 'rgb(0, 0, 255)';
+btnViolet.style.backgroundColor = 'rgb(127, 0, 255)';
+btnDarkPink.style.backgroundColor = 'rgb(231, 84, 128)';
+btnYellow.style.backgroundColor = 'rgb(255,255,0)';
+btnOrange.style.backgroundColor = 'rgb(255, 165, 0)';
+btnLilac.style.backgroundColor = 'rgb(200, 162, 200)';
+btnWhite.style.backgroundColor = 'rgb(255, 255, 255)';
+btnBlack.style.backgroundColor = 'rgb(0, 0, 0)';
+
+btnRed.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(255, 0, 0)';
+};
+btnGreen.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(0, 255, 0)';
+};
+btnDarkBlue.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(0, 0, 255)';
+};
+btnViolet.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(127, 0, 255)';
+};
+btnDarkPink.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(231, 84, 128)';
+};
+btnYellow.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(255,255,0)';
+};
+btnOrange.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(255, 165, 0)';
+};
+btnLilac.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(200, 162, 200)';
+};
+btnWhite.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(255, 255, 255)';
+};
+btnBlack.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(0, 0, 0)';
 };
 
 
