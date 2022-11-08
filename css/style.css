@@ -266,12 +266,20 @@ body::-webkit-scrollbar-thumb {
 }
 
 .input__position__rgb {
+    width: 70px;
+    height: 23px;
+    text-align: center;
     background: #252525;
     border: none;
     color: #ffffff;
     margin-top: 1px;
     margin-right: 30px;
     outline: none;
+}
+
+.input__position__rgb::-webkit-inner-spin-button,
+.input__position__rgb::-webkit-outer-spin-button {
+    display: none;
 }
 
 .rgb__buttons__position {
@@ -427,12 +435,20 @@ body::-webkit-scrollbar-thumb {
 }
 
 .input__position__hsl {
+    width: 70px;
+    height: 23px;
+    text-align: center;
     background: #252525;
     border: none;
     color: #ffffff;
     margin-top: 1px;
     margin-right: 30px;
     outline: none;
+}
+
+.input__position__hsl::-webkit-inner-spin-button,
+.input__position__hsl::-webkit-outer-spin-button {
+    display: none;
 }
 
 .hsl__buttons__position {

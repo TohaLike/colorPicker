@@ -62,8 +62,8 @@ hexIndex.innerHTML = `#ffffff`;
 
 
 // Picker
-// pickerCursor.style.left = '167px';
-// pickerCursor.style.top = '170px';
+pickerCursor.style.left = '167px';
+pickerCursor.style.top = '170px';
 let positionX = 0;
 let positionY = 0;
 let shiftX = 20;
@@ -159,6 +159,7 @@ function getColorPicker() {
     rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;
     hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+    
     rgbR.value = `${imageData[0]}`;
     rgbG.value = `${imageData[1]}`;
     rgbB.value = `${imageData[2]}`;
@@ -174,6 +175,75 @@ function getColorPicker() {
 
 
 // ColorBtn
+// ColorSearch
+// let hue = 0;
+
+// let canvasRect = canvas.getBoundingClientRect();
+// console.log(canvasRect)
+
+// function colorToPos(color) {
+    
+//     let hsl = color.toHsl();
+//     hue = hsl.h;
+//     let hsv = color.toHsv();
+//     let shiftX = canvas.width * hsv.s;
+//     let shiftY = canvas.height * (1 - hsv.v);
+
+//     onMouseMove(shiftX, shiftY)
+//     getColorPicker(color);
+//   };
+
+
+// searchBtnRgb.addEventListener('change', () => {
+//     colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+// });
+
+rgbR.addEventListener('change', (r, g, b) => {
+    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+
+    colorToPos(color);
+});
+rgbG.addEventListener('change', () => {
+    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+});
+rgbB.addEventListener('change', () => {
+    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+});
+
+
+
+typeColorRgb.addEventListener('click', () => {
+    if (inputHEX.style.display = 'none') {
+        inputRGB.style.display = 'none';
+        inputHEX.style.display = 'block';
+    };
+});
+
+searchBtnHex.addEventListener('click', () => {
+    colorResult.style.backgroundColor = `${hexInputIndex.value}`;
+});
+typeColorHex.addEventListener('click', () => {
+    if (inputHSL.style.display = 'none') {
+        inputHEX.style.display = 'none';
+        inputHSL.style.display = 'block';
+    };
+});
+
+searchBtnHsl.addEventListener('click', () => {
+    colorResult.style.backgroundColor = `hsl(${hslH.value}, ${hslS.value}%, ${hslL.value}%)`;
+});
+typeColorHsl.addEventListener('click', () => {
+    if (inputRGB.style.display = 'none') {
+        inputRGB.style.display = 'block';
+        inputHSL.style.display = 'none';
+    };
+});
+
+
+
+
+
+
 btnRed.style.backgroundColor = 'rgb(255, 0, 0)';
 btnGreen.style.backgroundColor = 'rgb(0, 255, 0)';
 btnDarkBlue.style.backgroundColor = 'rgb(0, 0, 255)';
@@ -215,35 +285,3 @@ btnWhite.onclick = () => {
 btnBlack.onclick = () => {
     return colorResult.style.backgroundColor = 'rgb(0, 0, 0)';
 };
-
-
-// ColorSearch
-searchBtnRgb.addEventListener('click', () => {
-    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
-});
-typeColorRgb.addEventListener('click', () => {
-    if (inputHEX.style.display = 'none') {
-        inputRGB.style.display = 'none';
-        inputHEX.style.display = 'block';
-    }
-});
-
-searchBtnHex.addEventListener('click', () => {
-    colorResult.style.backgroundColor = `${hexInputIndex.value}`;
-});
-typeColorHex.addEventListener('click', () => {
-    if (inputHSL.style.display = 'none') {
-        inputHEX.style.display = 'none';
-        inputHSL.style.display = 'block';
-    }
-});
-
-searchBtnHsl.addEventListener('click', () => {
-    colorResult.style.backgroundColor = `hsl(${hslH.value}, ${hslS.value}%, ${hslL.value}%)`;
-});
-typeColorHsl.addEventListener('click', () => {
-    if (inputRGB.style.display = 'none') {
-        inputRGB.style.display = 'block';
-        inputHSL.style.display = 'none';
-    }
-});
