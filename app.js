@@ -190,36 +190,51 @@ function colorToPocition(r, g, b) {
     let [h, s, v] = RGBToHSL(r, g, b)
     let hueX = Math.round(h);
     let x = Math.round(s);
-    let y = Math.round(v);
-    // hueX = canvasRect.height - ((hueX / 360) * canvasRect.width);
-    // x = canvasRect.width * s;
-    // y = canvasRect.height * (1 - v);
+    let y = Math.round(v);    
     
-
     colorCursorPosition(x, y, hueX);
+
+    document.addEventListener('change', getColorPicker);   
+    document.addEventListener('change', removeSearchColor) 
+    // removeSearchColor();
+
 };
 
 function colorCursorPosition(hueX, x, y) {
     pickerCursor.style.left = hueX + 'px';
     pickerCursor.style.left = x + 'px';
-    pickerCursor.style.top = y + 'px';
+    pickerCursor.style.top = y + 'px';   
 };
 
 
-rgbR.addEventListener('change', (r, g, b) => {
-    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
-    colorToPocition(r, g, b)
+function removeSearchColor() {
+    document.removeEventListener('change', getColorPicker);
+};
 
+
+
+rgbR.addEventListener('change', (r, g, b) => {
+    r = rgbR.value;
+    g = rgbG.value;
+    b = rgbB.value;
+    colorResult.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    colorToPocition(r, g, b)
 });
 
 
 
 rgbG.addEventListener('change', (r, g, b) => {
-    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+    r = rgbR.value;
+    g = rgbG.value;
+    b = rgbB.value;
+    colorResult.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     colorToPocition(r, g, b)
 });
 rgbB.addEventListener('change', (r, g, b) => {
-    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+    r = rgbR.value;
+    g = rgbG.value;
+    b = rgbB.value;
+    colorResult.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     colorToPocition(r, g, b)
 });
 
