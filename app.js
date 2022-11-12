@@ -51,8 +51,8 @@ hexIndex.innerHTML = `#ffffff`;
 
 
 // Picker
-pickerCursor.style.left = '170px';
-pickerCursor.style.top = '175px';
+// pickerCursor.style.left = '170px';
+// pickerCursor.style.top = '175px';
 let positionX = 0;
 let positionY = 0;
 let shiftX = 20;
