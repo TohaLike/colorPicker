@@ -56,14 +56,14 @@ colorBackGround.addColorStop(0.5, 'rgba(0, 0, 0, 0)');
 colorBackGround.addColorStop(1, 'rgba(0, 0, 0, 1)');
 context.fillStyle = colorBackGround;
 context.fillRect(0, 0, width, height);
-rgbIndex.innerHTML = 'rgb(255, 255, 255)';
-hslIndex.innerHTML = 'hsl(0, 100%, 100%)';
-hexIndex.innerHTML = `#ffffff`;
+rgbIndex.innerHTML = 'rgb(0, 0, 0)';
+hslIndex.innerHTML = 'hsl(0, 100%, 0%)';
+hexIndex.innerHTML = `#000000`;
 
 
 // Picker
-pickerCursor.style.left = '167px';
-pickerCursor.style.top = '170px';
+// pickerCursor.style.left = '167px';
+// pickerCursor.style.top = '170px';
 let positionX = 0;
 let positionY = 0;
 let shiftX = 20;
@@ -149,7 +149,7 @@ function colorBlack() {
     hslS.value = 0;
     hslL.value = 0;
 };
-
+let imageData;
 function getColorPicker() {
     let imageData = context.getImageData(positionX, positionY, 1, 1).data;
     let [r, g, b] = imageData;
@@ -178,39 +178,7 @@ function getColorPicker() {
 // ColorSearch
 // let hue = 0;
 
-
 // console.log(canvasRect)
-searchBtnRgb.addEventListener('change', () => {
-    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
-});
-
-let canvasRect = canvas.getBoundingClientRect();
-
-function colorToPocition(r, g, b) {
-    let [h, s, v] = RGBToHSL(r, g, b)
-    let hueX = Math.round(h);
-    let x = Math.round(s);
-    let y = Math.round(v);    
-    
-    colorCursorPosition(x, y, hueX);
-
-    document.addEventListener('change', getColorPicker);   
-    document.addEventListener('change', removeSearchColor) 
-    // removeSearchColor();
-
-};
-
-function colorCursorPosition(hueX, x, y) {
-    pickerCursor.style.left = hueX + 'px';
-    pickerCursor.style.left = x + 'px';
-    pickerCursor.style.top = y + 'px';   
-};
-
-
-function removeSearchColor() {
-    document.removeEventListener('change', getColorPicker);
-};
-
 
 
 rgbR.addEventListener('change', (r, g, b) => {
@@ -218,28 +186,25 @@ rgbR.addEventListener('change', (r, g, b) => {
     g = rgbG.value;
     b = rgbB.value;
     colorResult.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    colorToPocition(r, g, b)
 });
-
-
-
 rgbG.addEventListener('change', (r, g, b) => {
     r = rgbR.value;
     g = rgbG.value;
     b = rgbB.value;
     colorResult.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    colorToPocition(r, g, b)
 });
 rgbB.addEventListener('change', (r, g, b) => {
     r = rgbR.value;
     g = rgbG.value;
     b = rgbB.value;
     colorResult.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    colorToPocition(r, g, b)
 });
 
 
 
+searchBtnRgb.addEventListener('click', () => {
+    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+});
 typeColorRgb.addEventListener('click', () => {
     if (inputHEX.style.display = 'none') {
         inputRGB.style.display = 'none';
