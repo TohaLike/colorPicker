@@ -39,34 +39,38 @@ const colorHueBox = document.querySelector('.color__spectrum');
 const spectrumContext = spectrumCanvas.getContext('2d', {willReadFrequently: true});
 const hueCursor = document.querySelector('.picker__hue');
 
-
 let width = colorHueBox.width;
 let height = colorHueBox.height;
 let colorHueBackGround = spectrumContext.createLinearGradient(0, 0, 0, height);
-colorHueBackGround.addColorStop(0, 'rgba(255, 0, 0, 1)');
-colorHueBackGround.addColorStop(0.17, 'rgba(255, 255, 0, 1)');
-colorHueBackGround.addColorStop(0.34, 'rgba(0, 255, 0, 1)');
-colorHueBackGround.addColorStop(0.51, 'rgba(0, 255, 255, 1)');
-colorHueBackGround.addColorStop(0.68, 'rgba(0, 0, 255, 1)');
-colorHueBackGround.addColorStop(0.85, 'rgba(255, 0, 255, 1)');
-colorHueBackGround.addColorStop(1, 'rgba(255, 0, 0, 1)');
+colorHueBackGround.addColorStop(0, 'hsl(0, 100%, 50%)');
+colorHueBackGround.addColorStop(0.17, 'hsl(298.8, 100%, 50%)');
+colorHueBackGround.addColorStop(0.34, 'hsl(241.2, 100%, 50%)');
+colorHueBackGround.addColorStop(0.51, 'hsl(180, 100%, 50%)');
+colorHueBackGround.addColorStop(0.68, 'hsl(118.8, 100%, 50%)');
+colorHueBackGround.addColorStop(0.85, 'hsl(61.2, 100%, 50%)');
+colorHueBackGround.addColorStop(1, 'hsl(360, 100%, 50%)');
 spectrumContext.fillStyle = colorHueBackGround;
 spectrumContext.fillRect(0, 0, width, height);
 
 
 // Spectrum Hue
+let positionHue = 0;
 let hueShiftY = 20;
+
 spectrumCanvas.addEventListener('mousedown', (event) => {
     event.preventDefault();
     hueMouseY(event);
-    document.addEventListener('mouseup', mouseHueUp);
     document.addEventListener('mousemove', hueMouseY);
+    document.addEventListener('mousedown', getHueColor);
+    document.addEventListener('mousemove', getHueColor);
+    document.addEventListener('mouseup', mouseHueUp);
 });
 
 hueCursor.onmousedown = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     hueShiftY = event.clientY - hueCursor.getBoundingClientRect().top;
     document.addEventListener('mousemove', hueMouseY);
+    document.addEventListener('mousemove', getHueColor);
     document.addEventListener('mouseup', mouseHueUp);
 };
 
@@ -76,17 +80,38 @@ function hueMouseY(event) {
     let topHueEdge = colorHueBox.offsetHeight - hueCursor.offsetHeight;
     if (newHueTop > topHueEdge) newHueTop = topHueEdge;
     hueCursor.style.top = newHueTop + 'px';
+    positionHue = newHueTop;
 };
 
 function mouseHueUp() {
+    document.removeEventListener('mousedown', getHueColor);
+    document.removeEventListener('mousemove', getHueColor)
     document.removeEventListener('mousemove', hueMouseY)
     document.removeEventListener('mouseup', hueMouseY)
 };
 
+function RGBToHSL(r, g, b) {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    const l = Math.max(r, g, b);
+    const s = l - Math.min(r, g, b);
+    const h = s ? l === r ? (g - b) / s : l === g ? 2 + (b - r) / s : 4 + (r - g) / s : 0;
+    return [
+        60 * h < 0 ? 60 * h + 360 : 60 * h,
+        100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
+        (100 * (2 * l - s)) / 2,
+    ];
+};
 
+function getHueColor() {
+    let imageDataHue = spectrumContext.getImageData(0, positionHue, 1, 1).data;
+    let [r, g, b] = imageDataHue;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    colorResult.style.backgroundColor = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
 
-
-
+    
+};
 
 
 // LinearGradiet ColorPicker
@@ -95,16 +120,23 @@ const pickerCursor = document.querySelector('.picker__cursor');
 const canvas = document.getElementById('color__canvas');
 const context = canvas.getContext('2d', {willReadFrequently: true});
 
-
 let colorBoxWidth = colorBox.width;
 let colorBoxHeight = colorBox.height;
-let colorBackGround = context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
-colorBackGround = context.createLinearGradient(0, 0, 0, colorBoxHeight);
-colorBackGround.addColorStop(0, 'rgba(255, 255, 255, 1');
-colorBackGround.addColorStop(0.9, 'rgba(0, 0, 0, 0)');
-colorBackGround.addColorStop(1, 'rgba(0, 0, 0, 1)');
-context.fillStyle = colorBackGround;
-context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
+
+let rgbMain = `hsl(0, 100%, 50%)`;
+
+function colorBoxMain() {
+    spectrumCanvas.fillStyle = rgbMain;
+    rgbMain.fillRect(0, 0, width, height)
+    let colorBackGround = context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
+    colorBackGround = context.createLinearGradient(0, 0, 0, colorBoxHeight);
+    colorBackGround.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    colorBackGround.addColorStop(0.9, 'rgba(0, 0, 0, 0)');
+    colorBackGround.addColorStop(1, 'rgba(0, 0, 0, 1)');
+    context.fillStyle = colorBackGround;
+    context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
+};
+
 
 let positionX = 0;
 let positionY = 0;
@@ -114,6 +146,8 @@ let shiftY = 20;
 canvas.addEventListener('mousedown', (event) => {
     event.preventDefault();
     onMouseMove(event);
+    document.addEventListener('mousedown', getColorPicker);
+    document.addEventListener('mousemove', getColorPicker);
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
 });
@@ -122,6 +156,8 @@ pickerCursor.onmousedown = (event) => {
     event.preventDefault();
     shiftX = event.clientX - pickerCursor.getBoundingClientRect().left;
     shiftY = event.clientY - pickerCursor.getBoundingClientRect().top;
+    document.addEventListener('mousedown', getColorPicker);
+    document.addEventListener('mousemove', getColorPicker);
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
 };
@@ -143,11 +179,17 @@ function onMouseMove(event) {
 
 function onMouseUp() {
     document.removeEventListener('mouseup', onMouseUp);
+    document.removeEventListener('mousedown', getColorPicker);
+    document.removeEventListener('mousemove', getColorPicker);
     document.removeEventListener('mousemove', onMouseMove);
 };
 
 
-
+function getColorPicker() {
+    let dataImage = context.getImageData(positionX, positionY, 1, 1).data;
+    let [r, g, b] = dataImage
+    colorResult.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+};
 
 
 

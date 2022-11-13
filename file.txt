@@ -60,7 +60,7 @@ pickerCursor.onmousedown = (event) => {
     shiftX = event.clientX - pickerCursor.getBoundingClientRect().left;
     shiftY = event.clientY - pickerCursor.getBoundingClientRect().top;
     document.addEventListener('mousemove', onMouseMove);
-    // document.addEventListener('mousemove', getColorPicker);
+    document.addEventListener('mousemove', getColorPicker);
     document.addEventListener('mouseup', onMouseUp);
 };
 
@@ -72,9 +72,9 @@ pickerCursor.onmousedown = (event) => {
 canvas.addEventListener('mousedown', (event) => {
     event.preventDefault();
     onMouseMove(event);
-    // canvas.addEventListener('mousedown', getColorPicker);
-    // document.addEventListener('mousemove', getColorPicker);
-    // document.addEventListener('mousedown', getColorPicker);
+    canvas.addEventListener('mousedown', getColorPicker);
+    document.addEventListener('mousemove', getColorPicker);
+    document.addEventListener('mousedown', getColorPicker);
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
 });
