@@ -188,7 +188,7 @@ function getHueColor() {
     let imageDataHue = spectrumContext.getImageData(0, positionHue, 1, 1).data;
     let [r, g, b] = imageDataHue;
     let [h, s, l] = RGBToHSL(r, g, b);
-    canvas.style.color = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    colorRed = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
 };
 
 function getColorPicker() {
