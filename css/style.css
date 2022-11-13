@@ -155,7 +155,38 @@ body::-webkit-scrollbar-thumb {
     left: 10px;
 }
 
+.canvas__container {
+    display: flex;
+}
+
+.color__spectrum {
+    margin-top: 0;
+    position: relative;
+    left: 11px;
+    display: block;
+    border: 2px solid #000;
+    border-radius: 25px;
+    background-color: #000;
+    filter: drop-shadow(-4px 4px 4px 
+    rgba(0, 0, 0, 0.25)) 
+    drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.picker__hue {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #000;
+    border-radius: 30px;
+    outline: 1px solid #fff;
+    outline-offset: -3px;
+    left: 317px;
+}
+
 .color__box {
+    display: none;
     margin-top: 0;
     position: relative;
     display: block;

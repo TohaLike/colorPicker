@@ -45,7 +45,13 @@
                 </div>
                 <div class="color__picker">
                     <div class="picker__cursor"></div>
-                    <canvas id="color__canvas" class="color__box" height="350" width="350"></canvas>
+                    <div class="picker__hue"></div>
+
+                    <div class="canvas__container">
+                        <canvas id="color__canvas" class="color__box" height="350" width="300"></canvas>
+                        <canvas id="hue__canvas" class="color__spectrum" height="350" width="29"></canvas>
+                    </div>
+
                     <div class="index__color">
                         <div class="index rgb__index"></div>
                         <div class="index hsl__index"></div>
