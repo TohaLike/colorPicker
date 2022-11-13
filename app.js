@@ -89,6 +89,7 @@ pickerCursor.onmousedown = (event) => {
     document.addEventListener('mouseup', onMouseUp);
 };
 
+
 function onMouseMove(event) {
     let newLeft = event.clientX - shiftX - colorBox.getBoundingClientRect().left;
     let newTop = event.clientY - shiftY - colorBox.getBoundingClientRect().top;
@@ -156,6 +157,7 @@ function getColorPicker() {
     let [r, g, b] = imageData;
     let [h, s, l] = RGBToHSL(r, g, b);
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+
     colorResult.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;
 
     rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;
@@ -169,6 +171,7 @@ function getColorPicker() {
     hslH.value = `${Math.round(h)}`;
     hslS.value = `${Math.round(s)}`;
     hslL.value = `${Math.round(l)}`;
+
     if (positionX === 0 && positionY === 0) return colorWhite();
     if (positionX === 325 && positionY === 0) return colorWhite();
     if (positionX === 0 && positionY === 325) return colorBlack();
@@ -176,35 +179,30 @@ function getColorPicker() {
 };
 
 
-// ColorBtn
-// ColorSearch
-// let hue = 0;
-
-// console.log(canvasRect)
-
-
-function setColorInput(event, r, g, b) {
+function setColor(r, g, b) {
     RGBToHSL(r, g, b);
-    let hueX = r;
-    let hueY = g;
-    // setHueColo(hueX, hueY);
-    onMouseMove(event)
+    positionX = r;
+    positionX = g;
+    positionY = b;
 
+    posColor(positionX, positionY) 
+    onMouseMove()
+    posColorHue(positionX);
+
+
+    document.addEventListener('change', getColorPicker);
 
 };
 
 
-// function removeColor() {
-//     document.removeEventListener('change', getColorPicker);
+function posColorHue(positionX)  {
+    pickerCursor.style.left = positionX + 'px';
+}
 
-// }
-
-// function setHueColo(hueX, hueY) {
-//     pickerCursor.style.left = hueX + 'px';
-//     pickerCursor.style.top = hueY + 'px';
-// };
-
-
+function posColor(positionX, positionY)  {
+    pickerCursor.style.left = positionX + 'px';
+    pickerCursor.style.top = positionY + 'px';
+}
 
 
 rgbR.addEventListener('change', (r, g, b) => {
@@ -212,20 +210,9 @@ rgbR.addEventListener('change', (r, g, b) => {
     g = rgbG.value;
     b = rgbB.value;
     colorResult.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    setColorInput(r, g, b)
+    setColor(r, g, b)
 });
-rgbG.addEventListener('change', (r, g, b) => {
-    r = rgbR.value;
-    g = rgbG.value;
-    b = rgbB.value;
-    colorResult.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-});
-rgbB.addEventListener('change', (r, g, b) => {
-    r = rgbR.value;
-    g = rgbG.value;
-    b = rgbB.value;
-    colorResult.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-});
+
 
 
 
