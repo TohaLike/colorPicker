@@ -104,15 +104,6 @@ function RGBToHSL(r, g, b) {
     ];
 };
 
-function getHueColor() {
-    let imageDataHue = spectrumContext.getImageData(0, positionHue, 1, 1).data;
-    let [r, g, b] = imageDataHue;
-    let [h, s, l] = RGBToHSL(r, g, b);
-    colorResult.style.backgroundColor = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
-
-    
-};
-
 
 // LinearGradiet ColorPicker
 const colorBox = document.querySelector('.color__box');
@@ -120,22 +111,31 @@ const pickerCursor = document.querySelector('.picker__cursor');
 const canvas = document.getElementById('color__canvas');
 const context = canvas.getContext('2d', {willReadFrequently: true});
 
+
+
 let colorBoxWidth = colorBox.width;
 let colorBoxHeight = colorBox.height;
 
-let rgbMain = `hsl(0, 100%, 50%)`;
-
-function colorBoxMain() {
-    spectrumCanvas.fillStyle = rgbMain;
-    rgbMain.fillRect(0, 0, width, height)
-    let colorBackGround = context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
-    colorBackGround = context.createLinearGradient(0, 0, 0, colorBoxHeight);
-    colorBackGround.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    colorBackGround.addColorStop(0.9, 'rgba(0, 0, 0, 0)');
-    colorBackGround.addColorStop(1, 'rgba(0, 0, 0, 1)');
-    context.fillStyle = colorBackGround;
+let rgbMain = `rgba(255, 0, 0, 1)`;
+    
+    let colorWhite = context.createLinearGradient(0, colorBoxHeight, 0, 0);
+    colorWhite.addColorStop(1, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0, 'rgba(255, 255, 255, 0)');
+    context.fillStyle = colorWhite;
     context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
-};
+
+    let colorRed = context.createLinearGradient(0, 0, colorBoxWidth, 0);
+    colorRed.addColorStop(1, 'rgba(255, 0, 0, 1)');
+    colorRed.addColorStop(0.2, 'rgba(255, 0, 0, 0)');
+    context.fillStyle = colorRed;
+    context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
+
+    let colorBlack = context.createLinearGradient(0, 0, 0, colorBoxHeight);
+    colorBlack.addColorStop(0.4, 'rgba(0, 0, 0, 0)');
+    colorBlack.addColorStop(1, 'rgba(0, 0, 0, 1)');
+    context.fillStyle = colorBlack;
+    context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
+
 
 
 let positionX = 0;
@@ -184,6 +184,12 @@ function onMouseUp() {
     document.removeEventListener('mousemove', onMouseMove);
 };
 
+function getHueColor() {
+    let imageDataHue = spectrumContext.getImageData(0, positionHue, 1, 1).data;
+    let [r, g, b] = imageDataHue;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    canvas.style.color = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+};
 
 function getColorPicker() {
     let dataImage = context.getImageData(positionX, positionY, 1, 1).data;
