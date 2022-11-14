@@ -110,32 +110,36 @@ const colorBox = document.querySelector('.color__box');
 const pickerCursor = document.querySelector('.picker__cursor');
 const canvas = document.getElementById('color__canvas');
 const context = canvas.getContext('2d', {willReadFrequently: true});
-
-
-
 let colorBoxWidth = colorBox.width;
 let colorBoxHeight = colorBox.height;
 
+
+
 let rgbMain = `rgba(255, 0, 0, 1)`;
-    
-    let colorWhite = context.createLinearGradient(0, colorBoxHeight, 0, 0);
+
+context.rect(0, 0, colorBoxWidth, colorBoxHeight);
+setColorPicker();
+
+
+function setColorPicker() {
+
+    context.fillStyle = rgbMain;
+    context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
+
+    let colorWhite = spectrumContext.createLinearGradient(colorBoxWidth, 0, 0, 0);
     colorWhite.addColorStop(1, 'rgba(255, 255, 255, 1)');
-    colorWhite.addColorStop(0, 'rgba(255, 255, 255, 0)');
+    colorWhite.addColorStop(0.1, 'rgba(255, 255, 255, 0)');
     context.fillStyle = colorWhite;
     context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
 
-    let colorRed = context.createLinearGradient(0, 0, colorBoxWidth, 0);
-    colorRed.addColorStop(1, 'rgba(255, 0, 0, 1)');
-    colorRed.addColorStop(0.2, 'rgba(255, 0, 0, 0)');
-    context.fillStyle = colorRed;
-    context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
-
-    let colorBlack = context.createLinearGradient(0, 0, 0, colorBoxHeight);
-    colorBlack.addColorStop(0.4, 'rgba(0, 0, 0, 0)');
+    let colorBlack = spectrumContext.createLinearGradient(0, 0, 0, colorBoxHeight);
+    // colorBlack.addColorStop(, 'rgba(0, 0, 0, 0)');
+    colorBlack.addColorStop(0.1, 'rgba(0, 0, 0, 0)');
+    colorBlack.addColorStop(0.7, 'rgba(0, 0, 0, 0.5)');
     colorBlack.addColorStop(1, 'rgba(0, 0, 0, 1)');
     context.fillStyle = colorBlack;
     context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
-
+};
 
 
 let positionX = 0;
@@ -188,7 +192,8 @@ function getHueColor() {
     let imageDataHue = spectrumContext.getImageData(0, positionHue, 1, 1).data;
     let [r, g, b] = imageDataHue;
     let [h, s, l] = RGBToHSL(r, g, b);
-    colorRed = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    colorResult.style.backgroundColor = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+
 };
 
 function getColorPicker() {
