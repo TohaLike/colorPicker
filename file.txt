@@ -1,0 +1,42 @@
+
+btnRed.style.backgroundColor = 'rgb(255, 0, 0)';
+btnGreen.style.backgroundColor = 'rgb(0, 255, 0)';
+btnDarkBlue.style.backgroundColor = 'rgb(0, 0, 255)';
+btnViolet.style.backgroundColor = 'rgb(127, 0, 255)';
+btnDarkPink.style.backgroundColor = 'rgb(231, 84, 128)';
+btnYellow.style.backgroundColor = 'rgb(255,255,0)';
+btnOrange.style.backgroundColor = 'rgb(255, 165, 0)';
+btnLilac.style.backgroundColor = 'rgb(200, 162, 200)';
+btnWhite.style.backgroundColor = 'rgb(255, 255, 255)';
+btnBlack.style.backgroundColor = 'rgb(0, 0, 0)';
+
+btnRed.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(255, 0, 0)';
+};
+btnGreen.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(0, 255, 0)';
+};
+btnDarkBlue.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(0, 0, 255)';
+};
+btnViolet.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(127, 0, 255)';
+};
+btnDarkPink.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(231, 84, 128)';
+};
+btnYellow.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(255,255,0)';
+};
+btnOrange.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(255, 165, 0)';
+};
+btnLilac.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(200, 162, 200)';
+};
+btnWhite.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(255, 255, 255)';
+};
+btnBlack.onclick = () => {
+    return colorResult.style.backgroundColor = 'rgb(0, 0, 0)';
+};
