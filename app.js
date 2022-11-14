@@ -42,7 +42,7 @@ const hueCursor = document.querySelector('.picker__hue');
 let width = colorHueBox.width;
 let height = colorHueBox.height;
 let colorHueBackGround = spectrumContext.createLinearGradient(0, 0, 0, height);
-colorHueBackGround.addColorStop(0.00, "hsl(0, 100%, 50%)");
+colorHueBackGround.addColorStop(0.07, "hsl(0, 100%, 50%)");
 colorHueBackGround.addColorStop(0.17, "hsl(298.8, 100%, 50%)");
 colorHueBackGround.addColorStop(0.33, "hsl(241.2, 100%, 50%)");
 colorHueBackGround.addColorStop(0.50, "hsl(180, 100%, 50%)");
