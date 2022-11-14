@@ -42,13 +42,13 @@ const hueCursor = document.querySelector('.picker__hue');
 let width = colorHueBox.width;
 let height = colorHueBox.height;
 let colorHueBackGround = spectrumContext.createLinearGradient(0, 0, 0, height);
-colorHueBackGround.addColorStop(0, 'hsl(0, 100%, 50%)');
-colorHueBackGround.addColorStop(0.17, 'hsl(298.8, 100%, 50%)');
-colorHueBackGround.addColorStop(0.34, 'hsl(241.2, 100%, 50%)');
-colorHueBackGround.addColorStop(0.51, 'hsl(180, 100%, 50%)');
-colorHueBackGround.addColorStop(0.68, 'hsl(118.8, 100%, 50%)');
-colorHueBackGround.addColorStop(0.85, 'hsl(61.2, 100%, 50%)');
-colorHueBackGround.addColorStop(1, 'hsl(360, 100%, 50%)');
+colorHueBackGround.addColorStop(0.00, "hsl(0, 100%, 50%)");
+colorHueBackGround.addColorStop(0.17, "hsl(298.8, 100%, 50%)");
+colorHueBackGround.addColorStop(0.33, "hsl(241.2, 100%, 50%)");
+colorHueBackGround.addColorStop(0.50, "hsl(180, 100%, 50%)");
+colorHueBackGround.addColorStop(0.67, "hsl(118.8, 100%, 50%)");
+colorHueBackGround.addColorStop(0.83, "hsl(61.2, 100%, 50%)");
+colorHueBackGround.addColorStop(1.00, "hsl(360, 100%, 50%)");
 spectrumContext.fillStyle = colorHueBackGround;
 spectrumContext.fillRect(0, 0, width, height);
 
@@ -113,57 +113,52 @@ const context = canvas.getContext('2d', {willReadFrequently: true});
 let colorBoxWidth = colorBox.width;
 let colorBoxHeight = colorBox.height;
 
-
-
 let rgbMain = `rgba(255, 0, 0, 1)`;
-
 context.rect(0, 0, colorBoxWidth, colorBoxHeight);
 setColorPicker();
 
-
 function setColorPicker() {
-
     context.fillStyle = rgbMain;
     context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
 
     let colorWhite = spectrumContext.createLinearGradient(colorBoxWidth, 0, 0, 0);
     colorWhite.addColorStop(1, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.9, 'rgba(255, 255, 255, 1)');
     colorWhite.addColorStop(0.1, 'rgba(255, 255, 255, 0)');
     context.fillStyle = colorWhite;
     context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
 
     let colorBlack = spectrumContext.createLinearGradient(0, 0, 0, colorBoxHeight);
-    // colorBlack.addColorStop(, 'rgba(0, 0, 0, 0)');
     colorBlack.addColorStop(0.1, 'rgba(0, 0, 0, 0)');
-    colorBlack.addColorStop(0.7, 'rgba(0, 0, 0, 0.5)');
+    colorBlack.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
     colorBlack.addColorStop(1, 'rgba(0, 0, 0, 1)');
     context.fillStyle = colorBlack;
     context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
 };
-
 
 let positionX = 0;
 let positionY = 0;
 let shiftX = 20;
 let shiftY = 20;
 
-canvas.addEventListener('mousedown', (event) => {
-    event.preventDefault();
-    onMouseMove(event);
+function colorPickerGetColor() {
     document.addEventListener('mousedown', getColorPicker);
     document.addEventListener('mousemove', getColorPicker);
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
+};
+
+canvas.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    onMouseMove(event);
+    colorPickerGetColor();
 });
 
 pickerCursor.onmousedown = (event) => {
     event.preventDefault();
     shiftX = event.clientX - pickerCursor.getBoundingClientRect().left;
     shiftY = event.clientY - pickerCursor.getBoundingClientRect().top;
-    document.addEventListener('mousedown', getColorPicker);
-    document.addEventListener('mousemove', getColorPicker);
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
+    colorPickerGetColor();
 };
 
 function onMouseMove(event) {
@@ -182,24 +177,27 @@ function onMouseMove(event) {
 };
 
 function onMouseUp() {
-    document.removeEventListener('mouseup', onMouseUp);
     document.removeEventListener('mousedown', getColorPicker);
     document.removeEventListener('mousemove', getColorPicker);
     document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
 };
 
 function getHueColor() {
     let imageDataHue = spectrumContext.getImageData(0, positionHue, 1, 1).data;
     let [r, g, b] = imageDataHue;
     let [h, s, l] = RGBToHSL(r, g, b);
-    colorResult.style.backgroundColor = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
-
+    rgbMain = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    document.addEventListener('mousemove', getColorPicker);
+    document.addEventListener('mouseup', onMouseUp);
+    setColorPicker();
 };
 
 function getColorPicker() {
     let dataImage = context.getImageData(positionX, positionY, 1, 1).data;
     let [r, g, b] = dataImage
     colorResult.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    rgbIndex.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
 };
 
 
