@@ -136,6 +136,7 @@ function setColorPicker() {
     context.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
 };
 
+// PickerCursor
 let positionX = 0;
 let positionY = 0;
 let shiftX = 20;
