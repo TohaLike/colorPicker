@@ -50,6 +50,22 @@ const hslBtn = document.querySelector('.hsl__picker');
 const hexBtn = document.querySelector('.hex__picker');
 
 
+const btnColors = document.querySelectorAll('.btn__colors');
+
+let colorsForBtn = [
+    'rgb(255, 0, 0)',
+    'rgb(0, 255, 0)',
+    'rgb(0, 0, 255)',
+    'rgb(127, 0, 255)',
+    'rgb(231, 84, 128)',
+    'rgb(255,255,0)',
+    'rgb(255, 165, 0)',
+    'rgb(200, 162, 200)',
+    'rgb(255, 255, 255)',
+    'rgb(0, 0, 0)'
+];
+
+
 // LinearGradiet ColorPicker
 let width = colorBox.width;
 let height = colorBox.height;
@@ -70,9 +86,9 @@ colorBackGround.addColorStop(0.5, 'rgba(0, 0, 0, 0)');
 colorBackGround.addColorStop(1, 'rgba(0, 0, 0, 1)');
 context.fillStyle = colorBackGround;
 context.fillRect(0, 0, width, height);
-rgbIndex.innerHTML = 'rgb(0, 0, 0)';
-hslIndex.innerHTML = 'hsl(0, 100%, 0%)';
-hexIndex.innerHTML = `#000000`;
+rgbIndex.innerHTML = 'rgb(255, 255, 255)';
+hslIndex.innerHTML = 'hsl(0, 0%, 100%)';
+hexIndex.innerHTML = `#ffffff`;
 
 
 // Picker
@@ -342,6 +358,10 @@ function getHueColor() {
     rgbR.value = `${imageDataHue[0]}`;
     rgbG.value = `${imageDataHue[1]}`;
     rgbB.value = `${imageDataHue[2]}`;
+    hexInputIndex.value = `#${hex(r)}${hex(g)}${hex(b)}`;
+    hslH.value = `${Math.round(h)}`;
+    hslS.value = `${Math.round(s)}`;
+    hslL.value = `${Math.round(l)}`;
 };
 
 function getColorCursor() {
@@ -356,6 +376,10 @@ function getColorCursor() {
     rgbR.value = `${dataImage[0]}`;
     rgbG.value = `${dataImage[1]}`;
     rgbB.value = `${dataImage[2]}`;
+    hexInputIndex.value = `#${hex(r)}${hex(g)}${hex(b)}`;
+    hslH.value = `${Math.round(h)}`;
+    hslS.value = `${Math.round(s)}`;
+    hslL.value = `${Math.round(l)}`;
 };
 
 
@@ -372,8 +396,8 @@ hslBtn.addEventListener('click', () => {
     if (pickerHex.style.display = 'block') {
         pickerHex.style.display = 'none';
         pickerHue.style.display = 'block';
-    }
-})
+    };
+});
 
 
 
