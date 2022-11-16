@@ -151,6 +151,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 5px;
 }
 
+/* Picker Buttons */
 .type__picker__buttons {
     margin-top: 19px;
     margin-left: 12px;
@@ -167,13 +168,13 @@ body::-webkit-scrollbar-thumb {
     height: 40px;
     background-color: #454545;
     border-radius: 19px;
-
+    transition: .2s ease;
 }
 
-
-.hsl__picker:hover {
+.btn__picker:hover {
     background-color: #c2c9d6;
 }
+
 
 
 /* ColorPicker */
@@ -212,9 +213,6 @@ body::-webkit-scrollbar-thumb {
     outline: 1px solid #fff;
     outline-offset: -3px;
 } 
-
-
-
 
 
 /* ColorPickerHue */
@@ -312,8 +310,6 @@ body::-webkit-scrollbar-thumb {
     color: #ffffff;
     font-size: 20px;
 }
-
-
 
 
 /* ColorIndex */
