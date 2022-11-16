@@ -232,6 +232,7 @@ spectrumCanvas.addEventListener('mousedown', (event) => {
     document.addEventListener('mousemove', hueMouseY);
     document.addEventListener('mousedown', getHueColor);
     document.addEventListener('mousemove', getHueColor);
+    document.addEventListener('mousedown', getColorCursor);
     document.addEventListener('mouseup', mouseHueUp);
 });
 
@@ -253,6 +254,7 @@ function hueMouseY(event) {
 };
 
 function mouseHueUp() {
+    document.removeEventListener('mousedown', getColorCursor);
     document.removeEventListener('mousedown', getHueColor);
     document.removeEventListener('mousemove', getHueColor)
     document.removeEventListener('mousemove', hueMouseY)
