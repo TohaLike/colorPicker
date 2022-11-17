@@ -52,6 +52,8 @@ const hexBtn = document.querySelector('.hex__picker');
 
 const btnColors = document.querySelectorAll('.btn__colors');
 
+let arr = [];
+
 let colorsForBtn = [
     'rgb(255, 0, 0)',
     'rgb(0, 255, 0)',
@@ -64,6 +66,14 @@ let colorsForBtn = [
     'rgb(255, 255, 255)',
     'rgb(0, 0, 0)'
 ];
+
+for (let i = 0; i < colorsForBtn.length; i++) {
+    btnColors[i].style.background = colorsForBtn[i];
+    btnColors[i].onmousedown = () => {
+        colorResult.style.backgroundColor = colorsForBtn[i];
+        // console.log(colorsForBtn[i]);
+    };
+}; 
 
 
 // LinearGradiet ColorPicker
@@ -354,6 +364,7 @@ function getHueColor() {
     let [r, g, b] = imageDataHue;
     let [h, s, l] = RGBToHSL(r, g, b);
     rgbMain = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
     document.addEventListener('mousemove', getColorCursor);
     document.addEventListener('mouseup', onMouseUpHueCursor);
     setColorPicker();
