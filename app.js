@@ -48,12 +48,10 @@ const pickerHue = document.querySelector('.color__picker__hue__main');
 const pickerHex = document.querySelector('.color__picker__main');
 const hslBtn = document.querySelector('.hsl__picker');
 const hexBtn = document.querySelector('.hex__picker');
-
-
 const btnColors = document.querySelectorAll('.btn__colors');
 
-let arr = [];
 
+// ColorS Buttons
 let colorsForBtn = [
     'rgb(255, 0, 0)',
     'rgb(0, 255, 0)',
@@ -117,6 +115,7 @@ canvas.addEventListener('mousedown', (event) => {
     document.addEventListener('mouseup', onMouseUp);
 });
 
+
 // ColorPicker
 pickerCursor.onmousedown = (event) => {
     event.preventDefault();
@@ -126,7 +125,6 @@ pickerCursor.onmousedown = (event) => {
     document.addEventListener('mousemove', getColorPicker);
     document.addEventListener('mouseup', onMouseUp);
 };
-
 
 function onMouseMove(event) {
     let newLeft = event.clientX - shiftX - colorBox.getBoundingClientRect().left;
@@ -232,10 +230,10 @@ rgbIndexHue.innerHTML = 'rgb(255, 255, 255)';
 hslIndexHue.innerHTML = 'hsl(0, 0%, 100%)';
 hexIndexHue.innerHTML = `#ffffff`;
 
+
 // Spectrum Hue
 let positionHue = 0;
 let hueShiftY = 20;
-
 spectrumCanvas.addEventListener('mousedown', (event) => {
     event.preventDefault();
     hueMouseY(event);
@@ -396,7 +394,6 @@ function getColorCursor() {
 };
 
 
-
 // TypePicker
 hexBtn.addEventListener('click', () => {
     if (pickerHue.style.display = 'block') {
@@ -411,7 +408,6 @@ hslBtn.addEventListener('click', () => {
         pickerHue.style.display = 'block';
     };
 });
-
 
 
 // Search Section
