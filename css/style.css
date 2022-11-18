@@ -365,32 +365,29 @@ body::-webkit-scrollbar-thumb {
     height: 634px;
     background: #252525;
     border: 5px solid #454545;
-    border-radius: 15px;
+    border-radius: 4px;
     overflow-y: scroll;
-
 }
 
 .color__save__main::-webkit-scrollbar {
-    width: 10px;
-    border-radius: 15px;
-  }
+    /* margin-top: 5px; */
+    padding-top: 5px;
 
-
-.color__save__main::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 30px;
-
+    width: 8px;
 }
- 
+
 .color__save__main::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
+    background-color: rgb(158, 158, 158);
+    padding-top: 5px;
+    /* outline: 1px solid slategrey; */
+    /* border-radius: 2px; */
 }
 
 .type__color__btn {
     width: 60px;
     height: 60px;
-    border: 2px solid #000000;
+    border: 3px solid #000000;
+    
     border-radius: 15px;
     margin-left: 20px;
     margin-top: 15px;
@@ -684,7 +681,6 @@ body::-webkit-scrollbar-thumb {
     grid-template-rows: 56px;
 }
 
-
 .btn__save {
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
@@ -704,11 +700,11 @@ body::-webkit-scrollbar-thumb {
     color: #000000;
 }
 
-.btn__delete__all {
+.btn__delete__all:hover {
     background-color: #b91313;
 }
 
-.btn__save__main {
+.btn__save__main:hover {
     background-color: #058440;
 }
 

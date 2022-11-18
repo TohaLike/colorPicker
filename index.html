@@ -52,6 +52,7 @@
                 </div>
             </div>
 
+                <!-- ColorPicker Hue -->
                 <div class="color__picker__hue__main">
                     <div class="color__picker__hue">
                         <div class="picker__cursor__hue"></div>
@@ -67,7 +68,8 @@
                         <div class="indexHue hex__indexHue"></div>
                     </div>
                 </div>
-
+                
+                <!-- ColorPicker Main  -->
                 <div class="color__picker__main">
                     <div class="color__picker">
                         <div class="picker__cursor"></div>
@@ -86,7 +88,6 @@
                     <div class="color__save__form">
                         <div class="color__save__main">
                             <div class="color__block"></div>
-
                         </div>
                     </div>
                 </div>
@@ -106,9 +107,9 @@
                 <div class="color__search__rgb">
                     <div class="input__rgb__section">
                         <p class="name__type">Rgb</p>
-                        <input id="rgb__r" class="input__rgb input__position__rgb" value="0" type="number" min="0" max="255" placeholder="255"></input>
-                        <input id="rgb__g" class="input__rgb input__position__rgb" value="0" type="number" min="0" max="255" placeholder="255"></input>
-                        <input id="rgb__b" class="input__rgb input__position__rgb" value="0" type="number" min="0" max="255" placeholder="255"></input>
+                        <input id="rgb__r" class="input__rgb input__position__rgb" value="255" type="number" min="0" max="255" placeholder="255"></input>
+                        <input id="rgb__g" class="input__rgb input__position__rgb" value="255" type="number" min="0" max="255" placeholder="255"></input>
+                        <input id="rgb__b" class="input__rgb input__position__rgb" value="255" type="number" min="0" max="255" placeholder="255"></input>
                     </div>
                     <div class="rgb__buttons__position">
                         <button class="type__color__rgb">Rgb</button>
@@ -120,7 +121,7 @@
                 <div class="color__search__hex">
                     <div class="input__hex__section">
                         <p class="name__type">Hex</p>
-                        <input id="hex__input__index" class="input__hex input__position__hex" type="text" minlength="0" maxlength="7" placeholder="#ffffff"></input>                      
+                        <input id="hex__input__index" class="input__hex input__position__hex" value="#ffffff" type="text" minlength="0" maxlength="7" placeholder="#ffffff"></input>                      
                     </div>
                     <div class="hex__buttons__position">
                         <button class="type__color__hex">Hex</button>
@@ -134,7 +135,7 @@
                         <p class="name__type">Hsl</p>
                         <input id="hsl__h" class="input__hsl input__position__hsl" value="0" type="number" min="0" max="360" placeholder="0"></input>
                         <input id="hsl__s" class="input__hsl input__position__hsl" value="0" type="number" min="0" max="100" placeholder="100"></input>
-                        <input id="hsl__l" class="input__hsl input__position__hsl" value="0" type="number" min="0" max="100" placeholder="100"></input>
+                        <input id="hsl__l" class="input__hsl input__position__hsl" value="100" type="number" min="0" max="100" placeholder="100"></input>
                     </div>
                     <div class="hsl__buttons__position">
                         <button class="type__color__hsl">Hsl</button>

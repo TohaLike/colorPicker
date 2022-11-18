@@ -474,10 +474,12 @@ btnSaveMain.addEventListener('click', (event) => {
 
 function dreateDeleteElement() {
     const btn = document.createElement('button');
-    btn.style.backgroundColor =  `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+    btn.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
     btn.className = 'type__color__btn';
-    colorBlock.appendChild(btn)
+    colorBlock.appendChild(btn);
+    
     btn.addEventListener('mousedown', (event) => {
+        colorResult.style.backgroundColor = btn.style.backgroundColor;
         if (event.button === 2) colorBlock.removeChild(btn); 
     });
 };
