@@ -387,9 +387,14 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
 }
 
-
-
-
+.type__color__btn {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
 
 
 /* ColorResult */

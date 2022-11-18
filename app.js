@@ -49,9 +49,19 @@ const pickerHex = document.querySelector('.color__picker__main');
 const hslBtn = document.querySelector('.hsl__picker');
 const hexBtn = document.querySelector('.hex__picker');
 const btnColors = document.querySelectorAll('.btn__colors');
+const btnDeleteAll = document.querySelector('.btn__delete__all');
+const btnClear = document.querySelector('.btn__clear');
+const btnSaveMain = document.querySelector('.btn__save__main');
+const colorSaveMain = document.querySelector('.color__save__main');
+const colorBlock = document.querySelector('.color__block');
 
 
-// ColorS Buttons
+// Closed Context
+// document.oncontextmenu = (e) => {
+//     e.preventDefault();
+// };
+
+// Colors Buttons
 let colorsForBtn = [
     'rgb(255, 0, 0)',
     'rgb(0, 255, 0)',
@@ -411,20 +421,18 @@ hslBtn.addEventListener('click', () => {
 
 
 // Search Section
-rgbR.addEventListener('change', () => {
+
+function eventColorSearch() {
     colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`
-});
-rgbG.addEventListener('change', () => {
-    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`
-});
-rgbB.addEventListener('change', () => {
-    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`
-});
+};
+
+rgbR.onchange = () => eventColorSearch();
+rgbG.onchange = () => eventColorSearch();
+rgbB.onchange = () => eventColorSearch();
 
 
-searchBtnRgb.addEventListener('click', () => {
-    colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
-});
+
+searchBtnRgb.onmousedown = () => eventColorSearch();
 
 typeColorRgb.addEventListener('click', () => {
     if (inputHEX.style.display = 'none') {
@@ -454,5 +462,23 @@ typeColorHsl.addEventListener('click', () => {
 });
 
 
+// SafeColor
+let colorStorage = [];
 
+
+btnSaveMain.addEventListener('click', (event) => {
+    event.preventDefault();
+    dreateDeleteElement();
+});
+
+
+function dreateDeleteElement() {
+    const btn = document.createElement('button');
+    btn.style.backgroundColor =  `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+    btn.className = 'type__color__btn';
+    colorBlock.appendChild(btn)
+    btn.addEventListener('mousedown', (event) => {
+        if (event.button === 2) colorBlock.removeChild(btn); 
+    });
+};
 
