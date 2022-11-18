@@ -472,15 +472,24 @@ btnSaveMain.addEventListener('click', (event) => {
 });
 
 
-function dreateDeleteElement() {
-    const btn = document.createElement('button');
+
+let colorSaveBtn = '';
+
+function dreateDeleteElement() { 
+    const btn = document.createElement('button');   
     btn.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
     btn.className = 'type__color__btn';
     colorBlock.appendChild(btn);
     
+
+
     btn.addEventListener('mousedown', (event) => {
+        colorSaveBtn = btn.style.backgroundColor;
         colorResult.style.backgroundColor = btn.style.backgroundColor;
+        navigator.clipboard.writeText(colorSaveBtn);
         if (event.button === 2) colorBlock.removeChild(btn); 
     });
+
+    
 };
 
