@@ -25,6 +25,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .btn__chips {
+    font-family: 'Inter', sans-serif;
     transform: translateX(-150%);
     animation: ani 1s forwards;    
     transition: all 5s ease;
@@ -35,6 +36,11 @@ body::-webkit-scrollbar-thumb {
     border: 2px solid #000000;
     width: 200px;
     height: 50px;
+    color: #000000;
+    display: flex;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
     background-color: #00fd76;
 }
 
@@ -146,6 +152,7 @@ body::-webkit-scrollbar-thumb {
     left: 989px;
 }
 
+
 /* Buttons */
 .buttons_section {
     display: flex;
@@ -181,6 +188,7 @@ body::-webkit-scrollbar-thumb {
     rgba(0, 0, 0, 0.25);
     border-radius: 5px;
 }
+
 
 /* Picker Buttons */
 .type__picker__buttons {
@@ -403,7 +411,6 @@ body::-webkit-scrollbar-thumb {
 .color__save__main::-webkit-scrollbar {
     /* margin-top: 5px; */
     padding-top: 5px;
-
     width: 8px;
 }
 
@@ -418,10 +425,20 @@ body::-webkit-scrollbar-thumb {
     width: 60px;
     height: 60px;
     border: 3px solid #000000;
-    
     border-radius: 15px;
     margin-left: 20px;
     margin-top: 15px;
+}
+
+.text__save {
+    font-family: 'Inter', sans-serif;
+    margin-left: 26px;
+    margin-top: 280px;
+    font-size: 40px;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    opacity: 0.1;
 }
 
 
@@ -452,6 +469,7 @@ body::-webkit-scrollbar-thumb {
     margin-top: 15px;
     background-color: rgb(255, 255, 255);   
 }
+
 
 /* ColorSearch */
 /* RGB */

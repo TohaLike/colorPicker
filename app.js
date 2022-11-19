@@ -463,32 +463,31 @@ typeColorHsl.addEventListener('click', () => {
 
 
 // SafeColor
-let colorStorage = [];
 
+const notificationColorSaved = document.querySelector('.chips__color__notification');
+const textSave = document.querySelector('.text__save');
+
+let colorStorage = [];
+let colorSaveBtn = '';
 
 btnSaveMain.addEventListener('click', (event) => {
     event.preventDefault();
     dreateDeleteElement();
+    textSave.style.display = 'none';
 });
 
 
-const notificationColorSaved = document.querySelector('.chips__color__notification');
-
-
-function dreateDeleteElement() { 
+function dreateDeleteElement(notificationColor) { 
     const btn = document.createElement('button');   
     btn.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
     btn.className = 'type__color__btn';
     colorBlock.appendChild(btn);
     
-    let colorSaveBtn = '';
-
-
     btn.addEventListener('mousedown', (event) => {
         colorSaveBtn = btn.style.backgroundColor;
         colorResult.style.backgroundColor = btn.style.backgroundColor;
         navigator.clipboard.writeText(colorSaveBtn);
-        chips('color save');
+        chips();
         if (event.button === 2) colorBlock.removeChild(btn); 
     });
 };
@@ -497,9 +496,10 @@ function chips() {
     const btnChips = document.createElement('div');
     btnChips.className = 'btn__chips';
     btnChips.classList.remove('remove__message');
+    btnChips.textContent = 'Saved'
+    btnChips.style.backgroundColor = colorSaveBtn;
     notificationColorSaved.appendChild(btnChips);
-    
-    setTimeout(() => btnChips.remove(), 2000);
+    setTimeout(() => btnChips.remove(), 5000);
 };
 
 // function deleteChips(btnChips) {
