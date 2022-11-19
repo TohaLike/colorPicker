@@ -472,8 +472,8 @@ btnSaveMain.addEventListener('click', (event) => {
 });
 
 
+const notificationColorSaved = document.querySelector('.chips__color__notification');
 
-let colorSaveBtn = '';
 
 function dreateDeleteElement() { 
     const btn = document.createElement('button');   
@@ -481,15 +481,27 @@ function dreateDeleteElement() {
     btn.className = 'type__color__btn';
     colorBlock.appendChild(btn);
     
+    let colorSaveBtn = '';
 
 
     btn.addEventListener('mousedown', (event) => {
         colorSaveBtn = btn.style.backgroundColor;
         colorResult.style.backgroundColor = btn.style.backgroundColor;
         navigator.clipboard.writeText(colorSaveBtn);
+        chips('color save');
         if (event.button === 2) colorBlock.removeChild(btn); 
     });
-
-    
 };
 
+function chips() {
+    const btnChips = document.createElement('div');
+    btnChips.className = 'btn__chips';
+    btnChips.classList.remove('remove__message');
+    notificationColorSaved.appendChild(btnChips);
+    
+    setTimeout(() => btnChips.remove(), 2000);
+};
+
+// function deleteChips(btnChips) {
+//     btnChips.remove();
+// }
