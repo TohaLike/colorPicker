@@ -467,7 +467,7 @@ typeColorHsl.addEventListener('click', () => {
 const notificationColorSaved = document.querySelector('.chips__color__notification');
 const textSave = document.querySelector('.text__save');
 
-let colorStorage = [];
+let colorSaveStorage = [];
 let colorSaveBtn = '';
 
 btnSaveMain.addEventListener('click', (event) => {
@@ -476,32 +476,42 @@ btnSaveMain.addEventListener('click', (event) => {
     textSave.style.display = 'none';
 });
 
-
-function dreateDeleteElement(notificationColor) { 
+function dreateDeleteElement() { 
     const btn = document.createElement('button');   
     btn.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
     btn.className = 'type__color__btn';
     colorBlock.appendChild(btn);
     
-    btn.addEventListener('mousedown', (event) => {
+    let colorBtnForm = {
+        color: btn.style.backgroundColor,
+        value: colorSaveStorage.length
+    };
+
+    colorSaveStorage.push(colorBtnForm);
+    
+    btn.onclick = () => chips(); 
+
+    btn.onmousedown = (event) => {
         colorSaveBtn = btn.style.backgroundColor;
         colorResult.style.backgroundColor = btn.style.backgroundColor;
         navigator.clipboard.writeText(colorSaveBtn);
-        chips();
-        if (event.button === 2) colorBlock.removeChild(btn); 
-    });
+
+        if (event.button === 2) {
+            colorBlock.removeChild(btn); 
+            colorSaveStorage.pop(colorBtnForm);
+            colorResult.style.backgroundColor = 'rgb(255, 255, 255)';
+        };  
+        if (colorSaveStorage.length === 0) textSave.style.display = 'block';
+    };
 };
 
 function chips() {
     const btnChips = document.createElement('div');
     btnChips.className = 'btn__chips';
     btnChips.classList.remove('remove__message');
-    btnChips.textContent = 'Saved'
+    btnChips.textContent = 'Saved!'
     btnChips.style.backgroundColor = colorSaveBtn;
     notificationColorSaved.appendChild(btnChips);
     setTimeout(() => btnChips.remove(), 5000);
 };
 
-// function deleteChips(btnChips) {
-//     btnChips.remove();
-// }
