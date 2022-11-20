@@ -466,6 +466,7 @@ typeColorHsl.addEventListener('click', () => {
 
 const notificationColorSaved = document.querySelector('.chips__color__notification');
 const textSave = document.querySelector('.text__save');
+const typeColorBtn = document.querySelector('.type__color__btn');
 
 let colorSaveStorage = [];
 let colorSaveBtn = '';
@@ -476,17 +477,29 @@ btnSaveMain.addEventListener('click', (event) => {
     textSave.style.display = 'none';
 });
 
+btnClear.addEventListener('click', () => {
+   rgbR.value = 0;
+   rgbG.value = 0;
+   rgbB.value = 0;
+});
+
+btnDeleteAll.addEventListener('click', () => {
+    colorSaveStorage.splice(colorSaveStorage);
+    colorBlock.innerHTML = '';
+    textSave.style.display = 'block';
+});
+
+
 function dreateDeleteElement() { 
     const btn = document.createElement('button');   
     btn.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
     btn.className = 'type__color__btn';
     colorBlock.appendChild(btn);
-    
+
     let colorBtnForm = {
         color: btn.style.backgroundColor,
         value: colorSaveStorage.length
     };
-
     colorSaveStorage.push(colorBtnForm);
     
     btn.onclick = () => chips(); 
