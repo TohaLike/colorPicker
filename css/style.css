@@ -340,7 +340,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .indexHue {
-    font-family: 'Lato', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;    
     width: 350px;
     height: 45px;
     margin-top: 12px;
@@ -366,7 +366,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .index {
-    font-family: 'Lato', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
     width: 350px;
     height: 45px;
     margin-top: 12px;
