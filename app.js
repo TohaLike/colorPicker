@@ -526,23 +526,3 @@ function chips() {
 
 
 
-const circlePalette = document.querySelector('.circle__palette');
-
- 
-const colorScale = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]
-const hex = chroma(pickerCursor.value).hex();
-const scale = chroma.scale([
-    chroma(hex).luminance(.95), // 50
-    chroma(hex).luminance(.84), // 100
-    chroma(hex).luminance(.73), // 200
-    chroma(hex).luminance(.62), // 300
-    chroma(hex).luminance(.49), // 400
-    chroma(hex).luminance(.35), // 500
-    chroma(hex).luminance(.23), // 600
-    chroma(hex).luminance(.15), // 700
-    chroma(hex).luminance(.10), // 800
-    chroma(hex).luminance(.05), // 900
-    chroma(hex).luminance(.02)  // 950
-]).colors(colorScale.length);
-
-// 
