@@ -14,12 +14,22 @@ const pickerHex = document.querySelector('.color__picker__main');
 const hslBtn = document.querySelector('.hsl__picker');
 const hexBtn = document.querySelector('.hex__picker');
 const btnColors = document.querySelectorAll('.btn__colors');
+const btnDeleteAll = document.querySelector('.btn__delete__all');
+const btnClear = document.querySelector('.btn__clear');
+const btnSaveMain = document.querySelector('.btn__save__main');
+const colorSaveMain = document.querySelector('.color__save__main');
+const colorBlock = document.querySelector('.color__block');
+const notificationColorSaved = document.querySelector('.chips__color__notification');
+const textSave = document.querySelector('.text__save');
+
 
 
 // Closed Context
 // document.oncontextmenu = (e) => {
 //     e.preventDefault();
 // };
+
+
 
 // Colors Buttons
 let colorsForBtn = [
@@ -190,22 +200,19 @@ function onMouseUpHueCursor() {
     document.removeEventListener('mouseup', onMouseUpHueCursor);
 };
 
+let colorForSave = '';
+
 function getHueColor() {
     let imageDataHue = spectrumContext.getImageData(0, positionHue, 1, 1).data;
     let [r, g, b] = imageDataHue;
     let [h, s, l] = RGBToHSL(r, g, b);
     rgbMain = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
     document.addEventListener('mousemove', getColorCursor);
     document.addEventListener('mouseup', onMouseUpHueCursor);
+    colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
     setColorPicker();
-    rgbR.value = `${imageDataHue[0]}`;
-    rgbG.value = `${imageDataHue[1]}`;
-    rgbB.value = `${imageDataHue[2]}`;
-    hexInputIndex.value = `#${hex(r)}${hex(g)}${hex(b)}`;
-    hslH.value = `${Math.round(h)}`;
-    hslS.value = `${Math.round(s)}`;
-    hslL.value = `${Math.round(l)}`;
 };
 
 function getColorCursor() {
@@ -217,11 +224,66 @@ function getColorCursor() {
     rgbIndexHue.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hexIndexHue.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndexHue.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
-    rgbR.value = `${dataImage[0]}`;
-    rgbG.value = `${dataImage[1]}`;
-    rgbB.value = `${dataImage[2]}`;
-    hexInputIndex.value = `#${hex(r)}${hex(g)}${hex(b)}`;
-    hslH.value = `${Math.round(h)}`;
-    hslS.value = `${Math.round(s)}`;
-    hslL.value = `${Math.round(l)}`;
+    colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    // console.log(colorForSave);
+};
+
+
+// SafeColor
+let colorSaveStorage = [];
+let colorSaveBtn = '';
+
+btnSaveMain.addEventListener('click', (event) => {
+    event.preventDefault();
+    createDeleteElement();
+    textSave.style.display = 'none';
+});
+
+btnClear.addEventListener('click', () => {
+    colorResult.style.backgroundColor = `rgb(${rgbR.value = 0}, ${rgbG.value = 0}, ${rgbB.value = 0})`;
+});
+
+btnDeleteAll.addEventListener('click', () => {
+    colorSaveStorage.splice(colorSaveStorage);
+    colorBlock.innerHTML = '';
+    textSave.style.display = 'block';
+});
+
+
+function createDeleteElement() { 
+    const btn = document.createElement('button');   
+    btn.style.backgroundColor = colorForSave;
+    btn.className = 'type__color__btn';
+    colorBlock.appendChild(btn);
+    
+
+    let colorBtnForm = {
+        color: btn.style.backgroundColor,
+        value: colorSaveStorage.length
+    };
+    colorSaveStorage.push(colorBtnForm);
+    
+
+    btn.onclick = () => chips(); 
+    
+    btn.addEventListener('mousedown', (event) => {
+        colorForSave = btn.style.backgroundColor;
+        navigator.clipboard.writeText(colorForSave);
+
+        if (event.button === 2) {
+            colorBlock.removeChild(btn); 
+            colorSaveStorage.pop(colorBtnForm);
+        };  
+        if (colorSaveStorage.length === 0) textSave.style.display = 'block';
+    });
+};
+
+function chips() {
+    const btnChips = document.createElement('div');
+    btnChips.className = 'btn__chips';
+    btnChips.classList.remove('remove__message');
+    btnChips.textContent = 'Saved!'
+    btnChips.style.backgroundColor = colorForSave;
+    notificationColorSaved.appendChild(btnChips);
+    setTimeout(() => btnChips.remove(), 5000);
 };

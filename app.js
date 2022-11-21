@@ -470,7 +470,7 @@ let colorSaveBtn = '';
 
 btnSaveMain.addEventListener('click', (event) => {
     event.preventDefault();
-    dreateDeleteElement();
+    createDeleteElement();
     textSave.style.display = 'none';
 });
 
@@ -485,7 +485,7 @@ btnDeleteAll.addEventListener('click', () => {
 });
 
 
-function dreateDeleteElement() { 
+function createDeleteElement() { 
     const btn = document.createElement('button');   
     btn.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
     btn.className = 'type__color__btn';
