@@ -22,10 +22,16 @@ const notificationColorSaved = document.querySelector('.chips__color__notificati
 const textSave = document.querySelector('.text__save');
 
 
+
 const layOutHeader = document.querySelector('.header__main');
 const layOutArticle = document.querySelector('.article__layout__main');
 const layOutFooter = document.querySelector('.footer__layout__main');
 
+
+const editingBtnHeader = document.querySelector('.editing__btn__header');
+const editingBtnArticle = document.querySelector('.editing__btn__article');
+const editingBtnFooter = document.querySelector('.editing__btn__footer');
+const editingBtnButtons = document.querySelector('.editing__btn__buttons');
 
 
 // Closed Context
@@ -225,9 +231,6 @@ function getColorCursor() {
     let [h, s, l] = RGBToHSL(r, g, b);
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
     colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
-    layOutHeader.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
-    layOutFooter.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
-
     rgbIndexHue.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hexIndexHue.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndexHue.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
@@ -287,3 +290,33 @@ function chips() {
     notificationColorSaved.appendChild(btnChips);
     setTimeout(() => btnChips.remove(), 5000);
 };
+
+
+
+// const layOutHeader = document.querySelector('.header__main');
+// const layOutArticle = document.querySelector('.article__layout__main');
+// const layOutFooter = document.querySelector('.footer__layout__main');
+
+// const editingBtnHeader = document.querySelector('.editing__btn__header');
+// const editingBtnArticle = document.querySelector('.editing__btn__article');
+// const editingBtnFooter = document.querySelector('.editing__btn__footer');
+// const editingBtnButtons = document.querySelector('.editing__btn__buttons');
+
+
+// const editingBtnHeader = document.querySelector('.editing__btn__header');
+
+
+editingBtnHeader.addEventListener('mousedown', () => {
+    layOutHeader.style.backgroundColor = colorForSave;
+});
+
+editingBtnArticle.addEventListener('mousedown', () => {
+    layOutArticle.style.backgroundColor = colorForSave;
+});
+ 
+// editingBtnFooter.addEventListener('mousedown', () => {
+//     layOutFooter.style.backgroundColor = colorForSave;
+//     console.log(colorForSave);
+// });
+
+

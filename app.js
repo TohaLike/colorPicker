@@ -423,7 +423,6 @@ hslBtn.addEventListener('click', () => {
 
 
 // Search Section
-
 function eventColorSearch() {
     colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`
 };
@@ -431,7 +430,6 @@ function eventColorSearch() {
 rgbR.onchange = () => eventColorSearch();
 rgbG.onchange = () => eventColorSearch();
 rgbB.onchange = () => eventColorSearch();
-
 
 
 searchBtnRgb.onmousedown = () => eventColorSearch();

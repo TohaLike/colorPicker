@@ -548,16 +548,27 @@ body::-webkit-scrollbar-thumb {
 
 /* ColorEditing */
 .buttons__editing__layout {
-    display: grid;
     position: absolute;
-    top: 0px;
+    top: 16px;
     left: 1088px;
 }
 
 .editing__btn {
+    font-family: 'Lato', sans-serif;
+    margin-top: 3px;
+    background-color: #252525;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.25), 
+    -6px 6px 10px rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
     width: 240px;
     height: 45px;
     background-color: #454545;
-
+    color: #ffffff;
     border-radius: 45px;
+    transition: .2s ease;
+}
+
+.editing__btn:hover {
+    background-color: #ebebeb;
+    color: #000000;
 }
