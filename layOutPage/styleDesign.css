@@ -397,3 +397,54 @@ body::-webkit-scrollbar-thumb {
     color: #ffffff;
     font-size: 20px;
 }
+
+
+.from__line {
+    width: 309px;
+    position: relative;
+    top: -183px;
+    left: 8px;
+    border-radius: 1px;
+    border: 1px solid #8a8a8a;
+}
+
+
+/* Btn Save */
+.btn__save__section {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 33px;
+    grid-template-columns: 20px;
+    position: absolute;
+    top: 190px;
+    left: 500px;
+}
+
+.btn__save__color {
+    
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    width: 350px;
+    height: 45px;
+    color: #ffffff;
+    background: #454545;
+    border-radius: 23px;
+    border: none;
+    margin-top: 12px;
+    filter: drop-shadow(-4px 4px 4px rgba(0, 0, 0, 0.25)) 
+    drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: .2s ease;
+}
+
+.btn__save:hover {
+    background-color: #ebebeb;
+    color: #000000;
+}
+
+.btn__delete__all:hover {
+    background-color: #b91313;
+}
+
+.btn__save__main:hover {
+    background-color: #058440;
+}

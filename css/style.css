@@ -174,7 +174,7 @@ body::-webkit-scrollbar-thumb {
 .color__buttons__position {
     display: grid;
     justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 23px;
     grid-template-rows: 56px;
     align-items: center;
