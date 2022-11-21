@@ -15,12 +15,16 @@ const hslBtn = document.querySelector('.hsl__picker');
 const hexBtn = document.querySelector('.hex__picker');
 const btnColors = document.querySelectorAll('.btn__colors');
 const btnDeleteAll = document.querySelector('.btn__delete__all');
-const btnClear = document.querySelector('.btn__clear');
 const btnSaveMain = document.querySelector('.btn__save__main');
 const colorSaveMain = document.querySelector('.color__save__main');
 const colorBlock = document.querySelector('.color__block');
 const notificationColorSaved = document.querySelector('.chips__color__notification');
 const textSave = document.querySelector('.text__save');
+
+
+const layOutHeader = document.querySelector('.header__main');
+const layOutArticle = document.querySelector('.article__layout__main');
+const layOutFooter = document.querySelector('.footer__layout__main');
 
 
 
@@ -152,6 +156,7 @@ function setColorPicker() {
     contextHueBox.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
 };
 
+
 // PickerCursor
 let positionHueX = 0;
 let positionHueY = 0;
@@ -220,6 +225,8 @@ function getColorCursor() {
     let [h, s, l] = RGBToHSL(r, g, b);
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
     colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    layOutHeader.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+
     rgbIndexHue.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hexIndexHue.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndexHue.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
@@ -237,32 +244,27 @@ btnSaveMain.addEventListener('click', (event) => {
     textSave.style.display = 'none';
 });
 
-btnClear.addEventListener('click', () => {
-    colorResult.style.backgroundColor = `rgb(${rgbR.value = 0}, ${rgbG.value = 0}, ${rgbB.value = 0})`;
-});
-
 btnDeleteAll.addEventListener('click', () => {
     colorSaveStorage.splice(colorSaveStorage);
     colorBlock.innerHTML = '';
     textSave.style.display = 'block';
 });
 
-
+// Create color
 function createDeleteElement() { 
     const btn = document.createElement('button');   
     btn.style.backgroundColor = colorForSave;
     btn.className = 'type__color__btn';
     colorBlock.appendChild(btn);
     
-
     let colorBtnForm = {
         color: btn.style.backgroundColor,
         value: colorSaveStorage.length
     };
     colorSaveStorage.push(colorBtnForm);
     
+    //  Add color
     btn.onclick = () => chips(); 
-
     btn.addEventListener('mousedown', (event) => {
         colorForSave = btn.style.backgroundColor;
         navigator.clipboard.writeText(colorForSave);
