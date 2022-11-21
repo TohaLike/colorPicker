@@ -1,5 +1,5 @@
 body {
-    background-color: #0f0f0f;
+    background-color: #252525;
     color: #fff;
 }
 
@@ -40,7 +40,6 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     background-color: #00fd76;
 }
-
 
 @keyframes ani {
     0% {transform: translateX(-150%);}
@@ -133,8 +132,6 @@ body::-webkit-scrollbar-thumb {
     color: #ffffff;
     filter: drop-shadow(2px 2px 7px #000000);
 }
-
-
 
 
 /* Layout Header */
@@ -254,6 +251,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     font-size: 48px;
 }
+
 
 /* LayOut Footer */
 .footer__layout__main {
@@ -428,7 +426,7 @@ body::-webkit-scrollbar-thumb {
     grid-column-gap: 33px;
     grid-template-columns: 20px;
     position: absolute;
-    top: 0px;
+    top: 17px;
     left: 500px;
 }
 
@@ -437,7 +435,7 @@ body::-webkit-scrollbar-thumb {
     width: 350px;
     height: 45px;
     margin-top: 12px;
-    border: none;
+    border: 2px solid #000000;
     background: #454545;
     border-radius: 30px;
     filter: drop-shadow(-4px 4px 4px rgba(0, 0, 0, 0.25)) 
@@ -452,7 +450,7 @@ body::-webkit-scrollbar-thumb {
 .from__line {
     width: 309px;
     position: relative;
-    top: -183px;
+    top: -150px;
     left: 8px;
     border-radius: 1px;
     border: 1px solid #8a8a8a;
@@ -466,7 +464,7 @@ body::-webkit-scrollbar-thumb {
     grid-column-gap: 33px;
     grid-template-columns: 20px;
     position: absolute;
-    top: 190px;
+    top: 230px;
     left: 500px;
 }
 
@@ -488,14 +486,6 @@ body::-webkit-scrollbar-thumb {
 .btn__save__color:hover {
     background-color: #ebebeb;
     color: #000000;
-}
-
-.btn__delete__all:hover {
-    background-color: #b91313;
-}
-
-.btn__save__main:hover {
-    background-color: #058440;
 }
 
 

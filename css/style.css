@@ -1,5 +1,5 @@
 body {
-    background-color: #0f0f0f;
+    background-color: #252525;
     color: #fff;
 }
 
@@ -741,13 +741,5 @@ body::-webkit-scrollbar-thumb {
 .btn__save:hover {
     background-color: #ebebeb;
     color: #000000;
-}
-
-.btn__delete__all:hover {
-    background-color: #b91313;
-}
-
-.btn__save__main:hover {
-    background-color: #058440;
 }
 
