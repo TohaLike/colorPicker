@@ -306,17 +306,3 @@ function chips() {
 // const editingBtnHeader = document.querySelector('.editing__btn__header');
 
 
-editingBtnHeader.addEventListener('mousedown', () => {
-    layOutHeader.style.backgroundColor = colorForSave;
-});
-
-editingBtnArticle.addEventListener('mousedown', () => {
-    layOutArticle.style.backgroundColor = colorForSave;
-});
- 
-// editingBtnFooter.addEventListener('mousedown', () => {
-//     layOutFooter.style.backgroundColor = colorForSave;
-//     console.log(colorForSave);
-// });
-
-
