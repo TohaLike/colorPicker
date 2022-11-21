@@ -61,7 +61,7 @@ body::-webkit-scrollbar-thumb {
     height: 1200px;
     max-width: 1366px;
     margin: 0 auto;
-    background: #454545;
+    background-color: #454545;
     box-shadow: 17px 25px 23px 11px rgba(0, 0, 0, 0.25), 
     -17px 25px 23px 11px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
@@ -142,7 +142,7 @@ body::-webkit-scrollbar-thumb {
     top: 15px;
     width: 1336px;
     height: 604px;
-    background: #FFFFFF;
+    background-color: #FFFFFF;
     border-radius: 15px;
     color: #000000;
 }
@@ -174,7 +174,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #D9D9D9;
+    background-color: #D9D9D9;
     border-radius: 6px;
 }
 
@@ -237,14 +237,14 @@ body::-webkit-scrollbar-thumb {
 .simple__button {
     width: 230px;
     height: 69px;
-    background: #D9D9D9;
+    background-color: #D9D9D9;
     border-radius: 59px;
 }
 
 .img__layout {
     width: 500px;
     height: 351px;
-    background: #D9D9D9;
+    background-color: #D9D9D9;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -260,7 +260,7 @@ body::-webkit-scrollbar-thumb {
     border-bottom-left-radius: 15px;
     position: relative;
     top: 0px;
-    height: 68px;
+    height: 70px;
 }
 
 
@@ -436,7 +436,7 @@ body::-webkit-scrollbar-thumb {
     height: 45px;
     margin-top: 12px;
     border: 2px solid #000000;
-    background: #454545;
+    background-color: #454545;
     border-radius: 30px;
     filter: drop-shadow(-4px 4px 4px rgba(0, 0, 0, 0.25)) 
     drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
@@ -474,7 +474,7 @@ body::-webkit-scrollbar-thumb {
     width: 350px;
     height: 45px;
     color: #ffffff;
-    background: #454545;
+    background-color: #454545;
     border-radius: 23px;
     border: none;
     margin-top: 12px;
@@ -497,7 +497,7 @@ body::-webkit-scrollbar-thumb {
     width: 213px;
     height: 350px;
     border: 2px solid #000000;
-    background: #252525;
+    background-color: #252525;
     box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.25), 
     -6px 6px 10px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
@@ -509,7 +509,7 @@ body::-webkit-scrollbar-thumb {
     top: 11px;
     width: 180px;
     height: 320px;
-    background: #252525;
+    background-color: #252525;
     border: 5px solid #454545;
     border-radius: 4px;
     overflow-y: scroll;
@@ -543,4 +543,21 @@ body::-webkit-scrollbar-thumb {
     color: #ffffff;
     text-transform: uppercase;
     opacity: 0.1;
+}
+
+
+/* ColorEditing */
+.buttons__editing__layout {
+    display: grid;
+    position: absolute;
+    top: 0px;
+    left: 1088px;
+}
+
+.editing__btn {
+    width: 240px;
+    height: 45px;
+    background-color: #454545;
+
+    border-radius: 45px;
 }
