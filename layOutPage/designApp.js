@@ -207,11 +207,10 @@ function getHueColor() {
     let [r, g, b] = imageDataHue;
     let [h, s, l] = RGBToHSL(r, g, b);
     rgbMain = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
-
+    colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
     document.addEventListener('mousemove', getColorCursor);
     document.addEventListener('mouseup', onMouseUpHueCursor);
-    colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
     setColorPicker();
 };
 
@@ -220,11 +219,10 @@ function getColorCursor() {
     let [r, g, b] = dataImage;
     let [h, s, l] = RGBToHSL(r, g, b);
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
-    // colorResult.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     rgbIndexHue.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hexIndexHue.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndexHue.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
-    colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     // console.log(colorForSave);
 };
 
@@ -265,7 +263,7 @@ function createDeleteElement() {
     
 
     btn.onclick = () => chips(); 
-    
+
     btn.addEventListener('mousedown', (event) => {
         colorForSave = btn.style.backgroundColor;
         navigator.clipboard.writeText(colorForSave);
