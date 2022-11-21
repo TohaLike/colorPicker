@@ -483,7 +483,6 @@ function dreateDeleteElement() {
     
     let colorSaveBtn = '';
 
-
     btn.addEventListener('mousedown', (event) => {
         colorSaveBtn = btn.style.backgroundColor;
         colorResult.style.backgroundColor = btn.style.backgroundColor;
@@ -498,7 +497,6 @@ function chips() {
     btnChips.className = 'btn__chips';
     btnChips.classList.remove('remove__message');
     notificationColorSaved.appendChild(btnChips);
-    
     setTimeout(() => btnChips.remove(), 2000);
 };
 
