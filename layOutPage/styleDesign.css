@@ -1,20 +1,16 @@
 body {
-    background-color: #252525;
+    background-color: #0f0f0f;
     color: #fff;
 }
 
 /* Scroll Section */
 body::-webkit-scrollbar {
-    width: 13px;
-}
-   
-body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    width: 8px;
 }
    
 body::-webkit-scrollbar-thumb {
+    border-radius: 20px;
     background-color: darkgrey;
-    outline: 1px solid slategrey;
 }
 
 
@@ -153,7 +149,6 @@ body::-webkit-scrollbar-thumb {
    
 }
 
-
 .layout {
     margin-left: 50px;
     margin-right: 50px;
@@ -249,7 +244,6 @@ body::-webkit-scrollbar-thumb {
 .line__second {
     margin-top: 55px;
 }
-
 
 
 /* ColorPickerForm */
@@ -491,7 +485,7 @@ body::-webkit-scrollbar-thumb {
     position: absolute;
     left: 863px;
     top: 10px;    
-    width: 234px;
+    width: 213px;
     height: 350px;
     border: 2px solid #000000;
     background: #252525;
@@ -504,7 +498,7 @@ body::-webkit-scrollbar-thumb {
     position: absolute;
     left: 11px;
     top: 11px;
-    width: 200px;
+    width: 180px;
     height: 320px;
     background: #252525;
     border: 5px solid #454545;
@@ -513,16 +507,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .color__save__main::-webkit-scrollbar {
-    /* margin-top: 5px; */
     padding-top: 5px;
     width: 8px;
 }
 
 .color__save__main::-webkit-scrollbar-thumb {
     background-color: rgb(158, 158, 158);
-    padding-top: 5px;
-    /* outline: 1px solid slategrey; */
-    /* border-radius: 2px; */
+    border-radius: 30px;
 }
 
 .type__color__btn {
@@ -538,7 +529,7 @@ body::-webkit-scrollbar-thumb {
     font-family: 'Inter', sans-serif;
     margin-left: 10px;
     margin-top: 130px;
-    font-size: 31px;
+    font-size: 27px;
     text-align: center;
     color: #ffffff;
     text-transform: uppercase;

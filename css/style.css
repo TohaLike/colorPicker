@@ -1,23 +1,20 @@
 body {
-    background-color: #252525;
+    background-color: #0f0f0f;
     color: #fff;
 }
 
 /* Scroll Section */
 body::-webkit-scrollbar {
-    width: 13px;
-}
-   
-body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    width: 8px;
 }
    
 body::-webkit-scrollbar-thumb {
+    border-radius: 20px;
     background-color: darkgrey;
-    outline: 1px solid slategrey;
 }
 
 
+/* Btn Chips */
 .chips__color__notification {
     position: absolute;
     top: 142px;
@@ -409,16 +406,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .color__save__main::-webkit-scrollbar {
-    /* margin-top: 5px; */
     padding-top: 5px;
     width: 8px;
 }
 
 .color__save__main::-webkit-scrollbar-thumb {
     background-color: rgb(158, 158, 158);
-    padding-top: 5px;
-    /* outline: 1px solid slategrey; */
-    /* border-radius: 2px; */
+    border-radius: 30px;
 }
 
 .type__color__btn {

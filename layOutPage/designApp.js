@@ -261,7 +261,6 @@ function createDeleteElement() {
     };
     colorSaveStorage.push(colorBtnForm);
     
-
     btn.onclick = () => chips(); 
 
     btn.addEventListener('mousedown', (event) => {
