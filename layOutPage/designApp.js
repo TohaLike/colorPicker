@@ -220,6 +220,10 @@ function getColorCursor() {
     let [h, s, l] = RGBToHSL(r, g, b);
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
     layoutContainer.style.color = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    firstSimpleButton.style.color = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    secondSimpleButton.style.color = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+
+
     colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     rgbIndexHue.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hexIndexHue.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
@@ -283,20 +287,26 @@ function chips() {
 
 
 // Color Picker for LayOut
-
 const layoutContainer = document.querySelector('.layout__container');
 const layOutHeader = document.querySelector('.header__main');
 const layOutFooter = document.querySelector('.footer__layout__main');
 const layOutArticle = document.querySelector('.article__layout__main');
-const simpleButton = document.querySelector('.simple__button');
+const firstSimpleButton = document.querySelector('.first__simple__button');
+const secondSimpleButton = document.querySelector('.second__simple__button');
 const imgLayout = document.querySelector('.img__layout');
 const layoutLogoImage = document.querySelector('.layout__logo__image');
 
+// Main Containers LayOut
 const colorPickerHueMain = document.querySelector('.color__picker__hue__main');
 const colorPickerMainArticle = document.querySelector('.color__picker__main__Article');
 const colorPickerMainLogoImage = document.querySelector('.color__picker__main__LogoImage');
+const colorPickerMainButtons = document.querySelector('.color__picker__main__Buttons');
+const colorPickerMainFooterHeader = document.querySelector('.color__picker__main__footerHeader');
+const colorPickerMainBorder = document.querySelector('.color__picker__main__Border');
+const colorPickerMainImage = document.querySelector('.color__picker__main__Image');
 
 
+// Buttons LayOut
 const editingBtnText = document.querySelector('.editing__btn__text');
 const editingBtnArticle = document.querySelector('.editing__btn__article');
 const editingBtnLogoImage = document.querySelector('.editing__btn__logoImage');
@@ -311,6 +321,7 @@ editingBtnText.addEventListener('mousedown', () => {
         colorPickerHueMain.style.display = 'block';
         colorPickerMainArticle.style.display = 'none';
         colorPickerMainLogoImage.style.display = 'none'
+        colorPickerMainButtons.style.display = 'none';
     };
 });
 
@@ -319,6 +330,7 @@ editingBtnArticle.addEventListener('mousedown', () => {
         colorPickerMainArticle.style.display = 'block';
         colorPickerHueMain.style.display = 'none';
         colorPickerMainLogoImage.style.display = 'none'
+        colorPickerMainButtons.style.display = 'none';
     };
 });
 
@@ -327,8 +339,19 @@ editingBtnLogoImage.addEventListener('mousedown', () => {
         colorPickerHueMain.style.display = 'none'
         colorPickerMainArticle.style.display = 'none';
         colorPickerMainLogoImage.style.display = 'block';
+        colorPickerMainButtons.style.display = 'none';
     };
 });
+
+editingBtnButtons.addEventListener('mousedown', () => {
+    if (colorPickerMainButtons.style.display = 'none') {
+        colorPickerMainButtons.style.display = 'block';
+        colorPickerHueMain.style.display = 'none'
+        colorPickerMainArticle.style.display = 'none';
+        colorPickerMainLogoImage.style.display = 'none';
+    };
+});
+
 
 
 
@@ -879,11 +902,11 @@ function getButtonsColorCursor() {
     let [r, g, b] = dataImage;
     let [h, s, l] = RGBToHSL(r, g, b);
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
-    layoutLogoImage.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    firstSimpleButton.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    secondSimpleButton.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
 
     colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     rgbIndexButtons.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hslIndexButtons.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
     hexIndexButtons.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
 };
-
