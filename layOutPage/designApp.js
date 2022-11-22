@@ -23,21 +23,6 @@ const textSave = document.querySelector('.text__save');
 
 
 
-const layOutHeader = document.querySelector('.header__main');
-const layOutArticle = document.querySelector('.article__layout__main');
-const layOutFooter = document.querySelector('.footer__layout__main');
-
-
-const editingBtnText = document.querySelector('.editing__btn__text');
-const editingBtnArticle = document.querySelector('.editing__btn__article');
-const editingBtnLogoImage = document.querySelector('.editing__btn__logoImage');
-const editingBtnButtons = document.querySelector('.editing__btn__buttons');
-const editingBtnHeaderFooter = document.querySelector('.editing__btn__header__footer');
-const editingBtnBorders = document.querySelector('.editing__btn__borders');
-const editingBtnImage = document.querySelector('.editing__btn__image');
-
-
-
 // Closed Context
 // document.oncontextmenu = (e) => {
 //     e.preventDefault();
@@ -297,16 +282,19 @@ function chips() {
 
 
 
-// const layOutHeader = document.querySelector('.header__main');
-// const layOutArticle = document.querySelector('.article__layout__main');
-// const layOutFooter = document.querySelector('.footer__layout__main');
-
-// const editingBtnHeader = document.querySelector('.editing__btn__header');
-// const editingBtnArticle = document.querySelector('.editing__btn__article');
-// const editingBtnFooter = document.querySelector('.editing__btn__footer');
-// const editingBtnButtons = document.querySelector('.editing__btn__buttons');
-
-
-// const editingBtnHeader = document.querySelector('.editing__btn__header');
+// Color Picker for LayOut
+const layOutHeader = document.querySelector('.header__main');
+const layOutFooter = document.querySelector('.footer__layout__main');
+const layOutArticle = document.querySelector('.article__layout__main');
+const simpleButton = document.querySelector('.simple__button');
+const imgLayout = document.querySelector('.img__layout');
+const layoutLogoImage = document.querySelector('.layout__logo__image');
 
 
+const editingBtnText = document.querySelector('.editing__btn__text');
+const editingBtnArticle = document.querySelector('.editing__btn__article');
+const editingBtnLogoImage = document.querySelector('.editing__btn__logoImage');
+const editingBtnButtons = document.querySelector('.editing__btn__buttons');
+const editingBtnHeaderFooter = document.querySelector('.editing__btn__header__footer');
+const editingBtnBorders = document.querySelector('.editing__btn__borders');
+const editingBtnImage = document.querySelector('.editing__btn__image');
