@@ -305,10 +305,6 @@ const editingBtnImage = document.querySelector('.editing__btn__image');
 const colorPickerMainArticle = document.querySelector('.color__picker__main__Article');
 
 
-const canvasArticle = document.getElementById('color__canvas__Article');
-const contextArticle = canvasArticle.getContext('2d', {willReadFrequently: true});
-const colorBoxArticle = document.querySelector('.color__box__Article');
-const pickerCursorArticle = document.querySelector('.picker__cursor__Article');
 
 
 const hueCanvasArticle = document.getElementById('hue__canvas__Article');
@@ -392,33 +388,40 @@ function getArticleHueColor() {
 };
 
 
+const canvasArticle = document.getElementById('color__canvas__Article');
+const contextArticle = canvasArticle.getContext('2d', {willReadFrequently: true});
+const colorBoxArticle = document.querySelector('.color__box__Article');
+const pickerCursorArticle = document.querySelector('.picker__cursor__Article');
+
+
 // LinearGradiet ColorPicker
-// let colorBoxWidth = colorBoxHue.width;
-// let colorBoxHeight = colorBoxHue.height;
+let colorArticleBoxWidth = colorBoxArticle.width;
+let colorArticleBoxHeight = colorBoxArticle.height;
 
-// let rgbMain = `rgba(255, 0, 0, 1)`;
-// contextHueBox.rect(0, 0, colorBoxWidth, colorBoxHeight);
-// setColorPicker();
+let rgbMainArticle = `rgba(255, 0, 0, 1)`;
+contextArticle.rect(0, 0, colorArticleBoxWidth, colorArticleBoxHeight);
+setArticleColorPicker();
 
-// function setColorPicker() {
-//     contextHueBox.fillStyle = rgbMain;
-//     contextHueBox.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
-//     let colorWhite = spectrumContext.createLinearGradient(colorBoxWidth, 0, 0, 0);
-//     colorWhite.addColorStop(1, 'rgba(255, 255, 255, 1)');
-//     colorWhite.addColorStop(0.9, 'rgba(255, 255, 255, 1)');
-//     colorWhite.addColorStop(0.1, 'rgba(255, 255, 255, 0)');
-//     contextHueBox.fillStyle = colorWhite;
-//     contextHueBox.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
-//     let colorBlack = spectrumContext.createLinearGradient(0, 0, 0, colorBoxHeight);
-//     colorBlack.addColorStop(0.1, 'rgba(0, 0, 0, 0)');
-//     colorBlack.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
-//     colorBlack.addColorStop(1, 'rgba(0, 0, 0, 1)');
-//     contextHueBox.fillStyle = colorBlack;
-//     contextHueBox.fillRect(0, 0, colorBoxWidth, colorBoxHeight);
-// };
+function setArticleColorPicker() {
+    contextArticle.fillStyle = rgbMainArticle;
+    contextArticle.fillRect(0, 0, colorArticleBoxWidth, colorArticleBoxHeight);
+    let colorWhite = hueContextArticle.createLinearGradient(colorArticleBoxWidth, 0, 0, 0);
+    colorWhite.addColorStop(1, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.9, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.1, 'rgba(255, 255, 255, 0)');
+    contextArticle.fillStyle = colorWhite;
+    contextArticle.fillRect(0, 0, colorArticleBoxWidth, colorArticleBoxHeight);
+
+    let colorBlack = hueContextArticle.createLinearGradient(0, 0, 0, colorArticleBoxHeight);
+    colorBlack.addColorStop(0.1, 'rgba(0, 0, 0, 0)');
+    colorBlack.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
+    colorBlack.addColorStop(1, 'rgba(0, 0, 0, 1)');
+    contextArticle.fillStyle = colorBlack;
+    contextArticle.fillRect(0, 0, colorArticleBoxWidth, colorArticleBoxHeight);
+};
 
 
-// // PickerCursor
+// PickerCursor
 // let positionHueX = 0;
 // let positionHueY = 0;
 // let shiftHueX = 20;
