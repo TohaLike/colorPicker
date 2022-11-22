@@ -322,7 +322,7 @@ editingBtnArticle.addEventListener('mousedown', () => {
 
 
 
-
+// ///////////////////////// ARTICLE
 
 // Canvas Box
 const canvasArticle = document.getElementById('color__canvas__Article');
@@ -506,4 +506,187 @@ function getArticleColorCursor() {
 };
 
 
+
+// ///////////////////////// LOGO IMAGE
+
+// Canvas Box
+const canvasLogoImage = document.getElementById('color__canvas__LogoImage');
+const contextLogoImage = canvasLogoImage.getContext('2d', {willReadFrequently: true});
+const colorBoxLogoImage = document.querySelector('.color__box__LogoImage');
+const pickerCursorLogoImage = document.querySelector('.picker__cursor__LogoImage');
+
+// Spectrum
+const hueCanvasLogoImage = document.getElementById('hue__canvas__LogoImage');
+const hueContextLogoImage = hueCanvasLogoImage.getContext('2d', {willReadFrequently: true});
+const colorSpectrumLogoImage = document.querySelector('.color__spectrum__LogoImage'); 
+const pickerLogoImage = document.querySelector('.picker__LogoImage');
+
+// Index
+const rgbIndexLogoImage = document.querySelector('.rgb__index__LogoImage');
+const hslIndexLogoImage = document.querySelector('.hsl__index__LogoImage');
+const hexIndexLogoImage = document.querySelector('.hex__index__LogoImage');
+
+
+// LinearGradiet LOGO IMAGE
+let widthSpectrumContextLogoImage = colorSpectrumLogoImage.width;
+let heightSpectrumContextLogoImage = colorSpectrumLogoImage.height;
+let colorSpectrumLogoImageBackGround = hueContextLogoImage.createLinearGradient(0, 0, 0, heightSpectrumContextLogoImage);
+colorSpectrumLogoImageBackGround.addColorStop(0.03, "hsl(0, 100%, 50%)");
+colorSpectrumLogoImageBackGround.addColorStop(0.17, "hsl(298.8, 100%, 50%)");
+colorSpectrumLogoImageBackGround.addColorStop(0.33, "hsl(241.2, 100%, 50%)");
+colorSpectrumLogoImageBackGround.addColorStop(0.50, "hsl(180, 100%, 50%)");
+colorSpectrumLogoImageBackGround.addColorStop(0.67, "hsl(118.8, 100%, 50%)");
+colorSpectrumLogoImageBackGround.addColorStop(0.83, "hsl(61.2, 100%, 50%)");
+colorSpectrumLogoImageBackGround.addColorStop(1.00, "hsl(360, 100%, 50%)");
+hueContextLogoImage.fillStyle = colorSpectrumLogoImageBackGround;
+hueContextLogoImage.fillRect(0, 0, widthSpectrumContextLogoImage, heightSpectrumContextLogoImage);
+
+rgbIndexLogoImage.innerHTML = 'rgb(255, 255, 255)';
+hslIndexLogoImage.innerHTML = 'hsl(0, 0%, 100%)';
+hexIndexLogoImage.innerHTML = `#ffffff`;
+
+
+// Spectrum LOGO IMAGE
+let LogoImagePositionHue = 0;
+let LogoImageShiftY = 20;
+
+hueCanvasLogoImage.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    hueLogoImageMouseY(event);
+    document.addEventListener('mousemove', hueLogoImageMouseY);
+    document.addEventListener('mousedown', getLogoImageColor);
+    document.addEventListener('mousemove', getLogoImageColor);
+    document.addEventListener('mousedown', getLogoImageColorCursor);
+    document.addEventListener('mouseup', mouseLogoImageHueUp);
+});
+
+pickerLogoImage.onmousedown = (event) => {
+    event.preventDefault();
+    LogoImageShiftY = event.clientY - pickerLogoImage.getBoundingClientRect().top;
+    document.addEventListener('mousemove', hueLogoImageMouseY);
+    document.addEventListener('mousemove', getLogoImageColor);
+    document.addEventListener('mouseup', mouseLogoImageHueUp);
+};
+
+function hueLogoImageMouseY(event) {
+    let newHueTop = event.clientY - LogoImageShiftY - colorSpectrumLogoImage.getBoundingClientRect().top;
+    if (newHueTop < 0) newHueTop = 0;
+    let topHueEdge = colorSpectrumLogoImage.offsetHeight - pickerLogoImage.offsetHeight;
+    if (newHueTop > topHueEdge) newHueTop = topHueEdge;
+    pickerLogoImage.style.top = newHueTop + 'px';
+    LogoImagePositionHue = newHueTop;
+};
+
+function getLogoImageColor() {
+    let imageDataHue = hueContextLogoImage.getImageData(0, LogoImagePositionHue, 1, 1).data;
+    let [r, g, b] = imageDataHue;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    rgbMainLogoImage = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+    document.addEventListener('mousemove', getLogoImageColorCursor);
+    document.addEventListener('mouseup', mouseLogoImageHueUp);
+    setLogoImageColorPicker();
+};
+
+function mouseLogoImageHueUp() {
+    document.removeEventListener('mousedown', getLogoImageColorCursor);
+    document.removeEventListener('mousedown', getLogoImageColor);
+    document.removeEventListener('mousemove', getLogoImageColor)
+    document.removeEventListener('mousemove', hueLogoImageMouseY)
+    document.removeEventListener('mouseup', hueLogoImageMouseY)
+};
+
+
+// LinearGradiet ColorPicker
+let colorLogoImageBoxWidth = colorBoxLogoImage.width;
+let colorLogoImageBoxHeight = colorBoxLogoImage.height;
+
+let rgbMainLogoImage = `rgba(255, 0, 0, 1)`;
+contextLogoImage.rect(0, 0, colorLogoImageBoxWidth, colorLogoImageBoxHeight);
+setLogoImageColorPicker();
+
+function setLogoImageColorPicker() {
+    contextLogoImage.fillStyle = rgbMainLogoImage;
+    contextLogoImage.fillRect(0, 0, colorLogoImageBoxWidth, colorLogoImageBoxHeight);
+    let colorWhite = hueContextLogoImage.createLinearGradient(colorLogoImageBoxWidth, 0, 0, 0);
+    colorWhite.addColorStop(1, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.9, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.1, 'rgba(255, 255, 255, 0)');
+    contextLogoImage.fillStyle = colorWhite;
+    contextLogoImage.fillRect(0, 0, colorLogoImageBoxWidth, colorLogoImageBoxHeight);
+
+    let colorBlack = hueContextLogoImage.createLinearGradient(0, 0, 0, colorLogoImageBoxHeight);
+    colorBlack.addColorStop(0.1, 'rgba(0, 0, 0, 0)');
+    colorBlack.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
+    colorBlack.addColorStop(1, 'rgba(0, 0, 0, 1)');
+    contextLogoImage.fillStyle = colorBlack;
+    contextLogoImage.fillRect(0, 0, colorLogoImageBoxWidth, colorLogoImageBoxHeight);
+};
+
+
+// PickerCursor
+let positionLogoImageHueX = 0;
+let positionLogoImageHueY = 0;
+let shiftLogoImageHueX = 20;
+let shiftLogoImageHueY = 20;
+
+function colorPickerLogoImageGetColor() {
+    document.addEventListener('mousedown', getLogoImageColorCursor);
+    document.addEventListener('mousemove', getLogoImageColorCursor);
+    document.addEventListener('mousemove', onMouseMoveLogoImageCursor);
+    document.addEventListener('mouseup', onMouseUpLogoImageHueCursor);
+};
+
+canvasLogoImage.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    onMouseMoveLogoImageCursor(event);
+    colorPickerLogoImageGetColor();
+});
+
+pickerCursorLogoImage.onmousedown = (event) => {
+    event.preventDefault();
+    shiftLogoImageHueX = event.clientX - pickerCursorLogoImage.getBoundingClientRect().left;
+    shiftLogoImageHueY = event.clientY - pickerCursorLogoImage.getBoundingClientRect().top;
+    colorPickerLogoImageGetColor();
+};
+
+function onMouseMoveLogoImageCursor(event) {
+    let newLeft = event.clientX - shiftLogoImageHueX - colorBoxLogoImage.getBoundingClientRect().left;
+    let newTop = event.clientY - shiftLogoImageHueY - colorBoxLogoImage.getBoundingClientRect().top;
+    if (newLeft < 0) newLeft = 0;
+    if (newTop < 0) newTop = 0;
+
+    let rightEdge = colorBoxLogoImage.offsetWidth - pickerCursorLogoImage.offsetWidth;
+    let topEdge = colorBoxLogoImage.offsetHeight - pickerCursorLogoImage.offsetHeight;
+
+    if (newLeft > rightEdge) newLeft = rightEdge;
+    if (newTop > topEdge) newTop = topEdge;
+
+    pickerCursorLogoImage.style.left = newLeft + 'px';
+    pickerCursorLogoImage.style.top = newTop + 'px';
+
+    positionLogoImageHueX = newLeft;
+    positionLogoImageHueY = newTop;
+};
+
+function onMouseUpLogoImageHueCursor() {
+    document.removeEventListener('mousedown', getLogoImageColorCursor);
+    document.removeEventListener('mousemove', getLogoImageColorCursor);
+    document.removeEventListener('mousemove', onMouseMoveLogoImageCursor);
+    document.removeEventListener('mouseup', onMouseUpLogoImageHueCursor);
+};
+
+function getLogoImageColorCursor() {
+    let dataImage = contextLogoImage.getImageData(positionLogoImageHueX, positionLogoImageHueY, 1, 1).data;
+    let [r, g, b] = dataImage;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+    layoutLogoImage.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+
+    colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    rgbIndexLogoImage.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    hslIndexLogoImage.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+    hexIndexLogoImage.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
+};
 
