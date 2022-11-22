@@ -346,7 +346,7 @@ hueCanvasArticle.addEventListener('mousedown', (event) => {
     document.addEventListener('mousemove', hueArticleMouseY);
     document.addEventListener('mousedown', getArticleHueColor);
     document.addEventListener('mousemove', getArticleHueColor);
-    // document.addEventListener('mousedown', getColorCursor);
+    document.addEventListener('mousedown', getArticleColorCursor);
     document.addEventListener('mouseup', mouseArticleHueUp);
 });
 
@@ -364,29 +364,28 @@ function hueArticleMouseY(event) {
     let topHueEdge = colorSpectrumArticle.offsetHeight - pickerArticle.offsetHeight;
     if (newHueTop > topHueEdge) newHueTop = topHueEdge;
     pickerArticle.style.top = newHueTop + 'px';
-    positionHue = newHueTop;
+    articlePositionHue = newHueTop;
+};
+
+function getArticleHueColor() {
+    let imageDataHue = hueContextArticle.getImageData(0, articlePositionHue, 1, 1).data;
+    let [r, g, b] = imageDataHue;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    rgbMainArticle = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+    document.addEventListener('mousemove', getArticleColorCursor);
+    document.addEventListener('mouseup', mouseArticleHueUp);
+    setArticleColorPicker();
 };
 
 function mouseArticleHueUp() {
-    // document.removeEventListener('mousedown', getColorCursor);
+    document.removeEventListener('mousedown', getArticleColorCursor);
     document.removeEventListener('mousedown', getArticleHueColor);
     document.removeEventListener('mousemove', getArticleHueColor)
     document.removeEventListener('mousemove', hueArticleMouseY)
     document.removeEventListener('mouseup', hueArticleMouseY)
 };
-
-function getArticleHueColor() {
-    let imageDataHue = spectrumContext.getImageData(0, positionHue, 1, 1).data;
-    let [r, g, b] = imageDataHue;
-    let [h, s, l] = RGBToHSL(r, g, b);
-    rgbMain = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
-    colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
-    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
-    document.addEventListener('mousemove', getColorCursor);
-    document.addEventListener('mouseup', onMouseUpHueCursor);
-    setColorPicker();
-};
-
 
 const canvasArticle = document.getElementById('color__canvas__Article');
 const contextArticle = canvasArticle.getContext('2d', {willReadFrequently: true});
@@ -422,68 +421,68 @@ function setArticleColorPicker() {
 
 
 // PickerCursor
-// let positionHueX = 0;
-// let positionHueY = 0;
-// let shiftHueX = 20;
-// let shiftHueY = 20;
+let positionArticleHueX = 0;
+let positionArticleHueY = 0;
+let shiftArticleHueX = 20;
+let shiftArticleHueY = 20;
 
-// function colorPickerGetColor() {
-//     document.addEventListener('mousedown', getColorCursor);
-//     document.addEventListener('mousemove', getColorCursor);
-//     document.addEventListener('mousemove', onMouseMoveCursor);
-//     document.addEventListener('mouseup', onMouseUpHueCursor);
-// };
+function colorPickerArticleGetColor() {
+    document.addEventListener('mousedown', getArticleColorCursor);
+    document.addEventListener('mousemove', getArticleColorCursor);
+    document.addEventListener('mousemove', onMouseMoveArticleCursor);
+    document.addEventListener('mouseup', onMouseUpArticleHueCursor);
+};
 
-// canvasHueBox.addEventListener('mousedown', (event) => {
-//     event.preventDefault();
-//     onMouseMoveCursor(event);
-//     colorPickerGetColor();
-// });
+canvasArticle.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    onMouseMoveArticleCursor(event);
+    colorPickerArticleGetColor();
+});
 
-// pickerCursorHue.onmousedown = (event) => {
-//     event.preventDefault();
-//     shiftHueX = event.clientX - pickerCursorHue.getBoundingClientRect().left;
-//     shiftHueY = event.clientY - pickerCursorHue.getBoundingClientRect().top;
-//     colorPickerGetColor();
-// };
+pickerCursorArticle.onmousedown = (event) => {
+    event.preventDefault();
+    shiftArticleHueX = event.clientX - pickerCursorArticle.getBoundingClientRect().left;
+    shiftArticleHueY = event.clientY - pickerCursorArticle.getBoundingClientRect().top;
+    colorPickerArticleGetColor();
+};
 
-// function onMouseMoveCursor(event) {
-//     let newLeft = event.clientX - shiftHueX - colorBoxHue.getBoundingClientRect().left;
-//     let newTop = event.clientY - shiftHueY - colorBoxHue.getBoundingClientRect().top;
-//     if (newLeft < 0) newLeft = 0;
-//     if (newTop < 0) newTop = 0;
-//     let rightEdge = colorBoxHue.offsetWidth - pickerCursorHue.offsetWidth;
-//     let topEdge = colorBoxHue.offsetHeight - pickerCursorHue.offsetHeight;
-//     if (newLeft > rightEdge) newLeft = rightEdge;
-//     if (newTop > topEdge) newTop = topEdge;
-//     pickerCursorHue.style.left = newLeft + 'px';
-//     pickerCursorHue.style.top = newTop + 'px';
-//     positionHueX = newLeft;
-//     positionHueY = newTop;
-// };
+function onMouseMoveArticleCursor(event) {
+    let newLeft = event.clientX - shiftArticleHueX - colorBoxArticle.getBoundingClientRect().left;
+    let newTop = event.clientY - shiftArticleHueY - colorBoxArticle.getBoundingClientRect().top;
+    if (newLeft < 0) newLeft = 0;
+    if (newTop < 0) newTop = 0;
 
-// function onMouseUpHueCursor() {
-//     document.removeEventListener('mousedown', getColorCursor);
-//     document.removeEventListener('mousemove', getColorCursor);
-//     document.removeEventListener('mousemove', onMouseMoveCursor);
-//     document.removeEventListener('mouseup', onMouseUpHueCursor);
-// };
+    let rightEdge = colorBoxArticle.offsetWidth - pickerCursorArticle.offsetWidth;
+    let topEdge = colorBoxArticle.offsetHeight - pickerCursorArticle.offsetHeight;
 
-// let colorForSave = '';
+    if (newLeft > rightEdge) newLeft = rightEdge;
+    if (newTop > topEdge) newTop = topEdge;
+
+    pickerCursorArticle.style.left = newLeft + 'px';
+    pickerCursorArticle.style.top = newTop + 'px';
+
+    positionArticleHueX = newLeft;
+    positionArticleHueY = newTop;
+};
+
+function onMouseUpArticleHueCursor() {
+    document.removeEventListener('mousedown', getArticleColorCursor);
+    document.removeEventListener('mousemove', getArticleColorCursor);
+    document.removeEventListener('mousemove', onMouseMoveArticleCursor);
+    document.removeEventListener('mouseup', onMouseUpArticleHueCursor);
+};
 
 
-// function getColorCursor() {
-//     let dataImage = contextHueBox.getImageData(positionHueX, positionHueY, 1, 1).data;
-//     let [r, g, b] = dataImage;
-//     let [h, s, l] = RGBToHSL(r, g, b);
-//     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
-//     colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
-//     rgbIndexHue.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
-//     hexIndexHue.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
-//     hslIndexHue.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
-//     // console.log(colorForSave);
-// };
-
+function getArticleColorCursor() {
+    let dataImage = contextArticle.getImageData(positionArticleHueX, positionArticleHueY, 1, 1).data;
+    let [r, g, b] = dataImage;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+    colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    rgbIndexArticle.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    hslIndexArticle.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+    hexIndexArticle.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
+};
 
 
 
