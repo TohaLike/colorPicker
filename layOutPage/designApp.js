@@ -294,6 +294,7 @@ const layoutLogoImage = document.querySelector('.layout__logo__image');
 
 const colorPickerHueMain = document.querySelector('.color__picker__hue__main');
 const colorPickerMainArticle = document.querySelector('.color__picker__main__Article');
+const colorPickerMainLogoImage = document.querySelector('.color__picker__main__LogoImage');
 
 
 const editingBtnText = document.querySelector('.editing__btn__text');
@@ -309,14 +310,23 @@ editingBtnText.addEventListener('mousedown', () => {
     if (colorPickerHueMain.style.display = 'none') {
         colorPickerHueMain.style.display = 'block';
         colorPickerMainArticle.style.display = 'none';
+        colorPickerMainLogoImage.style.display = 'none'
     };
 });
-
 
 editingBtnArticle.addEventListener('mousedown', () => {
     if (colorPickerMainArticle.style.display = 'none') {
         colorPickerMainArticle.style.display = 'block';
         colorPickerHueMain.style.display = 'none';
+        colorPickerMainLogoImage.style.display = 'none'
+    };
+});
+
+editingBtnLogoImage.addEventListener('mousedown', () => {
+    if (colorPickerMainLogoImage.style.display = 'none') {
+        colorPickerHueMain.style.display = 'none'
+        colorPickerMainArticle.style.display = 'none';
+        colorPickerMainLogoImage.style.display = 'block';
     };
 });
 
