@@ -28,10 +28,14 @@ const layOutArticle = document.querySelector('.article__layout__main');
 const layOutFooter = document.querySelector('.footer__layout__main');
 
 
-const editingBtnHeader = document.querySelector('.editing__btn__header');
+const editingBtnText = document.querySelector('.editing__btn__text');
 const editingBtnArticle = document.querySelector('.editing__btn__article');
-const editingBtnFooter = document.querySelector('.editing__btn__footer');
+const editingBtnLogoImage = document.querySelector('.editing__btn__logoImage');
 const editingBtnButtons = document.querySelector('.editing__btn__buttons');
+const editingBtnHeaderFooter = document.querySelector('.editing__btn__header__footer');
+const editingBtnBorders = document.querySelector('.editing__btn__borders');
+const editingBtnImage = document.querySelector('.editing__btn__image');
+
 
 
 // Closed Context

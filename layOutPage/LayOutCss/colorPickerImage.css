@@ -1,0 +1,110 @@
+.color__picker__main__Image {
+    display: none;
+}
+
+/* ColorPickerForm */
+.color__picker__form__Image { 
+    width: 1336px;
+    height: 372px;
+    background: #252525;
+    box-shadow: 6px 6px 10px 
+    rgba(0, 0, 0, 0.25), 
+    -6px 6px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    position: absolute;
+    top: 630px;
+    left: 15px;
+}
+
+.color__picker__Image {
+    border-radius: 15px;
+    position: absolute;
+    top: 8px;
+    left: 135px;
+}
+
+.canvas__container__Image {
+    display: flex;
+}
+
+.color__box__Image {
+    display: none;
+    margin-top: 0;
+    position: relative;
+    display: block;
+    border: 2px solid #000;
+    border-radius: 15px;
+    background-color: #000;
+    filter: drop-shadow(-4px 4px 4px 
+    rgba(0, 0, 0, 0.25)) 
+    drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.picker__cursor__Image { 
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #000;
+    border-radius: 20px;
+    outline: 1px solid #fff;
+    outline-offset: -3px;
+} 
+
+.color__spectrum__Image {
+    margin-top: 0;
+    position: relative;
+    left: 17px;
+    display: block;
+    border: 2px solid #000;
+    border-radius: 25px;
+    background-color: #000;
+    filter: drop-shadow(-4px 4px 4px 
+    rgba(0, 0, 0, 0.25)) 
+    drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.picker__Image {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #000;
+    border-radius: 30px;
+    outline: 1px solid #fff;
+    outline-offset: -3px;
+    left: 323px;
+}
+
+
+/* IndexHue */
+.index__color__Image {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 33px;
+    grid-template-columns: 20px;
+    position: absolute;
+    top: 17px;
+    left: 500px;
+}
+
+.index__Image {
+    font-family: 'Lato', sans-serif;
+    width: 350px;
+    height: 45px;
+    margin-top: 12px;
+    border: 2px solid #000000;
+    background-color: #454545;
+    border-radius: 30px;
+    filter: drop-shadow(-4px 4px 4px rgba(0, 0, 0, 0.25)) 
+    drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 20px;
+}

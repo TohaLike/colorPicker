@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="/layOutPage/LayOutCss/styleDesign.css">
     <link rel="stylesheet" href="/layOutPage/LayOutCss/colorPickerArticle.css">
     <link rel="stylesheet" href="/layOutPage/LayOutCss/colorPickerLogoImage.css">
+    <link rel="stylesheet" href="/layOutPage/LayOutCss/colorPickerBtn.css">
+    <link rel="stylesheet" href="/layOutPage/LayOutCss/colorPickerBorder.css">
+    <link rel="stylesheet" href="/layOutPage/LayOutCss/colorPickerImage.css">
+
     <link rel="stylesheet" href="/node_modules/normalize.css/normalize.css">
     <title>Design</title>
 </head>
@@ -158,6 +162,82 @@
                     </div>
                 </div>
 
+                
+                <!-- ColorPickerHue Buttons -->
+                <div class="color__picker__main__Buttons">
+                    <div class="color__picker__Buttons">
+                        <div class="picker__cursor__Buttons"></div>
+                        <div class="picker__Buttons"></div>
+                        <div class="canvas__container__Buttons">
+                            <canvas id="color__canvas__Buttons" class="color__box__Buttons" height="350" width="300"></canvas>
+                            <canvas id="hue__canvas__Buttons" class="color__spectrum__Buttons" height="350" width="29"></canvas>
+                        </div>
+                    </div>  
+                    
+                    <div class="index__color__Buttons">
+                        <div class="index__Buttons rgb__index__Buttons"></div>
+                        <div class="index__Buttons hsl__index__Buttons"></div>
+                        <div class="index__Buttons hex__index__Buttons"></div>
+                    </div>
+                </div>
+
+
+                <!-- ColorPickerHue FooterHeader -->
+                <div class="color__picker__main__footerHeader">
+                    <div class="color__picker__footerHeader">
+                        <div class="picker__cursor__footerHeader"></div>
+                        <div class="picker__footerHeader"></div>
+                        <div class="canvas__container__footerHeader">
+                            <canvas id="color__canvas__footerHeader" class="color__box__footerHeader" height="350" width="300"></canvas>
+                            <canvas id="hue__canvas__footerHeader" class="color__spectrum__footerHeader" height="350" width="29"></canvas>
+                        </div>
+                    </div>  
+                    
+                    <div class="index__color__footerHeader">
+                        <div class="index__footerHeader rgb__index__footerHeader"></div>
+                        <div class="index__footerHeader hsl__index__footerHeader"></div>
+                        <div class="index__footerHeader hex__index__footerHeader"></div>
+                    </div>
+                </div>
+
+                
+                <!-- ColorPickerHue Border -->
+                <div class="color__picker__main__Border">
+                    <div class="color__picker__Border">
+                        <div class="picker__cursor__Border"></div>
+                        <div class="picker__Border"></div>
+                        <div class="canvas__container__Border">
+                            <canvas id="color__canvas__Border" class="color__box__Border" height="350" width="300"></canvas>
+                            <canvas id="hue__canvas__Border" class="color__spectrum__Border" height="350" width="29"></canvas>
+                        </div>
+                    </div>  
+                    
+                    <div class="index__color__Border">
+                        <div class="index__Border rgb__index__Border"></div>
+                        <div class="index__Border hsl__index__Border"></div>
+                        <div class="index__Border hex__index__Border"></div>
+                    </div>
+                </div>
+
+
+                <!-- ColorPickerHue Image -->
+                <div class="color__picker__main__Image">
+                    <div class="color__picker__Image">
+                        <div class="picker__cursor__Image"></div>
+                        <div class="picker__Image"></div>
+                        <div class="canvas__container__Image">
+                            <canvas id="color__canvas__Image" class="color__box__Image" height="350" width="300"></canvas>
+                            <canvas id="hue__canvas__Image" class="color__spectrum__Image" height="350" width="29"></canvas>
+                        </div>
+                    </div>  
+                    
+                    <div class="index__color__Image">
+                        <div class="index__Image rgb__index__Image"></div>
+                        <div class="index__Image hsl__index__Image"></div>
+                        <div class="index__Image hex__index__Image"></div>
+                    </div>
+                </div>
+
 
 
 
@@ -179,9 +259,9 @@
 
                 <!-- Editing layOut-->
                 <div class="buttons__editing__layout">
-                    <button type="button" class="editing__btn editing__btn__header">Text</button>
+                    <button type="button" class="editing__btn editing__btn__text">Text</button>
                     <button type="button" class="editing__btn editing__btn__article">Article</button>
-                    <button type="button" class="editing__btn editing__btn__footer">Logo Image</button>
+                    <button type="button" class="editing__btn editing__btn__logoImage">Logo Image</button>
                     <button type="button" class="editing__btn editing__btn__buttons">Buttons</button>
                     <button type="button" class="editing__btn editing__btn__header__footer">Header & Footer</button>
                     <button type="button" class="editing__btn editing__btn__borders">Border</button>

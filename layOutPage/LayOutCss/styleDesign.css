@@ -353,6 +353,7 @@ body::-webkit-scrollbar-thumb {
     display: block;
 }
 
+/* ColorPickerForm */
 .color__picker__hue {
     border-radius: 15px;
     position: absolute;
