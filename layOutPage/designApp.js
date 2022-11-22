@@ -318,28 +318,31 @@ const editingBtnImage = document.querySelector('.editing__btn__image');
 
 editingBtnText.addEventListener('mousedown', () => {
     if (colorPickerHueMain.style.display = 'none') {
+        colorPickerMainBorder.style.display = 'none';
         colorPickerHueMain.style.display = 'block';
         colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none'
+        colorPickerMainLogoImage.style.display = 'none';
         colorPickerMainButtons.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none'
+        colorPickerMainFooterHeader.style.display = 'none';
     };
 });
 
 editingBtnArticle.addEventListener('mousedown', () => {
     if (colorPickerMainArticle.style.display = 'none') {
+        colorPickerMainBorder.style.display = 'none';
         colorPickerMainArticle.style.display = 'block';
         colorPickerHueMain.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none'
+        colorPickerMainLogoImage.style.display = 'none';
         colorPickerMainButtons.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none'
+        colorPickerMainFooterHeader.style.display = 'none';
     };
 });
 
 editingBtnLogoImage.addEventListener('mousedown', () => {
     if (colorPickerMainLogoImage.style.display = 'none') {
-        colorPickerHueMain.style.display = 'none'
-        colorPickerMainFooterHeader.style.display = 'none'
+        colorPickerMainBorder.style.display = 'none';
+        colorPickerHueMain.style.display = 'none';
+        colorPickerMainFooterHeader.style.display = 'none';
         colorPickerMainArticle.style.display = 'none';
         colorPickerMainLogoImage.style.display = 'block';
         colorPickerMainButtons.style.display = 'none';
@@ -348,9 +351,10 @@ editingBtnLogoImage.addEventListener('mousedown', () => {
 
 editingBtnButtons.addEventListener('mousedown', () => {
     if (colorPickerMainButtons.style.display = 'none') {
-        colorPickerMainFooterHeader.style.display = 'none'
+        colorPickerMainBorder.style.display = 'none';
+        colorPickerMainFooterHeader.style.display = 'none';
         colorPickerMainButtons.style.display = 'block';
-        colorPickerHueMain.style.display = 'none'
+        colorPickerHueMain.style.display = 'none';
         colorPickerMainArticle.style.display = 'none';
         colorPickerMainLogoImage.style.display = 'none';
     };
@@ -358,9 +362,21 @@ editingBtnButtons.addEventListener('mousedown', () => {
 
 editingBtnHeaderFooter.addEventListener('mousedown', () => {
     if (colorPickerMainFooterHeader.style.display = 'none') {
-        colorPickerMainFooterHeader.style.display = 'block'
+        colorPickerMainBorder.style.display = 'none';
+        colorPickerMainFooterHeader.style.display = 'block';
         colorPickerMainButtons.style.display = 'none';
-        colorPickerHueMain.style.display = 'none'
+        colorPickerHueMain.style.display = 'none';
+        colorPickerMainArticle.style.display = 'none';
+        colorPickerMainLogoImage.style.display = 'none';
+    };
+});
+
+editingBtnBorders.addEventListener('mousedown', () => {
+    if (colorPickerMainBorder.style.display = 'none') {
+        colorPickerMainBorder.style.display = 'block';
+        colorPickerMainFooterHeader.style.display = 'none';
+        colorPickerMainButtons.style.display = 'none';
+        colorPickerHueMain.style.display = 'none';
         colorPickerMainArticle.style.display = 'none';
         colorPickerMainLogoImage.style.display = 'none';
     };
@@ -1113,187 +1129,188 @@ function getFooterHeaderColorCursor() {
 };
 
 
-// // ///////////////////////// BUTTONS
+// ///////////////////////// BORDER
 
-// // Canvas Box
-// const colorCanvasButtons = document.getElementById('color__canvas__Buttons');
-// const contextButtons = colorCanvasButtons.getContext('2d', {willReadFrequently: true});
-// const colorBoxButtons = document.querySelector('.color__box__Buttons');
-// const pickerCursorButtons = document.querySelector('.picker__cursor__Buttons');
+// Canvas Box
+const colorCanvasBorder = document.getElementById('color__canvas__Border');
+const contextBorder = colorCanvasBorder.getContext('2d', {willReadFrequently: true});
+const colorBoxBorder = document.querySelector('.color__box__Border');
+const pickerCursorBorder = document.querySelector('.picker__cursor__Border');
 
-// // Spectrum
-// const hueCanvasButtons = document.getElementById('hue__canvas__Buttons');
-// const hueContextButtons = hueCanvasButtons.getContext('2d', {willReadFrequently: true});
-// const colorSpectrumButtons = document.querySelector('.color__spectrum__Buttons'); 
-// const pickerButtons = document.querySelector('.picker__Buttons');
+// Spectrum
+const hueCanvasBorder = document.getElementById('hue__canvas__Border');
+const hueContextBorder = hueCanvasBorder.getContext('2d', {willReadFrequently: true});
+const colorSpectrumBorder = document.querySelector('.color__spectrum__Border'); 
+const pickerBorder = document.querySelector('.picker__Border');
 
-// // Index
-// const rgbIndexButtons = document.querySelector('.rgb__index__Buttons');
-// const hslIndexButtons = document.querySelector('.hsl__index__Buttons');
-// const hexIndexButtons = document.querySelector('.hex__index__Buttons');
+// Index
+const rgbIndexBorder = document.querySelector('.rgb__index__Border');
+const hslIndexBorder = document.querySelector('.hsl__index__Border');
+const hexIndexBorder = document.querySelector('.hex__index__Border');
 
 
 // // LinearGradiet BUTTONS
-// let widthSpectrumContextButtons = colorSpectrumButtons.width;
-// let heightSpectrumContextButtons = colorSpectrumButtons.height;
-// let colorSpectrumButtonsBackGround = hueContextButtons.createLinearGradient(0, 0, 0, heightSpectrumContextButtons);
-// colorSpectrumButtonsBackGround.addColorStop(0.03, "hsl(0, 100%, 50%)");
-// colorSpectrumButtonsBackGround.addColorStop(0.17, "hsl(298.8, 100%, 50%)");
-// colorSpectrumButtonsBackGround.addColorStop(0.33, "hsl(241.2, 100%, 50%)");
-// colorSpectrumButtonsBackGround.addColorStop(0.50, "hsl(180, 100%, 50%)");
-// colorSpectrumButtonsBackGround.addColorStop(0.67, "hsl(118.8, 100%, 50%)");
-// colorSpectrumButtonsBackGround.addColorStop(0.83, "hsl(61.2, 100%, 50%)");
-// colorSpectrumButtonsBackGround.addColorStop(1.00, "hsl(360, 100%, 50%)");
-// hueContextButtons.fillStyle = colorSpectrumButtonsBackGround;
-// hueContextButtons.fillRect(0, 0, widthSpectrumContextButtons, heightSpectrumContextButtons);
+let widthSpectrumContextBorder = colorSpectrumBorder.width;
+let heightSpectrumContextBorder = colorSpectrumBorder.height;
+let colorSpectrumBorderBackGround = hueContextBorder.createLinearGradient(0, 0, 0, heightSpectrumContextBorder);
+colorSpectrumBorderBackGround.addColorStop(0.03, "hsl(0, 100%, 50%)");
+colorSpectrumBorderBackGround.addColorStop(0.17, "hsl(298.8, 100%, 50%)");
+colorSpectrumBorderBackGround.addColorStop(0.33, "hsl(241.2, 100%, 50%)");
+colorSpectrumBorderBackGround.addColorStop(0.50, "hsl(180, 100%, 50%)");
+colorSpectrumBorderBackGround.addColorStop(0.67, "hsl(118.8, 100%, 50%)");
+colorSpectrumBorderBackGround.addColorStop(0.83, "hsl(61.2, 100%, 50%)");
+colorSpectrumBorderBackGround.addColorStop(1.00, "hsl(360, 100%, 50%)");
+hueContextBorder.fillStyle = colorSpectrumBorderBackGround;
+hueContextBorder.fillRect(0, 0, widthSpectrumContextBorder, heightSpectrumContextBorder);
 
-// rgbIndexButtons.innerHTML = 'rgb(255, 255, 255)';
-// hslIndexButtons.innerHTML = 'hsl(0, 0%, 100%)';
-// hexIndexButtons.innerHTML = `#ffffff`;
+rgbIndexBorder.innerHTML = 'rgb(255, 255, 255)';
+hslIndexBorder.innerHTML = 'hsl(0, 0%, 100%)';
+hexIndexBorder.innerHTML = `#ffffff`;
 
 
 // // Spectrum BUTTONS
-// let ButtonsPositionHue = 0;
-// let ButtonsShiftY = 20;
+let BorderPositionHue = 0;
+let BorderShiftY = 20;
 
-// hueCanvasButtons.addEventListener('mousedown', (event) => {
-//     event.preventDefault();
-//     hueButtonsMouseY(event);
-//     document.addEventListener('mousemove', hueButtonsMouseY);
-//     document.addEventListener('mousedown', getButtonsColor);
-//     document.addEventListener('mousemove', getButtonsColor);
-//     document.addEventListener('mousedown', getButtonsColorCursor);
-//     document.addEventListener('mouseup', mouseButtonsHueUp);
-// });
+hueCanvasBorder.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    hueBorderMouseY(event);
+    document.addEventListener('mousemove', hueBorderMouseY);
+    document.addEventListener('mousedown', getBorderColor);
+    document.addEventListener('mousemove', getBorderColor);
+    document.addEventListener('mousedown', getBorderColorCursor);
+    document.addEventListener('mouseup', mouseBorderHueUp);
+});
 
-// pickerButtons.onmousedown = (event) => {
-//     event.preventDefault();
-//     ButtonsShiftY = event.clientY - pickerButtons.getBoundingClientRect().top;
-//     document.addEventListener('mousemove', hueButtonsMouseY);
-//     document.addEventListener('mousemove', getButtonsColor);
-//     document.addEventListener('mouseup', mouseButtonsHueUp);
-// };
+pickerBorder.onmousedown = (event) => {
+    event.preventDefault();
+    BorderShiftY = event.clientY - pickerBorder.getBoundingClientRect().top;
+    document.addEventListener('mousemove', hueBorderMouseY);
+    document.addEventListener('mousemove', getBorderColor);
+    document.addEventListener('mouseup', mouseBorderHueUp);
+};
 
-// function hueButtonsMouseY(event) {
-//     let newHueTop = event.clientY - ButtonsShiftY - colorSpectrumButtons.getBoundingClientRect().top;
-//     if (newHueTop < 0) newHueTop = 0;
-//     let topHueEdge = colorSpectrumButtons.offsetHeight - pickerButtons.offsetHeight;
-//     if (newHueTop > topHueEdge) newHueTop = topHueEdge;
-//     pickerButtons.style.top = newHueTop + 'px';
-//     ButtonsPositionHue = newHueTop;
-// };
+function hueBorderMouseY(event) {
+    let newHueTop = event.clientY - BorderShiftY - colorSpectrumBorder.getBoundingClientRect().top;
+    if (newHueTop < 0) newHueTop = 0;
+    let topHueEdge = colorSpectrumBorder.offsetHeight - pickerBorder.offsetHeight;
+    if (newHueTop > topHueEdge) newHueTop = topHueEdge;
+    pickerBorder.style.top = newHueTop + 'px';
+    BorderPositionHue = newHueTop;
+};
 
-// function getButtonsColor() {
-//     let imageDataHue = hueContextLogoImage.getImageData(0, ButtonsPositionHue, 1, 1).data;
-//     let [r, g, b] = imageDataHue;
-//     let [h, s, l] = RGBToHSL(r, g, b);
-//     rgbMainButtons = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+function getBorderColor() {
+    let imageDataHue = hueContextBorder.getImageData(0, BorderPositionHue, 1, 1).data;
+    let [r, g, b] = imageDataHue;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    rgbMainBorder = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
 
-//     colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
-//     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
-//     document.addEventListener('mousemove', getButtonsColorCursor);
-//     document.addEventListener('mouseup', mouseLogoImageHueUp);
-//     setButtonsColorPicker();
-// };
+    colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+    document.addEventListener('mousemove', getBorderColorCursor);
+    document.addEventListener('mouseup', mouseBorderHueUp);
+    setBorderColorPicker();
+};
 
-// function mouseButtonsHueUp() {
-//     document.removeEventListener('mousedown', getButtonsColorCursor);
-//     document.removeEventListener('mousedown', getButtonsColor);
-//     document.removeEventListener('mousemove', getButtonsColor)
-//     document.removeEventListener('mousemove', hueButtonsMouseY)
-//     document.removeEventListener('mouseup', hueButtonsMouseY)
-// };
-
-
-// // // LinearGradiet ColorPicker
-// let colorButtonsBoxWidth = colorBoxButtons.width;
-// let colorButtonsBoxHeight = colorBoxButtons.height;
-
-// let rgbMainButtons = `rgba(255, 0, 0, 1)`;
-// contextButtons.rect(0, 0, colorButtonsBoxWidth, colorButtonsBoxHeight);
-// setButtonsColorPicker();
-
-// function setButtonsColorPicker() {
-//     contextButtons.fillStyle = rgbMainButtons;
-//     contextButtons.fillRect(0, 0, colorButtonsBoxWidth, colorButtonsBoxHeight);
-//     let colorWhite = hueContextButtons.createLinearGradient(colorButtonsBoxWidth, 0, 0, 0);
-//     colorWhite.addColorStop(1, 'rgba(255, 255, 255, 1)');
-//     colorWhite.addColorStop(0.9, 'rgba(255, 255, 255, 1)');
-//     colorWhite.addColorStop(0.1, 'rgba(255, 255, 255, 0)');
-//     contextButtons.fillStyle = colorWhite;
-//     contextButtons.fillRect(0, 0, colorButtonsBoxWidth, colorButtonsBoxHeight);
-
-//     let colorBlack = hueContextButtons.createLinearGradient(0, 0, 0, colorButtonsBoxHeight);
-//     colorBlack.addColorStop(0.1, 'rgba(0, 0, 0, 0)');
-//     colorBlack.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
-//     colorBlack.addColorStop(1, 'rgba(0, 0, 0, 1)');
-//     contextButtons.fillStyle = colorBlack;
-//     contextButtons.fillRect(0, 0, colorButtonsBoxWidth, colorButtonsBoxHeight);
-// };
+function mouseBorderHueUp() {
+    document.removeEventListener('mousedown', getBorderColorCursor);
+    document.removeEventListener('mousedown', getBorderColor);
+    document.removeEventListener('mousemove', getBorderColor)
+    document.removeEventListener('mousemove', hueBorderMouseY)
+    document.removeEventListener('mouseup', hueBorderMouseY)
+};
 
 
-// // PickerCursor
-// let positionButtonsHueX = 0;
-// let positionButtonsHueY = 0;
-// let shiftButtonsHueX = 20;
-// let shiftButtonsHueY = 20;
+// LinearGradiet ColorPicker
+let colorBorderBoxWidth = colorBoxBorder.width;
+let colorBorderBoxHeight = colorBoxBorder.height;
 
-// function colorPickerButtonsGetColor() {
-//     document.addEventListener('mousedown', getButtonsColorCursor);
-//     document.addEventListener('mousemove', getButtonsColorCursor);
-//     document.addEventListener('mousemove', onMouseMoveButtonsCursor);
-//     document.addEventListener('mouseup', onMouseUpButtonsHueCursor);
-// };
+let rgbMainBorder = `rgba(255, 0, 0, 1)`;
+contextBorder.rect(0, 0, colorBorderBoxWidth, colorBorderBoxHeight);
+setBorderColorPicker();
 
-// colorCanvasButtons.addEventListener('mousedown', (event) => {
-//     event.preventDefault();
-//     onMouseMoveButtonsCursor(event);
-//     colorPickerButtonsGetColor();
-// });
+function setBorderColorPicker() {
+    contextBorder.fillStyle = rgbMainBorder;
+    contextBorder.fillRect(0, 0, colorBorderBoxWidth, colorBorderBoxHeight);
+    let colorWhite = hueContextBorder.createLinearGradient(colorBorderBoxWidth, 0, 0, 0);
+    colorWhite.addColorStop(1, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.9, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.1, 'rgba(255, 255, 255, 0)');
+    contextBorder.fillStyle = colorWhite;
+    contextBorder.fillRect(0, 0, colorBorderBoxWidth, colorBorderBoxHeight);
 
-// pickerCursorButtons.onmousedown = (event) => {
-//     event.preventDefault();
-//     shiftButtonsHueX = event.clientX - pickerCursorButtons.getBoundingClientRect().left;
-//     shiftButtonsHueY = event.clientY - pickerCursorButtons.getBoundingClientRect().top;
-//     colorPickerButtonsGetColor();
-// };
+    let colorBlack = hueContextBorder.createLinearGradient(0, 0, 0, colorBorderBoxHeight);
+    colorBlack.addColorStop(0.1, 'rgba(0, 0, 0, 0)');
+    colorBlack.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
+    colorBlack.addColorStop(1, 'rgba(0, 0, 0, 1)');
+    contextBorder.fillStyle = colorBlack;
+    contextBorder.fillRect(0, 0, colorBorderBoxWidth, colorBorderBoxHeight);
+};
 
-// function onMouseMoveButtonsCursor(event) {
-//     let newLeft = event.clientX - shiftButtonsHueX - colorBoxButtons.getBoundingClientRect().left;
-//     let newTop = event.clientY - shiftButtonsHueY - colorBoxButtons.getBoundingClientRect().top;
-//     if (newLeft < 0) newLeft = 0;
-//     if (newTop < 0) newTop = 0;
 
-//     let rightEdge = colorBoxButtons.offsetWidth - pickerCursorButtons.offsetWidth;
-//     let topEdge = colorBoxButtons.offsetHeight - pickerCursorButtons.offsetHeight;
+// PickerCursor
+let positionBorderHueX = 0;
+let positionBorderHueY = 0;
+let shiftBorderHueX = 20;
+let shiftBorderHueY = 20;
 
-//     if (newLeft > rightEdge) newLeft = rightEdge;
-//     if (newTop > topEdge) newTop = topEdge;
+function colorPickerBorderGetColor() {
+    document.addEventListener('mousedown', getBorderColorCursor);
+    document.addEventListener('mousemove', getBorderColorCursor);
+    document.addEventListener('mousemove', onMouseMoveBorderCursor);
+    document.addEventListener('mouseup', onMouseUpBorderHueCursor);
+};
 
-//     pickerCursorButtons.style.left = newLeft + 'px';
-//     pickerCursorButtons.style.top = newTop + 'px';
+colorCanvasBorder.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    onMouseMoveBorderCursor(event);
+    colorPickerBorderGetColor();
+});
 
-//     positionButtonsHueX = newLeft;
-//     positionButtonsHueY = newTop;
-// };
+pickerCursorBorder.onmousedown = (event) => {
+    event.preventDefault();
+    shiftBorderHueX = event.clientX - pickerCursorBorder.getBoundingClientRect().left;
+    shiftBorderHueY = event.clientY - pickerCursorBorder.getBoundingClientRect().top;
+    colorPickerBorderGetColor();
+};
 
-// function onMouseUpButtonsHueCursor() {
-//     document.removeEventListener('mousedown', getButtonsColorCursor);
-//     document.removeEventListener('mousemove', getButtonsColorCursor);
-//     document.removeEventListener('mousemove', onMouseMoveButtonsCursor);
-//     document.removeEventListener('mouseup', onMouseUpButtonsHueCursor);
-// };
+function onMouseMoveBorderCursor(event) {
+    let newLeft = event.clientX - shiftBorderHueX - colorBoxBorder.getBoundingClientRect().left;
+    let newTop = event.clientY - shiftBorderHueY - colorBoxBorder.getBoundingClientRect().top;
+    if (newLeft < 0) newLeft = 0;
+    if (newTop < 0) newTop = 0;
 
-// function getButtonsColorCursor() {
-//     let dataImage = contextButtons.getImageData(positionButtonsHueX, positionButtonsHueY, 1, 1).data;
-//     let [r, g, b] = dataImage;
-//     let [h, s, l] = RGBToHSL(r, g, b);
-//     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
-//     firstSimpleButton.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
-//     secondSimpleButton.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    let rightEdge = colorBoxBorder.offsetWidth - pickerCursorBorder.offsetWidth;
+    let topEdge = colorBoxBorder.offsetHeight - pickerCursorBorder.offsetHeight;
 
-//     colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
-//     rgbIndexButtons.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
-//     hslIndexButtons.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
-//     hexIndexButtons.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
-// };
+    if (newLeft > rightEdge) newLeft = rightEdge;
+    if (newTop > topEdge) newTop = topEdge;
+
+    pickerCursorBorder.style.left = newLeft + 'px';
+    pickerCursorBorder.style.top = newTop + 'px';
+
+    positionBorderHueX = newLeft;
+    positionBorderHueY = newTop;
+};
+
+function onMouseUpBorderHueCursor() {
+    document.removeEventListener('mousedown', getBorderColorCursor);
+    document.removeEventListener('mousemove', getBorderColorCursor);
+    document.removeEventListener('mousemove', onMouseMoveBorderCursor);
+    document.removeEventListener('mouseup', onMouseUpBorderHueCursor);
+};
+
+function getBorderColorCursor() {
+    let dataImage = contextBorder.getImageData(positionBorderHueX, positionBorderHueY, 1, 1).data;
+    let [r, g, b] = dataImage;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+
+    layOutHeader.style.borderBottom = `2px solid rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    layOutFooter.style.borderTop = `2px solid rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+
+    colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    rgbIndexBorder.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    hslIndexBorder.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+    hexIndexBorder.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
+};
