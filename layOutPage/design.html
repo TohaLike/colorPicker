@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/layOutPage/LayOutCss/styleDesign.css">
     <link rel="stylesheet" href="/layOutPage/LayOutCss/colorPickerArticle.css">
-    
+    <link rel="stylesheet" href="/layOutPage/LayOutCss/colorPickerLogoImage.css">
     <link rel="stylesheet" href="/node_modules/normalize.css/normalize.css">
     <title>Design</title>
 </head>
@@ -140,8 +140,23 @@
                 </div>
                 
 
-
-
+                <!-- ColorPickerHue LogoImage -->
+                <div class="color__picker__main__LogoImage">
+                    <div class="color__picker__LogoImage">
+                        <div class="picker__cursor__LogoImage"></div>
+                        <div class="picker__LogoImage"></div>
+                        <div class="canvas__container__LogoImage">
+                            <canvas id="color__canvas__LogoImage" class="color__box__LogoImage" height="350" width="300"></canvas>
+                            <canvas id="hue__canvas__LogoImage" class="color__spectrum__LogoImage" height="350" width="29"></canvas>
+                        </div>
+                    </div>  
+                    
+                    <div class="index__color__LogoImage">
+                        <div class="index__LogoImage rgb__index__LogoImage"></div>
+                        <div class="index__LogoImage hsl__index__LogoImage"></div>
+                        <div class="index__LogoImage hex__index__LogoImage"></div>
+                    </div>
+                </div>
 
 
 
