@@ -746,7 +746,7 @@ const hslIndexButtons = document.querySelector('.hsl__index__Buttons');
 const hexIndexButtons = document.querySelector('.hex__index__Buttons');
 
 
-// LinearGradiet LOGO IMAGE
+// LinearGradiet BUTTONS
 let widthSpectrumContextButtons = colorSpectrumButtons.width;
 let heightSpectrumContextButtons = colorSpectrumButtons.height;
 let colorSpectrumButtonsBackGround = hueContextButtons.createLinearGradient(0, 0, 0, heightSpectrumContextButtons);
@@ -765,7 +765,7 @@ hslIndexButtons.innerHTML = 'hsl(0, 0%, 100%)';
 hexIndexButtons.innerHTML = `#ffffff`;
 
 
-// Spectrum LOGO IMAGE
+// Spectrum BUTTONS
 let ButtonsPositionHue = 0;
 let ButtonsShiftY = 20;
 
@@ -805,7 +805,7 @@ function getButtonsColor() {
     colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
     document.addEventListener('mousemove', getButtonsColorCursor);
-    document.addEventListener('mouseup', mouseLogoImageHueUp);
+    document.addEventListener('mouseup', mouseButtonsHueUp);
     setButtonsColorPicker();
 };
 
@@ -910,3 +910,194 @@ function getButtonsColorCursor() {
     hslIndexButtons.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
     hexIndexButtons.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
 };
+
+
+
+
+// ///////////////////////// HEADER & FOOTER
+
+// Canvas Box
+const colorCanvasFooterHeader = document.getElementById('color__canvas__footerHeader');
+const contextFooterHeader = colorCanvasFooterHeader.getContext('2d', {willReadFrequently: true});
+const colorBoxFooterHeader = document.querySelector('.color__box__footerHeader');
+const pickerCursorFooterHeader = document.querySelector('.picker__cursor__footerHeader');
+
+// Spectrum
+const hueCanvasFooterHeader = document.getElementById('hue__canvas__footerHeader');
+const hueContextFooterHeader = hueCanvasFooterHeader.getContext('2d', {willReadFrequently: true});
+const colorSpectrumFooterHeader = document.querySelector('.color__spectrum__footerHeader'); 
+const pickerFooterHeader = document.querySelector('.picker__footerHeader');
+
+// Index
+const rgbIndexFooterHeader = document.querySelector('.rgb__index__footerHeader');
+const hslIndexFooterHeader = document.querySelector('.hsl__index__footerHeader');
+const hexIndexFooterHeader = document.querySelector('.hex__index__footerHeader');
+
+
+// LinearGradiet BUTTONS
+let widthSpectrumFooterHeader = colorSpectrumFooterHeader.width;
+let heightSpectrumFooterHeader = colorSpectrumFooterHeader.height;
+let colorSpectrumFooterHeaderBackGround = hueContextFooterHeader.createLinearGradient(0, 0, 0, heightSpectrumFooterHeader);
+colorSpectrumFooterHeaderBackGround.addColorStop(0.03, "hsl(0, 100%, 50%)");
+colorSpectrumFooterHeaderBackGround.addColorStop(0.17, "hsl(298.8, 100%, 50%)");
+colorSpectrumFooterHeaderBackGround.addColorStop(0.33, "hsl(241.2, 100%, 50%)");
+colorSpectrumFooterHeaderBackGround.addColorStop(0.50, "hsl(180, 100%, 50%)");
+colorSpectrumFooterHeaderBackGround.addColorStop(0.67, "hsl(118.8, 100%, 50%)");
+colorSpectrumFooterHeaderBackGround.addColorStop(0.83, "hsl(61.2, 100%, 50%)");
+colorSpectrumFooterHeaderBackGround.addColorStop(1.00, "hsl(360, 100%, 50%)");
+hueContextFooterHeader.fillStyle = colorSpectrumFooterHeaderBackGround;
+hueContextFooterHeader.fillRect(0, 0, widthSpectrumFooterHeader, heightSpectrumFooterHeader);
+
+rgbIndexFooterHeader.innerHTML = 'rgb(255, 255, 255)';
+hslIndexFooterHeader.innerHTML = 'hsl(0, 0%, 100%)';
+hexIndexFooterHeader.innerHTML = `#ffffff`;
+
+
+// Spectrum BUTTONS
+let FooterHeaderPositionHue = 0;
+let FooterHeaderShiftY = 20;
+
+hueCanvasFooterHeader.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    hueFooterHeaderMouseY(event);
+    document.addEventListener('mousemove', hueFooterHeaderMouseY);
+    document.addEventListener('mousedown', getFooterHeaderColor);
+    document.addEventListener('mousemove', getFooterHeaderColor);
+    document.addEventListener('mousedown', getFooterHeaderColorCursor);
+    document.addEventListener('mouseup', mouseFooterHeaderHueUp);
+});
+
+pickerFooterHeader.onmousedown = (event) => {
+    event.preventDefault();
+    FooterHeaderShiftY = event.clientY - pickerFooterHeader.getBoundingClientRect().top;
+    document.addEventListener('mousemove', hueFooterHeaderMouseY);
+    document.addEventListener('mousemove', getFooterHeaderColor);
+    document.addEventListener('mouseup', mouseFooterHeaderHueUp);
+};
+
+function hueFooterHeaderMouseY(event) {
+    let newHueTop = event.clientY - FooterHeaderShiftY - colorSpectrumFooterHeader.getBoundingClientRect().top;
+    if (newHueTop < 0) newHueTop = 0;
+    let topHueEdge = colorSpectrumFooterHeader.offsetHeight - pickerFooterHeader.offsetHeight;
+    if (newHueTop > topHueEdge) newHueTop = topHueEdge;
+    pickerFooterHeader.style.top = newHueTop + 'px';
+    FooterHeaderPositionHue = newHueTop;
+};
+
+function getFooterHeaderColor() {
+    let imageDataHue = hueContextLogoImage.getImageData(0, FooterHeaderPositionHue, 1, 1).data;
+    let [r, g, b] = imageDataHue;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    rgbMainFooterHeader = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+
+    colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+    document.addEventListener('mousemove', getFooterHeaderColorCursor);
+    document.addEventListener('mouseup', mouseLogoImageHueUp);
+    setFooterHeaderColorPicker();
+};
+
+function mouseFooterHeaderHueUp() {
+    document.removeEventListener('mousedown', getFooterHeaderColorCursor);
+    document.removeEventListener('mousedown', getFooterHeaderColor);
+    document.removeEventListener('mousemove', getFooterHeaderColor);
+    document.removeEventListener('mousemove', hueFooterHeaderMouseY);
+    document.removeEventListener('mouseup', hueFooterHeaderMouseY);
+};
+
+
+// LinearGradiet ColorPicker
+let colorFooterHeaderBoxWidth = colorBoxFooterHeader.width;
+let colorFooterHeaderBoxHeight = colorBoxFooterHeader.height;
+
+let rgbMainFooterHeader = `rgba(255, 0, 0, 1)`;
+contextFooterHeader.rect(0, 0, colorFooterHeaderBoxWidth, colorFooterHeaderBoxHeight);
+setFooterHeaderColorPicker();
+
+function setFooterHeaderColorPicker() {
+    contextFooterHeader.fillStyle = rgbMainFooterHeader;
+    contextFooterHeader.fillRect(0, 0, colorFooterHeaderBoxWidth, colorFooterHeaderBoxHeight);
+    let colorWhite = hueContextFooterHeader.createLinearGradient(colorFooterHeaderBoxWidth, 0, 0, 0);
+    colorWhite.addColorStop(1, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.9, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.1, 'rgba(255, 255, 255, 0)');
+    contextFooterHeader.fillStyle = colorWhite;
+    contextFooterHeader.fillRect(0, 0, colorFooterHeaderBoxWidth, colorFooterHeaderBoxHeight);
+
+    let colorBlack = hueContextFooterHeader.createLinearGradient(0, 0, 0, colorFooterHeaderBoxHeight);
+    colorBlack.addColorStop(0.1, 'rgba(0, 0, 0, 0)');
+    colorBlack.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
+    colorBlack.addColorStop(1, 'rgba(0, 0, 0, 1)');
+    contextFooterHeader.fillStyle = colorBlack;
+    contextFooterHeader.fillRect(0, 0, colorFooterHeaderBoxWidth, colorFooterHeaderBoxHeight);
+};
+
+
+// PickerCursor
+let positionFooterHeaderHueX = 0;
+let positionFooterHeaderHueY = 0;
+let shiftFooterHeaderHueX = 20;
+let shiftFooterHeaderHueY = 20;
+
+function colorPickerFooterHeaderGetColor() {
+    document.addEventListener('mousedown', getFooterHeaderColorCursor);
+    document.addEventListener('mousemove', getFooterHeaderColorCursor);
+    document.addEventListener('mousemove', onMouseMoveFooterHeaderCursor);
+    document.addEventListener('mouseup', onMouseUpFooterHeaderHueCursor);
+};
+
+colorCanvasFooterHeader.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    onMouseMoveFooterHeaderCursor(event);
+    colorPickerFooterHeaderGetColor();
+});
+
+pickerCursorFooterHeader.onmousedown = (event) => {
+    event.preventDefault();
+    shiftFooterHeaderHueX = event.clientX - pickerCursorFooterHeader.getBoundingClientRect().left;
+    shiftFooterHeaderHueY = event.clientY - pickerCursorFooterHeader.getBoundingClientRect().top;
+    colorPickerFooterHeaderGetColor();
+};
+
+function onMouseMoveFooterHeaderCursor(event) {
+    let newLeft = event.clientX - shiftFooterHeaderHueX - colorBoxFooterHeader.getBoundingClientRect().left;
+    let newTop = event.clientY - shiftFooterHeaderHueY - colorBoxFooterHeader.getBoundingClientRect().top;
+    if (newLeft < 0) newLeft = 0;
+    if (newTop < 0) newTop = 0;
+
+    let rightEdge = colorBoxFooterHeader.offsetWidth - pickerCursorFooterHeader.offsetWidth;
+    let topEdge = colorBoxFooterHeader.offsetHeight - pickerCursorFooterHeader.offsetHeight;
+
+    if (newLeft > rightEdge) newLeft = rightEdge;
+    if (newTop > topEdge) newTop = topEdge;
+
+    pickerCursorFooterHeader.style.left = newLeft + 'px';
+    pickerCursorFooterHeader.style.top = newTop + 'px';
+
+    positionFooterHeaderHueX = newLeft;
+    positionFooterHeaderHueY = newTop;
+};
+
+function onMouseUpFooterHeaderHueCursor() {
+    document.removeEventListener('mousedown', getFooterHeaderColorCursor);
+    document.removeEventListener('mousemove', getFooterHeaderColorCursor);
+    document.removeEventListener('mousemove', onMouseMoveFooterHeaderCursor);
+    document.removeEventListener('mouseup', onMouseUpFooterHeaderHueCursor);
+};
+
+function getFooterHeaderColorCursor() {
+    let dataImage = contextFooterHeader.getImageData(positionFooterHeaderHueX, positionFooterHeaderHueY, 1, 1).data;
+    let [r, g, b] = dataImage;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+
+    layOutHeader.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    layOutFooter.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+
+    colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    rgbIndexFooterHeader.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    hslIndexFooterHeader.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+    hexIndexFooterHeader.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
+};
+
+

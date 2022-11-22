@@ -350,7 +350,7 @@ body::-webkit-scrollbar-thumb {
 
 /* ColorPicker */
 .color__picker__hue__main {
-    display: block;
+    display: none;
 }
 
 /* ColorPickerForm */
