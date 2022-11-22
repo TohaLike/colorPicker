@@ -219,11 +219,11 @@ function getColorCursor() {
     let [r, g, b] = dataImage;
     let [h, s, l] = RGBToHSL(r, g, b);
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+    layoutContainer.style.color = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     rgbIndexHue.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hexIndexHue.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndexHue.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
-    // console.log(colorForSave);
 };
 
 
@@ -283,12 +283,17 @@ function chips() {
 
 
 // Color Picker for LayOut
+
+const layoutContainer = document.querySelector('.layout__container');
 const layOutHeader = document.querySelector('.header__main');
 const layOutFooter = document.querySelector('.footer__layout__main');
 const layOutArticle = document.querySelector('.article__layout__main');
 const simpleButton = document.querySelector('.simple__button');
 const imgLayout = document.querySelector('.img__layout');
 const layoutLogoImage = document.querySelector('.layout__logo__image');
+
+const colorPickerHueMain = document.querySelector('.color__picker__hue__main');
+const colorPickerMainArticle = document.querySelector('.color__picker__main__Article');
 
 
 const editingBtnText = document.querySelector('.editing__btn__text');
@@ -300,18 +305,38 @@ const editingBtnBorders = document.querySelector('.editing__btn__borders');
 const editingBtnImage = document.querySelector('.editing__btn__image');
 
 
+editingBtnText.addEventListener('mousedown', () => {
+    if (colorPickerHueMain.style.display = 'none') {
+        colorPickerHueMain.style.display = 'block';
+        colorPickerMainArticle.style.display = 'none';
+    };
+});
 
-// Canvas Article
-const colorPickerMainArticle = document.querySelector('.color__picker__main__Article');
+
+editingBtnArticle.addEventListener('mousedown', () => {
+    if (colorPickerMainArticle.style.display = 'none') {
+        colorPickerMainArticle.style.display = 'block';
+        colorPickerHueMain.style.display = 'none';
+    };
+});
 
 
 
 
+
+// Canvas Box
+const canvasArticle = document.getElementById('color__canvas__Article');
+const contextArticle = canvasArticle.getContext('2d', {willReadFrequently: true});
+const colorBoxArticle = document.querySelector('.color__box__Article');
+const pickerCursorArticle = document.querySelector('.picker__cursor__Article');
+
+// Spectrum
 const hueCanvasArticle = document.getElementById('hue__canvas__Article');
 const hueContextArticle = hueCanvasArticle.getContext('2d', {willReadFrequently: true});
-const colorSpectrumArticle = document.querySelector('.color__spectrum__Article');
+const colorSpectrumArticle = document.querySelector('.color__spectrum__Article'); 
 const pickerArticle = document.querySelector('.picker__Article');
 
+// Index
 const rgbIndexArticle = document.querySelector('.rgb__index__Article');
 const hslIndexArticle = document.querySelector('.hsl__index__Article');
 const hexIndexArticle = document.querySelector('.hex__index__Article');
@@ -386,11 +411,6 @@ function mouseArticleHueUp() {
     document.removeEventListener('mousemove', hueArticleMouseY)
     document.removeEventListener('mouseup', hueArticleMouseY)
 };
-
-const canvasArticle = document.getElementById('color__canvas__Article');
-const contextArticle = canvasArticle.getContext('2d', {willReadFrequently: true});
-const colorBoxArticle = document.querySelector('.color__box__Article');
-const pickerCursorArticle = document.querySelector('.picker__cursor__Article');
 
 
 // LinearGradiet ColorPicker
@@ -472,12 +492,13 @@ function onMouseUpArticleHueCursor() {
     document.removeEventListener('mouseup', onMouseUpArticleHueCursor);
 };
 
-
 function getArticleColorCursor() {
     let dataImage = contextArticle.getImageData(positionArticleHueX, positionArticleHueY, 1, 1).data;
     let [r, g, b] = dataImage;
     let [h, s, l] = RGBToHSL(r, g, b);
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+    layOutArticle.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+
     colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     rgbIndexArticle.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hslIndexArticle.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
