@@ -8,7 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Lato:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/layOutPage/styleDesign.css">
+    <link rel="stylesheet" href="/layOutPage/LayOutCss/styleDesign.css">
+    <link rel="stylesheet" href="/layOutPage/LayOutCss/colorPickerArticle.css">
+    
     <link rel="stylesheet" href="/node_modules/normalize.css/normalize.css">
     <title>Design</title>
 </head>
@@ -98,7 +100,9 @@
                     </div>
                 </div>
     
-                <!-- ColorPicker Hue -->
+           
+
+                <!-- ColorPickerHue -->
                 <div class="color__picker__hue__main">
                     <div class="color__picker__hue">
                         <div class="picker__cursor__hue"></div>
@@ -115,9 +119,32 @@
                         <div class="indexHue hex__indexHue"></div>
                     </div>
                 </div>
-
                 
-                <hr class="from__line">
+                
+                <!-- ColorPickerHue Article -->
+                <div class="color__picker__main__Article">
+                    <div class="color__picker__Article">
+                        <div class="picker__cursor__Article"></div>
+                        <div class="picker__Article"></div>
+                        <div class="canvas__container__Article">
+                            <canvas id="color__canvas__Article" class="color__box__Article" height="350" width="300"></canvas>
+                            <canvas id="hue__canvas__Article" class="color__spectrum__Article" height="350" width="29"></canvas>
+                        </div>
+                    </div>  
+                    
+                    <div class="index__color__Article">
+                        <div class="index__Article rgb__index__Article"></div>
+                        <div class="index__Article hsl__index__Article"></div>
+                        <div class="index__Article hex__index__Article"></div>
+                    </div>
+                </div>
+                
+
+
+
+
+
+
 
                 <!-- BtnSave -->
                 <div class="btn__save__section">

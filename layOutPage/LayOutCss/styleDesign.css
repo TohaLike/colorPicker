@@ -351,7 +351,6 @@ body::-webkit-scrollbar-thumb {
 /* ColorPicker */
 .color__picker__hue__main {
     display: block;
-    transition: .2 ease;
 }
 
 .color__picker__hue {
@@ -572,3 +571,6 @@ body::-webkit-scrollbar-thumb {
     background-color: #ebebeb;
     color: #000000;
 }
+
+
+
