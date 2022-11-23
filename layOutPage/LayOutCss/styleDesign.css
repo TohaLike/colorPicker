@@ -447,7 +447,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 20px;
 }
 
-.from__line {
+.underline__for__editing {
     width: 309px;
     position: relative;
     top: -150px;

@@ -28,7 +28,6 @@ const textSave = document.querySelector('.text__save');
 // };
 
 
-
 // Colors Buttons
 let colorsForBtn = [
     'rgb(255, 0, 0)',
@@ -233,6 +232,8 @@ function getColorCursor() {
 // SafeColor
 let colorSaveStorage = [];
 let colorSaveBtn = '';
+let colorWhiteForChips = 'rgb(255, 255, 255)';
+
 
 btnSaveMain.addEventListener('click', (event) => {
     event.preventDefault();
@@ -261,6 +262,7 @@ function createDeleteElement() {
     
     //  Add color
     btn.onclick = () => chips(); 
+
     btn.addEventListener('mousedown', (event) => {
         colorForSave = btn.style.backgroundColor;
         navigator.clipboard.writeText(colorForSave);
@@ -273,13 +275,15 @@ function createDeleteElement() {
     });
 };
 
+
 function chips() {
     const btnChips = document.createElement('div');
     btnChips.className = 'btn__chips';
     btnChips.classList.remove('remove__message');
-    btnChips.textContent = 'Saved!'
+    btnChips.textContent = 'Saved!';
     btnChips.style.backgroundColor = colorForSave;
-    notificationColorSaved.appendChild(btnChips);
+    notificationColorSaved.appendChild(btnChips); 
+    btnChips.style.backgroundColor = colorWhiteForChips;
     setTimeout(() => btnChips.remove(), 5000);
 };
 
