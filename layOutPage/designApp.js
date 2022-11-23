@@ -223,7 +223,6 @@ function getColorCursor() {
     firstSimpleButton.style.color = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     secondSimpleButton.style.color = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
 
-
     colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     rgbIndexHue.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hexIndexHue.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
@@ -293,7 +292,7 @@ const layOutFooter = document.querySelector('.footer__layout__main');
 const layOutArticle = document.querySelector('.article__layout__main');
 const firstSimpleButton = document.querySelector('.first__simple__button');
 const secondSimpleButton = document.querySelector('.second__simple__button');
-const imgLayout = document.querySelector('.img__layout');
+const imageMainLayout = document.querySelector('.img__layout');
 const layoutLogoImage = document.querySelector('.layout__logo__image');
 
 // Main Containers LayOut
@@ -324,6 +323,7 @@ editingBtnText.addEventListener('mousedown', () => {
         colorPickerMainLogoImage.style.display = 'none';
         colorPickerMainButtons.style.display = 'none';
         colorPickerMainFooterHeader.style.display = 'none';
+        colorPickerMainImage.style.display = 'none'
     };
 });
 
@@ -335,6 +335,7 @@ editingBtnArticle.addEventListener('mousedown', () => {
         colorPickerMainLogoImage.style.display = 'none';
         colorPickerMainButtons.style.display = 'none';
         colorPickerMainFooterHeader.style.display = 'none';
+        colorPickerMainImage.style.display = 'none';
     };
 });
 
@@ -346,6 +347,7 @@ editingBtnLogoImage.addEventListener('mousedown', () => {
         colorPickerMainArticle.style.display = 'none';
         colorPickerMainLogoImage.style.display = 'block';
         colorPickerMainButtons.style.display = 'none';
+        colorPickerMainImage.style.display = 'none'
     };
 });
 
@@ -357,6 +359,7 @@ editingBtnButtons.addEventListener('mousedown', () => {
         colorPickerHueMain.style.display = 'none';
         colorPickerMainArticle.style.display = 'none';
         colorPickerMainLogoImage.style.display = 'none';
+        colorPickerMainImage.style.display = 'none'
     };
 });
 
@@ -368,6 +371,7 @@ editingBtnHeaderFooter.addEventListener('mousedown', () => {
         colorPickerHueMain.style.display = 'none';
         colorPickerMainArticle.style.display = 'none';
         colorPickerMainLogoImage.style.display = 'none';
+        colorPickerMainImage.style.display = 'none'
     };
 });
 
@@ -379,8 +383,22 @@ editingBtnBorders.addEventListener('mousedown', () => {
         colorPickerHueMain.style.display = 'none';
         colorPickerMainArticle.style.display = 'none';
         colorPickerMainLogoImage.style.display = 'none';
+        colorPickerMainImage.style.display = 'none'
     };
 });
+
+editingBtnImage.addEventListener('mousedown', () => {
+    if (colorPickerMainImage.style.display = 'none') {
+        colorPickerMainImage.style.display = 'block';
+        colorPickerMainBorder.style.display = 'none';
+        colorPickerMainFooterHeader.style.display = 'none';
+        colorPickerMainButtons.style.display = 'none';
+        colorPickerHueMain.style.display = 'none';
+        colorPickerMainArticle.style.display = 'none';
+        colorPickerMainLogoImage.style.display = 'none';
+    };
+});
+
 
 
 // ///////////////////////// ARTICLE
@@ -1149,7 +1167,7 @@ const hslIndexBorder = document.querySelector('.hsl__index__Border');
 const hexIndexBorder = document.querySelector('.hex__index__Border');
 
 
-// // LinearGradiet BUTTONS
+// LinearGradiet BORDER
 let widthSpectrumContextBorder = colorSpectrumBorder.width;
 let heightSpectrumContextBorder = colorSpectrumBorder.height;
 let colorSpectrumBorderBackGround = hueContextBorder.createLinearGradient(0, 0, 0, heightSpectrumContextBorder);
@@ -1168,7 +1186,7 @@ hslIndexBorder.innerHTML = 'hsl(0, 0%, 100%)';
 hexIndexBorder.innerHTML = `#ffffff`;
 
 
-// // Spectrum BUTTONS
+// Spectrum BORDERa
 let BorderPositionHue = 0;
 let BorderShiftY = 20;
 
@@ -1313,4 +1331,189 @@ function getBorderColorCursor() {
     rgbIndexBorder.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hslIndexBorder.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
     hexIndexBorder.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
+};
+
+// ///////////////////////// IMAGE
+
+// Canvas Box
+const colorCanvasImage = document.getElementById('color__canvas__Image');
+const contextImage = colorCanvasImage.getContext('2d', {willReadFrequently: true});
+const colorBoxImage = document.querySelector('.color__box__Image');
+const pickerCursorImage = document.querySelector('.picker__cursor__Image');
+
+// Spectrum
+const hueCanvasImage = document.getElementById('hue__canvas__Image');
+const hueContextImage = hueCanvasImage.getContext('2d', {willReadFrequently: true});
+const colorSpectrumImage = document.querySelector('.color__spectrum__Image'); 
+const pickerImage = document.querySelector('.picker__Image');
+
+// Index
+const rgbIndexImage = document.querySelector('.rgb__index__Image');
+const hslIndexImage = document.querySelector('.hsl__index__Image');
+const hexIndexImage = document.querySelector('.hex__index__Image');
+
+
+// // LinearGradiet BORDER
+let widthSpectrumContextImage = colorSpectrumImage.width;
+let heightSpectrumContextImage = colorSpectrumImage.height;
+let colorSpectrumImageBackGround = hueContextImage.createLinearGradient(0, 0, 0, heightSpectrumContextImage);
+colorSpectrumImageBackGround.addColorStop(0.03, "hsl(0, 100%, 50%)");
+colorSpectrumImageBackGround.addColorStop(0.17, "hsl(298.8, 100%, 50%)");
+colorSpectrumImageBackGround.addColorStop(0.33, "hsl(241.2, 100%, 50%)");
+colorSpectrumImageBackGround.addColorStop(0.50, "hsl(180, 100%, 50%)");
+colorSpectrumImageBackGround.addColorStop(0.67, "hsl(118.8, 100%, 50%)");
+colorSpectrumImageBackGround.addColorStop(0.83, "hsl(61.2, 100%, 50%)");
+colorSpectrumImageBackGround.addColorStop(1.00, "hsl(360, 100%, 50%)");
+hueContextImage.fillStyle = colorSpectrumImageBackGround;
+hueContextImage.fillRect(0, 0, widthSpectrumContextImage, heightSpectrumContextImage);
+
+rgbIndexImage.innerHTML = 'rgb(255, 255, 255)';
+hslIndexImage.innerHTML = 'hsl(0, 0%, 100%)';
+hexIndexImage.innerHTML = `#ffffff`;
+
+
+// // Spectrum BORDERa
+let ImagePositionHue = 0;
+let ImageShiftY = 20;
+
+hueCanvasImage.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    hueImageMouseY(event);
+    document.addEventListener('mousemove', hueImageMouseY);
+    document.addEventListener('mousedown', getImageColor);
+    document.addEventListener('mousemove', getImageColor);
+    document.addEventListener('mousedown', getImageColorCursor);
+    document.addEventListener('mouseup', mouseImageHueUp);
+});
+
+pickerImage.onmousedown = (event) => {
+    event.preventDefault();
+    ImageShiftY = event.clientY - pickerImage.getBoundingClientRect().top;
+    document.addEventListener('mousemove', hueImageMouseY);
+    document.addEventListener('mousemove', getImageColor);
+    document.addEventListener('mouseup', mouseImageHueUp);
+};
+
+function hueImageMouseY(event) {
+    let newHueTop = event.clientY - ImageShiftY - colorSpectrumImage.getBoundingClientRect().top;
+    if (newHueTop < 0) newHueTop = 0;
+    let topHueEdge = colorSpectrumImage.offsetHeight - pickerImage.offsetHeight;
+    if (newHueTop > topHueEdge) newHueTop = topHueEdge;
+    pickerImage.style.top = newHueTop + 'px';
+    ImagePositionHue = newHueTop;
+};
+
+function getImageColor() {
+    let imageDataHue = hueContextImage.getImageData(0, ImagePositionHue, 1, 1).data;
+    let [r, g, b] = imageDataHue;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    rgbMainImage = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+
+    colorForSave = `rgb(${imageDataHue[0]}, ${imageDataHue[1]}, ${imageDataHue[2]})`;
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+    document.addEventListener('mousemove', getImageColorCursor);
+    document.addEventListener('mouseup', mouseImageHueUp);
+    setImageColorPicker();
+};
+
+function mouseImageHueUp() {
+    document.removeEventListener('mousedown', getImageColorCursor);
+    document.removeEventListener('mousedown', getImageColor);
+    document.removeEventListener('mousemove', getImageColor)
+    document.removeEventListener('mousemove', hueImageMouseY)
+    document.removeEventListener('mouseup', hueBorderMouseY)
+};
+
+
+// LinearGradiet ColorPicker
+let colorImageBoxWidth = colorBoxImage.width;
+let colorImageBoxHeight = colorBoxImage.height;
+
+let rgbMainImage = `rgba(255, 0, 0, 1)`;
+contextImage.rect(0, 0, colorImageBoxWidth, colorImageBoxHeight);
+setImageColorPicker();
+
+function setImageColorPicker() {
+    contextImage.fillStyle = rgbMainImage;
+    contextImage.fillRect(0, 0, colorImageBoxWidth, colorImageBoxHeight);
+    let colorWhite = hueContextImage.createLinearGradient(colorBorderBoxWidth, 0, 0, 0);
+    colorWhite.addColorStop(1, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.9, 'rgba(255, 255, 255, 1)');
+    colorWhite.addColorStop(0.1, 'rgba(255, 255, 255, 0)');
+    contextImage.fillStyle = colorWhite;
+    contextImage.fillRect(0, 0, colorImageBoxWidth, colorImageBoxHeight);
+
+    let colorBlack = hueContextImage.createLinearGradient(0, 0, 0, colorImageBoxHeight);
+    colorBlack.addColorStop(0.1, 'rgba(0, 0, 0, 0)');
+    colorBlack.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
+    colorBlack.addColorStop(1, 'rgba(0, 0, 0, 1)');
+    contextImage.fillStyle = colorBlack;
+    contextImage.fillRect(0, 0, colorImageBoxWidth, colorImageBoxHeight);
+};
+
+
+// PickerCursor
+let positionImageHueX = 0;
+let positionImageHueY = 0;
+let shiftImageHueX = 20;
+let shiftImageHueY = 20;
+
+function colorPickerImageGetColor() {
+    document.addEventListener('mousedown', getImageColorCursor);
+    document.addEventListener('mousemove', getImageColorCursor);
+    document.addEventListener('mousemove', onMouseMoveImageCursor);
+    document.addEventListener('mouseup', onMouseUpImageHueCursor);
+};
+
+colorCanvasImage.addEventListener('mousedown', (event) => {
+    event.preventDefault();
+    onMouseMoveImageCursor(event);
+    colorPickerImageGetColor();
+});
+
+pickerCursorImage.onmousedown = (event) => {
+    event.preventDefault();
+    shiftImageHueX = event.clientX - pickerCursorImage.getBoundingClientRect().left;
+    shiftImageHueY = event.clientY - pickerCursorImage.getBoundingClientRect().top;
+    colorPickerImageGetColor();
+};
+
+function onMouseMoveImageCursor(event) {
+    let newLeft = event.clientX - shiftImageHueX - colorBoxImage.getBoundingClientRect().left;
+    let newTop = event.clientY - shiftImageHueY - colorBoxImage.getBoundingClientRect().top;
+    if (newLeft < 0) newLeft = 0;
+    if (newTop < 0) newTop = 0;
+
+    let rightEdge = colorBoxImage.offsetWidth - pickerCursorImage.offsetWidth;
+    let topEdge = colorBoxImage.offsetHeight - pickerCursorImage.offsetHeight;
+
+    if (newLeft > rightEdge) newLeft = rightEdge;
+    if (newTop > topEdge) newTop = topEdge;
+
+    pickerCursorImage.style.left = newLeft + 'px';
+    pickerCursorImage.style.top = newTop + 'px';
+
+    positionImageHueX = newLeft;
+    positionImageHueY = newTop;
+};
+
+function onMouseUpImageHueCursor() {
+    document.removeEventListener('mousedown', getImageColorCursor);
+    document.removeEventListener('mousemove', getImageColorCursor);
+    document.removeEventListener('mousemove', onMouseMoveImageCursor);
+    document.removeEventListener('mouseup', onMouseUpImageHueCursor);
+};
+
+function getImageColorCursor() {
+    let dataImage = contextImage.getImageData(positionImageHueX, positionImageHueY, 1, 1).data;
+    let [r, g, b] = dataImage;
+    let [h, s, l] = RGBToHSL(r, g, b);
+    let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
+
+    imageMainLayout.style.backgroundColor = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+
+    colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    rgbIndexImage.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+    hslIndexImage.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+    hexIndexImage.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
 };
