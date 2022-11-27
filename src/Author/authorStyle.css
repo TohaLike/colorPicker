@@ -147,7 +147,7 @@ body::-webkit-scrollbar-thumb {
     height: 273px;
     font-size: 70px;
     font-weight: 400;
-    margin: 18px 9px 0px 25px;
+    margin: 18px 30px 0px 10px;
 }
 
 .line__author {
@@ -168,7 +168,7 @@ body::-webkit-scrollbar-thumb {
 
 .name__website {
     font-size: 90px;
-    margin: 0px 0px 0px 30px;
+    margin: 0px 0px 0px 10px;
 }
 
 .toha__img {
@@ -176,7 +176,7 @@ body::-webkit-scrollbar-thumb {
     position: absolute;
     width: 443px;
     height: 619px;
-    left: 859px;
+    left: 878px;
     top: 15px;
     border-radius: 15px;
 }
@@ -200,7 +200,7 @@ body::-webkit-scrollbar-thumb {
     grid-column-gap: 0px;
     grid-template-rows: 0px;
     margin-top: 50px;
-    margin-left: 25px;
+    margin-left: 10px;
 }
 
 .icon__main {
@@ -245,8 +245,8 @@ body::-webkit-scrollbar-thumb {
 /* Link Section */
 .link__section {
     position: relative;
-    top: 172px;
-    left: 25px;
+    top: 232px;
+    left: 10px;
 }
 
 .link__github__subtitle {
@@ -272,5 +272,5 @@ body::-webkit-scrollbar-thumb {
 
 .link__github:hover {
     color: #00A2C6;
-    text-decoration-line: underline;
+    text-decoration: underline;
 }
