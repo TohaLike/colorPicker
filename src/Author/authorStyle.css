@@ -1,0 +1,158 @@
+body {
+    background-color: #252525;
+    color: #fff;
+}
+
+/* Scroll Section */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+   
+body::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: darkgrey;
+}
+
+
+/* Btn Chips */
+.chips__color__notification {
+    position: absolute;
+    top: 142px;
+    transition: .2s ease;
+}
+
+.btn__chips {
+    font-family: 'Inter', sans-serif;
+    transform: translateX(-150%);
+    animation: ani 1s forwards;    
+    transition: all 5s ease;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    border-radius: 30px;
+    transition: .2s ease;
+    border: 2px solid #000000;
+    width: 200px;
+    height: 50px;
+    color: #000000;
+    display: flex;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    background-color: #00fd76;
+}
+
+@keyframes ani {
+    0% {transform: translateX(-150%);}
+    100% {transform: translateY(0);}
+}
+
+.remove__message {
+    visibility: 0;
+}
+
+
+/* Container */
+.container {
+    padding-left: 223px;
+    padding-right: 223px;
+}
+
+.article {
+    height: 1200px;
+    max-width: 1366px;
+    margin: 0 auto;
+    background-color: #454545;
+    box-shadow: 17px 25px 23px 11px rgba(0, 0, 0, 0.25), 
+    -17px 25px 23px 11px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    position: relative;
+}
+
+
+/* Logo Section */
+.logo__section {
+    max-width: 1366px;
+    margin: 0 auto;
+    margin-top: 6px;
+    margin-bottom: -15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.header__logo {
+    user-select: none;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 800;   
+    font-size: 110px;
+    line-height: 104px; 
+    margin: 0;
+    margin-left: -5px;
+    padding-bottom: 47px;
+    background: linear-gradient(180deg, 
+    #ffffff 29.9%, 
+    #8a8a8a 57.73%, 
+    #222222 105.15%, 
+    #ffffff 105.15%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;    
+    text-shadow: 0px 5.6px 50.4px rgba(0, 0, 0, 0.5);
+}
+
+.logo__navigation {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+}
+
+.nav {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    user-select: none;
+}
+
+.nav li {
+    margin-left: 70px;
+}
+
+.nav li a {
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-clip: text;
+    color: #c2c9d6;
+    filter: drop-shadow(2px 2px 7px #000000);
+    transition: .2s ease;
+}
+
+.nav li a:hover {
+    color: #ffffff;
+    filter: drop-shadow(2px 2px 7px #000000);
+}
+
+
+.main__information {
+    font-family: 'IBM Plex Mono', monospace;    
+    color: #000000;
+    position: relative;
+    top: 15px;
+    left: 15px;
+    height: 1170px;
+    max-width: 1336px;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+
+
+
+.toha__img {
+    background: url(/src/Author/image/Тоха\ 1.svg);
+    position: absolute;
+    width: 443px;
+    height: 619px;
+    border-radius: 15px;
+}

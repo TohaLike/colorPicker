@@ -44,13 +44,17 @@ let colorsForBtn = [
     'rgb(0, 0, 0)'
 ];
 
-for (let i = 0; i < colorsForBtn.length; i++) {
-    btnColors[i].style.background = colorsForBtn[i];
-    btnColors[i].onmousedown = () => {
-        colorResult.style.backgroundColor = colorsForBtn[i];
-        // console.log(colorsForBtn[i]);
-    };
-}; 
+colorBtnForEditingSection()
+
+function colorBtnForEditingSection() {
+    for (let i = 0; i < colorsForBtn.length; i++) {
+        btnColors[i].style.background = colorsForBtn[i];
+        btnColors[i].onmousedown = () => {
+            colorResult.style.backgroundColor = colorsForBtn[i];
+            // console.log(colorsForBtn[i]);
+        };
+    }; 
+};
 
 
 // LinearGradiet Hue
