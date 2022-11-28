@@ -464,6 +464,79 @@ body::-webkit-scrollbar-thumb {
     background-color: rgb(255, 255, 255);   
 }
 
+ 
+/* Search Subtitle */
+.text__section {
+    position: absolute;
+    top: 612px;
+    left: 5px;
+}
+
+.subtitle__search {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    margin: 0;
+    color: #00D1FF;
+    font-size: 19px;
+    font-weight: 700;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    line-height: 25px;
+    word-spacing: 17.5px;
+}
+
+.subtitle__search::before {
+    content: '{';
+    color: #FF8A00;
+}
+
+.subtitle__search::after {
+    content: '}';
+    color: #FF8A00;
+}
+
+.line__section {
+    position: relative;
+    top: -24px;
+    left: 0px;
+}
+
+.underline__sub {
+    border: 0.5px solid #000000;
+    margin-top: 2px;
+}
+
+.uderline__subtitle__one {
+    position: absolute;
+    top: 25px;
+    left: -5px;
+    width: 574px;
+    height: 2px;
+    background: #FF0000;
+    border-radius: 3px;
+}
+
+.uderline__subtitle__two {
+    position: absolute;
+    top: 35px;
+    left: 80px;
+    width: 400px;
+    height: 2px;
+    background: #00FF00;
+    border: 0.5px solid #000000;
+    border-radius: 3px;
+}
+
+.uderline__subtitle__three {
+    position: absolute;
+    top: 45px;
+    left: 183px;
+    width: 200px;
+    height: 2px;
+    background: #0000FF;
+    border: 0.5px solid #000000;
+    border-radius: 3px;
+}
+
 
 /* ColorSearch */
 /* RGB */
