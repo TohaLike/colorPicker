@@ -59,7 +59,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .article {
-    height: 1200px;
+    height: 2003px;
     max-width: 1366px;
     margin: 0 auto;
     background: #454545;
@@ -816,3 +816,103 @@ body::-webkit-scrollbar-thumb {
     color: #000000;
 }
 
+
+/* Color model help */
+.name__model__help {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 70px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 92px;
+}
+
+.rgb__index__section {
+    margin-left: 26px;
+}
+
+.rgb__model__section {
+    width: 1326px;
+    height: 297px;
+    background: #252525;
+    border-radius: 5px;
+    margin-top: -33px;
+    margin-left: 20px;
+}
+
+.red__section {
+    font-family: 'IBM Plex Mono', monospace;
+    display: flex;
+    font-size: 30px;
+}
+
+.green__section {
+    font-family: 'IBM Plex Mono', monospace;
+    display: flex;
+    font-size: 30px;
+    margin-top: -47px;
+}
+
+.blue__section {
+    font-family: 'IBM Plex Mono', monospace;
+    display: flex;
+    font-size: 30px;
+    margin-top: -48px;
+}
+
+.rgb__info {
+    width: 1274px;
+    height: 118px;
+    font-family: 'Inter';
+    font-size: 26px;
+    color: #FFFFFF;
+    position: relative;
+    margin: 0;
+    top: 13px;
+    left: 26px;
+    word-spacing: -1px;
+}
+
+.bracket {
+    color: #FF8A00;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.tag__color {
+    color: #01C2FF;
+}
+
+.tag__color::after {
+    content: ':';
+    color: #ffffff;
+}
+
+
+.main__index {
+    margin-left: 20px;
+    color: #FFFB94;
+}
+
+.tag__name {
+    color: #00FFF0;
+}
+
+
+.color__index__main {
+    color: #95FF84;
+}
+
+.color__index__main::before {
+    content: '(';
+    color: #D02DD3;
+}
+
+.color__index__main::after {
+    content: ')';
+    color: #D02DD3;
+}
+
+.comment {
+    color: #454545;
+}
