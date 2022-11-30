@@ -960,6 +960,11 @@ body::-webkit-scrollbar-thumb {
     word-spacing: -1px;
 }
 
+.bracket__hsl {
+    color: #FF8A00;
+    margin-left: 55px;
+    margin-right: 30px;
+}
 
 .red__section__hsl {
     font-family: 'IBM Plex Mono', monospace;
