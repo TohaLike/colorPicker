@@ -845,7 +845,7 @@ body::-webkit-scrollbar-thumb {
     font-family: 'IBM Plex Mono', monospace;
     display: flex;
     font-size: 20px;
-    margin-top: -50px;
+    margin-top: -4px;
 }
 
 .green__section {
@@ -864,7 +864,7 @@ body::-webkit-scrollbar-thumb {
 
 .rgb__info {
     width: 1274px;
-    height: 118px;
+    height: 70px;
     font-family: 'Inter';
     font-size: 19px;
     color: #FFFFFF;
@@ -943,13 +943,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .hsl__index__section {
-    margin-top: -50px;
+    margin-top: 0px;
     margin-left: 20px;
 }
 
 .hsl__info {
     width: 1274px;
-    height: 145px;
+    height: 100px;
     font-family: 'Inter';
     font-size: 19px;
     color: #FFFFFF;
@@ -1006,7 +1006,7 @@ body::-webkit-scrollbar-thumb {
 
 .hex__info {
     width: 1274px;
-    height: 145px;
+    height: 100px;
     font-family: 'Inter';
     font-size: 19px;
     color: #FFFFFF;
@@ -1018,7 +1018,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .hex__index__section {
-    margin-top: -20px;
+    margin-top: 25px;
     margin-left: 20px;
 }
 
