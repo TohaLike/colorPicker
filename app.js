@@ -69,21 +69,57 @@ let colorsForBtn = [
     'rgb(0, 255, 0)',
     'rgb(0, 0, 255)',
     'rgb(127, 0, 255)',
+    'rgb(255, 255, 255)',
     'rgb(231, 84, 128)',
     'rgb(255,255,0)',
     'rgb(255, 165, 0)',
     'rgb(200, 162, 200)',
-    'rgb(255, 255, 255)',
     'rgb(0, 0, 0)'
 ];
+
+let colorsForBtnHsl = [
+    'hsl(0, 100%, 50%)',
+    'hsl(120, 100%, 50%)',
+    'hsl(240, 100%, 50%)',
+    'hsl(270, 100%, 50%)',
+    'hsl(0, 0%, 100%)',
+    'hsl(342, 100%, 50%)',
+    'hsl(60, 100%, 50%)',
+    'hsl(39, 100%, 50%)',
+    'hsl(300, 26%, 71%)',
+    'hsl(0, 0%, 0%)'
+];
+
+let colorsForBtnHex = [
+    '#FF0000',
+    '#00FF00',
+    '#0000FF',
+    '#7F00FF',
+    '#FFFFFF',
+    '#E75480',
+    '#FFFF00',
+    '#FFA500',
+    '#C8A2C8',
+    '#000000'
+];
+
 
 for (let i = 0; i < colorsForBtn.length; i++) {
     btnColors[i].style.background = colorsForBtn[i];
     btnColors[i].onmousedown = () => {
         colorResult.style.backgroundColor = colorsForBtn[i];
+        rgbIndexHue.innerHTML = colorsForBtn[i];
+        hslIndexHue.innerHTML = colorsForBtnHsl[i];
+        hexIndexHue.innerHTML = colorsForBtnHex[i];
+        rgbIndex.innerHTML = colorsForBtn[i];
+        hslIndex.innerHTML = colorsForBtnHsl[i];
+        hexIndex.innerHTML = colorsForBtnHex[i];
+
         // console.log(colorsForBtn[i]);
     };
 }; 
+
+
 
 
 // LinearGradiet ColorPicker
