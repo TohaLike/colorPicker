@@ -29,8 +29,6 @@ const textSave = document.querySelector('.text__save');
 
 
 // Colors Buttons
-let saveColorInButtons = '';
-
 let colorsForBtn = [
     'rgb(255, 0, 0)',
     'rgb(0, 255, 0)',
@@ -46,7 +44,38 @@ let colorsForBtn = [
     'rgb(0, 0, 0)'
 ];
 
-colorBtnForEditingSection()
+let colorsForBtnHsl = [
+    'hsl(0, 100%, 50%)',
+    'hsl(120, 100%, 50%)',
+    'hsl(240, 100%, 50%)',
+    'hsl(270, 100%, 50%)',
+    'hsl(342, 100%, 50%)',
+    'hsl(60, 100%, 50%)',
+    'hsl(39, 100%, 50%)',
+    'hsl(300, 26%, 71%)',
+    'hsl(200, 13%, 18%)',
+    'hsl(249, 9%, 29%)',
+    'hsl(0, 0%, 100%)',
+    'hsl(0, 0%, 0%)'
+];
+
+let colorsForBtnHex = [
+    '#FF0000',
+    '#00FF00',
+    '#0000FF',
+    '#7F00FF',
+    '#E75480',
+    '#FFFF00',
+    '#FFA500',
+    '#C8A2C8',
+    '#293135',
+    '#464451',
+    '#FFFFFF',
+    '#000000'
+];
+
+
+colorBtnForEditingSection();
 
 function colorBtnForEditingSection() {
     for (let i = 0; i < colorsForBtn.length; i++) {
@@ -54,8 +83,10 @@ function colorBtnForEditingSection() {
         btnColors[i].onmousedown = () => {
             layoutContainer.style.color = colorsForBtn[i];
             firstSimpleButton.style.color = colorsForBtn[i];
-            secondSimpleButton.style.color = colorsForBtn[i];   
-            // console.log(colorsForBtn[i]);
+            secondSimpleButton.style.color = colorsForBtn[i];
+            rgbIndexHue.innerHTML = colorsForBtn[i];
+            hslIndexHue.innerHTML = colorsForBtnHsl[i];
+            hexIndexHue.innerHTML = colorsForBtnHex[i];
         };
     }; 
 };
@@ -65,6 +96,9 @@ function colorBtnForArticle() {
         btnColors[i].style.background = colorsForBtn[i];
         btnColors[i].onmousedown = () => {
             layOutArticle.style.backgroundColor = colorsForBtn[i];
+            rgbIndexArticle.innerHTML = colorsForBtn[i];
+            hslIndexArticle.innerHTML = colorsForBtnHsl[i];
+            hexIndexArticle.innerHTML = colorsForBtnHex[i];          
         };
     }; 
 };
@@ -74,6 +108,9 @@ function colorBtnForLogoImage() {
         btnColors[i].style.background = colorsForBtn[i];
         btnColors[i].onmousedown = () => {
             layoutLogoImage.style.backgroundColor = colorsForBtn[i];
+            rgbIndexLogoImage.innerHTML = colorsForBtn[i];
+            hslIndexLogoImage.innerHTML = colorsForBtnHsl[i];
+            hexIndexLogoImage.innerHTML = colorsForBtnHex[i];    
         };
     }; 
 };
@@ -83,7 +120,10 @@ function colorBtnForButtons() {
         btnColors[i].style.background = colorsForBtn[i];
         btnColors[i].onmousedown = () => {
             firstSimpleButton.style.backgroundColor = colorsForBtn[i];
-            secondSimpleButton.style.backgroundColor = colorsForBtn[i];     
+            secondSimpleButton.style.backgroundColor = colorsForBtn[i];    
+            rgbIndexButtons.innerHTML = colorsForBtn[i];
+            hslIndexButtons.innerHTML = colorsForBtnHsl[i];
+            hexIndexButtons.innerHTML = colorsForBtnHex[i];    
         };
     }; 
 };
@@ -94,6 +134,9 @@ function colorBtnForFooterHeader() {
         btnColors[i].onmousedown = () => {
             layOutHeader.style.backgroundColor = colorsForBtn[i];
             layOutFooter.style.backgroundColor = colorsForBtn[i];
+            rgbIndexFooterHeader.innerHTML = colorsForBtn[i];
+            hslIndexFooterHeader.innerHTML = colorsForBtnHsl[i];
+            hexIndexFooterHeader.innerHTML = colorsForBtnHex[i];   
         };
     }; 
 };
@@ -104,6 +147,9 @@ function colorBtnForBorder() {
         btnColors[i].onmousedown = () => {
             layOutHeader.style.borderBottom = `2px solid ${colorsForBtn[i]}`;
             layOutFooter.style.borderTop = `2px solid ${colorsForBtn[i]}`;
+            rgbIndexBorder.innerHTML = colorsForBtn[i];
+            hslIndexBorder.innerHTML = colorsForBtnHsl[i];
+            hexIndexBorder.innerHTML = colorsForBtnHex[i];   
         };
     }; 
 };
@@ -113,6 +159,9 @@ function colorBtnForImage() {
         btnColors[i].style.background = colorsForBtn[i];
         btnColors[i].onmousedown = () => {
             imageMainLayout.style.backgroundColor = colorsForBtn[i];
+            rgbIndexImage.innerHTML = colorsForBtn[i];
+            hslIndexImage.innerHTML = colorsForBtnHsl[i];
+            hexIndexImage.innerHTML = colorsForBtnHex[i];   
         };
     }; 
 };
