@@ -510,7 +510,6 @@ body::-webkit-scrollbar-thumb {
     width: 180px;
     height: 320px;
     background-color: #252525;
-    border: 5px solid #454545;
     border-radius: 4px;
     overflow-y: scroll;
 }
