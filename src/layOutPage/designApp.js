@@ -29,6 +29,8 @@ const textSave = document.querySelector('.text__save');
 
 
 // Colors Buttons
+let saveColorInButtons = '';
+
 let colorsForBtn = [
     'rgb(255, 0, 0)',
     'rgb(0, 255, 0)',
@@ -50,8 +52,67 @@ function colorBtnForEditingSection() {
     for (let i = 0; i < colorsForBtn.length; i++) {
         btnColors[i].style.background = colorsForBtn[i];
         btnColors[i].onmousedown = () => {
-            colorResult.style.backgroundColor = colorsForBtn[i];
+            layoutContainer.style.color = colorsForBtn[i];
+            firstSimpleButton.style.color = colorsForBtn[i];
+            secondSimpleButton.style.color = colorsForBtn[i];   
             // console.log(colorsForBtn[i]);
+        };
+    }; 
+};
+
+function colorBtnForArticle() {
+    for (let i = 0; i < colorsForBtn.length; i++) {
+        btnColors[i].style.background = colorsForBtn[i];
+        btnColors[i].onmousedown = () => {
+            layOutArticle.style.backgroundColor = colorsForBtn[i];
+        };
+    }; 
+};
+
+function colorBtnForLogoImage() {
+    for (let i = 0; i < colorsForBtn.length; i++) {
+        btnColors[i].style.background = colorsForBtn[i];
+        btnColors[i].onmousedown = () => {
+            layoutLogoImage.style.backgroundColor = colorsForBtn[i];
+        };
+    }; 
+};
+
+function colorBtnForButtons() {
+    for (let i = 0; i < colorsForBtn.length; i++) {
+        btnColors[i].style.background = colorsForBtn[i];
+        btnColors[i].onmousedown = () => {
+            firstSimpleButton.style.backgroundColor = colorsForBtn[i];
+            secondSimpleButton.style.backgroundColor = colorsForBtn[i];     
+        };
+    }; 
+};
+
+function colorBtnForFooterHeader() {
+    for (let i = 0; i < colorsForBtn.length; i++) {
+        btnColors[i].style.background = colorsForBtn[i];
+        btnColors[i].onmousedown = () => {
+            layOutHeader.style.backgroundColor = colorsForBtn[i];
+            layOutFooter.style.backgroundColor = colorsForBtn[i];
+        };
+    }; 
+};
+
+function colorBtnForBorder() {
+    for (let i = 0; i < colorsForBtn.length; i++) {
+        btnColors[i].style.background = colorsForBtn[i];
+        btnColors[i].onmousedown = () => {
+            layOutHeader.style.borderBottom = `2px solid ${colorsForBtn[i]}`;
+            layOutFooter.style.borderTop = `2px solid ${colorsForBtn[i]}`;
+        };
+    }; 
+};
+
+function colorBtnForImage() {
+    for (let i = 0; i < colorsForBtn.length; i++) {
+        btnColors[i].style.background = colorsForBtn[i];
+        btnColors[i].onmousedown = () => {
+            imageMainLayout.style.backgroundColor = colorsForBtn[i];
         };
     }; 
 };
@@ -280,7 +341,6 @@ function createDeleteElement() {
     });
 };
 
-
 function chips() {
     const btnChips = document.createElement('div');
     btnChips.className = 'btn__chips';
@@ -292,7 +352,6 @@ function chips() {
     setTimeout(() => btnChips.remove(), 5000);
     console.log(colorChip)
 };
-
 
 
 // Color Picker for LayOut
@@ -326,6 +385,7 @@ const editingBtnImage = document.querySelector('.editing__btn__image');
 
 
 editingBtnText.addEventListener('mousedown', () => {
+    colorBtnForEditingSection();
     if (colorPickerHueMain.style.display = 'none') {
         colorPickerMainBorder.style.display = 'none';
         colorPickerHueMain.style.display = 'block';
@@ -338,6 +398,7 @@ editingBtnText.addEventListener('mousedown', () => {
 });
 
 editingBtnArticle.addEventListener('mousedown', () => {
+    colorBtnForArticle();
     if (colorPickerMainArticle.style.display = 'none') {
         colorPickerMainBorder.style.display = 'none';
         colorPickerMainArticle.style.display = 'block';
@@ -350,6 +411,7 @@ editingBtnArticle.addEventListener('mousedown', () => {
 });
 
 editingBtnLogoImage.addEventListener('mousedown', () => {
+    colorBtnForLogoImage();
     if (colorPickerMainLogoImage.style.display = 'none') {
         colorPickerMainBorder.style.display = 'none';
         colorPickerHueMain.style.display = 'none';
@@ -362,6 +424,7 @@ editingBtnLogoImage.addEventListener('mousedown', () => {
 });
 
 editingBtnButtons.addEventListener('mousedown', () => {
+    colorBtnForButtons();
     if (colorPickerMainButtons.style.display = 'none') {
         colorPickerMainBorder.style.display = 'none';
         colorPickerMainFooterHeader.style.display = 'none';
@@ -374,6 +437,7 @@ editingBtnButtons.addEventListener('mousedown', () => {
 });
 
 editingBtnHeaderFooter.addEventListener('mousedown', () => {
+    colorBtnForFooterHeader();
     if (colorPickerMainFooterHeader.style.display = 'none') {
         colorPickerMainBorder.style.display = 'none';
         colorPickerMainFooterHeader.style.display = 'block';
@@ -386,6 +450,7 @@ editingBtnHeaderFooter.addEventListener('mousedown', () => {
 });
 
 editingBtnBorders.addEventListener('mousedown', () => {
+    colorBtnForBorder();
     if (colorPickerMainBorder.style.display = 'none') {
         colorPickerMainBorder.style.display = 'block';
         colorPickerMainFooterHeader.style.display = 'none';
@@ -398,6 +463,7 @@ editingBtnBorders.addEventListener('mousedown', () => {
 });
 
 editingBtnImage.addEventListener('mousedown', () => {
+    colorBtnForImage();
     if (colorPickerMainImage.style.display = 'none') {
         colorPickerMainImage.style.display = 'block';
         colorPickerMainBorder.style.display = 'none';
@@ -1363,7 +1429,7 @@ const hslIndexImage = document.querySelector('.hsl__index__Image');
 const hexIndexImage = document.querySelector('.hex__index__Image');
 
 
-// // LinearGradiet BORDER
+// // LinearGradiet IMAGE
 let widthSpectrumContextImage = colorSpectrumImage.width;
 let heightSpectrumContextImage = colorSpectrumImage.height;
 let colorSpectrumImageBackGround = hueContextImage.createLinearGradient(0, 0, 0, heightSpectrumContextImage);
@@ -1382,7 +1448,7 @@ hslIndexImage.innerHTML = 'hsl(0, 0%, 100%)';
 hexIndexImage.innerHTML = `#ffffff`;
 
 
-// // Spectrum BORDERa
+// Spectrum IMAGE
 let ImagePositionHue = 0;
 let ImageShiftY = 20;
 
