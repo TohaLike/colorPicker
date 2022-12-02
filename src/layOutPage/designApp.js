@@ -203,7 +203,7 @@ function onMouseUpHueCursor() {
     document.removeEventListener('mouseup', onMouseUpHueCursor);
 };
 
-let colorForSave = '';
+let colorForSave = 'rgb(255, 255, 255)';
 
 function getHueColor() {
     let imageDataHue = spectrumContext.getImageData(0, positionHue, 1, 1).data;
@@ -237,6 +237,7 @@ function getColorCursor() {
 let colorSaveStorage = [];
 let colorSaveBtn = '';
 let colorWhiteForChips = 'rgb(255, 255, 255)';
+let colorChip = '';
 
 
 btnSaveMain.addEventListener('click', (event) => {
@@ -285,10 +286,11 @@ function chips() {
     btnChips.className = 'btn__chips';
     btnChips.classList.remove('remove__message');
     btnChips.textContent = 'Saved!';
+    
     btnChips.style.backgroundColor = colorForSave;
     notificationColorSaved.appendChild(btnChips); 
-    btnChips.style.backgroundColor = colorWhiteForChips;
     setTimeout(() => btnChips.remove(), 5000);
+    console.log(colorChip)
 };
 
 
