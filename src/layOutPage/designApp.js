@@ -87,6 +87,7 @@ function colorBtnForEditingSection() {
             rgbIndexHue.innerHTML = colorsForBtn[i];
             hslIndexHue.innerHTML = colorsForBtnHsl[i];
             hexIndexHue.innerHTML = colorsForBtnHex[i];
+            colorForSave = rgbIndexHue.innerHTML;
         };
     }; 
 };
@@ -98,7 +99,8 @@ function colorBtnForArticle() {
             layOutArticle.style.backgroundColor = colorsForBtn[i];
             rgbIndexArticle.innerHTML = colorsForBtn[i];
             hslIndexArticle.innerHTML = colorsForBtnHsl[i];
-            hexIndexArticle.innerHTML = colorsForBtnHex[i];          
+            hexIndexArticle.innerHTML = colorsForBtnHex[i];    
+            colorForSave = rgbIndexArticle.innerHTML;
         };
     }; 
 };
@@ -110,7 +112,8 @@ function colorBtnForLogoImage() {
             layoutLogoImage.style.backgroundColor = colorsForBtn[i];
             rgbIndexLogoImage.innerHTML = colorsForBtn[i];
             hslIndexLogoImage.innerHTML = colorsForBtnHsl[i];
-            hexIndexLogoImage.innerHTML = colorsForBtnHex[i];    
+            hexIndexLogoImage.innerHTML = colorsForBtnHex[i];   
+            colorForSave = rgbIndexLogoImage.innerHTML;
         };
     }; 
 };
@@ -124,6 +127,7 @@ function colorBtnForButtons() {
             rgbIndexButtons.innerHTML = colorsForBtn[i];
             hslIndexButtons.innerHTML = colorsForBtnHsl[i];
             hexIndexButtons.innerHTML = colorsForBtnHex[i];    
+            colorForSave = rgbIndexButtons.innerHTML;
         };
     }; 
 };
@@ -136,7 +140,8 @@ function colorBtnForFooterHeader() {
             layOutFooter.style.backgroundColor = colorsForBtn[i];
             rgbIndexFooterHeader.innerHTML = colorsForBtn[i];
             hslIndexFooterHeader.innerHTML = colorsForBtnHsl[i];
-            hexIndexFooterHeader.innerHTML = colorsForBtnHex[i];   
+            hexIndexFooterHeader.innerHTML = colorsForBtnHex[i];  
+            colorForSave = rgbIndexFooterHeader.innerHTML; 
         };
     }; 
 };
@@ -150,6 +155,7 @@ function colorBtnForBorder() {
             rgbIndexBorder.innerHTML = colorsForBtn[i];
             hslIndexBorder.innerHTML = colorsForBtnHsl[i];
             hexIndexBorder.innerHTML = colorsForBtnHex[i];   
+            colorForSave = rgbIndexBorder.innerHTML;
         };
     }; 
 };
@@ -161,7 +167,8 @@ function colorBtnForImage() {
             imageMainLayout.style.backgroundColor = colorsForBtn[i];
             rgbIndexImage.innerHTML = colorsForBtn[i];
             hslIndexImage.innerHTML = colorsForBtnHsl[i];
-            hexIndexImage.innerHTML = colorsForBtnHex[i];   
+            hexIndexImage.innerHTML = colorsForBtnHex[i];  
+            colorForSave = rgbIndexImage.innerHTML; 
         };
     }; 
 };

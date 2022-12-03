@@ -111,10 +111,11 @@ for (let i = 0; i < colorsForBtn.length; i++) {
         rgbIndexHue.innerHTML = colorsForBtn[i];
         hslIndexHue.innerHTML = colorsForBtnHsl[i];
         hexIndexHue.innerHTML = colorsForBtnHex[i];
+        colorForSave = rgbIndexHue.innerHTML;
         rgbIndex.innerHTML = colorsForBtn[i];
         hslIndex.innerHTML = colorsForBtnHsl[i];
         hexIndex.innerHTML = colorsForBtnHex[i];
-
+        colorForSave = rgbIndex.innerHTML;
         // console.log(colorsForBtn[i]);
     };
 }; 
@@ -244,6 +245,7 @@ function getColorPicker() {
     let [h, s, l] = RGBToHSL(r, g, b);
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
     colorResult.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;
+    colorForSave = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;
     rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;
     hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
@@ -423,6 +425,7 @@ function getHueColor() {
     hslL.value = `${Math.round(l)}`;
 };
 
+
 function getColorCursor() {
     let dataImage = contextHueBox.getImageData(positionHueX, positionHueY, 1, 1).data;
     let [r, g, b] = dataImage;
@@ -432,6 +435,9 @@ function getColorCursor() {
     rgbIndexHue.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hexIndexHue.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndexHue.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+
+    colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+
     rgbR.value = `${dataImage[0]}`;
     rgbG.value = `${dataImage[1]}`;
     rgbB.value = `${dataImage[2]}`;
@@ -521,7 +527,7 @@ btnDeleteAll.addEventListener('click', () => {
 
 function createDeleteElement() { 
     const btn = document.createElement('button');   
-    btn.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+    btn.style.backgroundColor = colorForSave;
     btn.className = 'type__color__btn';
     colorBlock.appendChild(btn);
 
