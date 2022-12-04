@@ -20,6 +20,34 @@ const colorBlock = document.querySelector('.color__block');
 const notificationColorSaved = document.querySelector('.chips__color__notification');
 const textSave = document.querySelector('.text__save');
 
+// Color Picker for LayOut
+const layoutContainer = document.querySelector('.layout__container');
+const layOutHeader = document.querySelector('.header__main');
+const layOutFooter = document.querySelector('.footer__layout__main');
+const layOutArticle = document.querySelector('.article__layout__main');
+const firstSimpleButton = document.querySelector('.first__simple__button');
+const secondSimpleButton = document.querySelector('.second__simple__button');
+const imageMainLayout = document.querySelector('.img__layout');
+const layoutLogoImage = document.querySelector('.layout__logo__image');
+
+// Main Containers LayOut
+const colorPickerHueMain = document.querySelector('.color__picker__hue__main');
+const colorPickerMainArticle = document.querySelector('.color__picker__main__Article');
+const colorPickerMainLogoImage = document.querySelector('.color__picker__main__LogoImage');
+const colorPickerMainButtons = document.querySelector('.color__picker__main__Buttons');
+const colorPickerMainFooterHeader = document.querySelector('.color__picker__main__footerHeader');
+const colorPickerMainBorder = document.querySelector('.color__picker__main__Border');
+const colorPickerMainImage = document.querySelector('.color__picker__main__Image');
+
+
+// Buttons LayOut
+const editingBtnText = document.querySelector('.editing__btn__text');
+const editingBtnArticle = document.querySelector('.editing__btn__article');
+const editingBtnLogoImage = document.querySelector('.editing__btn__logoImage');
+const editingBtnButtons = document.querySelector('.editing__btn__buttons');
+const editingBtnHeaderFooter = document.querySelector('.editing__btn__header__footer');
+const editingBtnBorders = document.querySelector('.editing__btn__borders');
+const editingBtnImage = document.querySelector('.editing__btn__image');
 
 
 // Closed Context
@@ -409,125 +437,102 @@ function chips() {
     console.log(colorChip)
 };
 
+function typeEditing() {
+    colorPickerHueMain.style.display = 'none';
+    colorPickerMainArticle.style.display = 'none';
+    colorPickerMainLogoImage.style.display = 'none';
+    colorPickerMainButtons.style.display = 'none';
+    colorPickerMainFooterHeader.style.display = 'none';
+    colorPickerMainBorder.style.display = 'none';
+    colorPickerMainImage.style.display = 'none'
+};
 
-// Color Picker for LayOut
-const layoutContainer = document.querySelector('.layout__container');
-const layOutHeader = document.querySelector('.header__main');
-const layOutFooter = document.querySelector('.footer__layout__main');
-const layOutArticle = document.querySelector('.article__layout__main');
-const firstSimpleButton = document.querySelector('.first__simple__button');
-const secondSimpleButton = document.querySelector('.second__simple__button');
-const imageMainLayout = document.querySelector('.img__layout');
-const layoutLogoImage = document.querySelector('.layout__logo__image');
-
-// Main Containers LayOut
-const colorPickerHueMain = document.querySelector('.color__picker__hue__main');
-const colorPickerMainArticle = document.querySelector('.color__picker__main__Article');
-const colorPickerMainLogoImage = document.querySelector('.color__picker__main__LogoImage');
-const colorPickerMainButtons = document.querySelector('.color__picker__main__Buttons');
-const colorPickerMainFooterHeader = document.querySelector('.color__picker__main__footerHeader');
-const colorPickerMainBorder = document.querySelector('.color__picker__main__Border');
-const colorPickerMainImage = document.querySelector('.color__picker__main__Image');
-
-
-// Buttons LayOut
-const editingBtnText = document.querySelector('.editing__btn__text');
-const editingBtnArticle = document.querySelector('.editing__btn__article');
-const editingBtnLogoImage = document.querySelector('.editing__btn__logoImage');
-const editingBtnButtons = document.querySelector('.editing__btn__buttons');
-const editingBtnHeaderFooter = document.querySelector('.editing__btn__header__footer');
-const editingBtnBorders = document.querySelector('.editing__btn__borders');
-const editingBtnImage = document.querySelector('.editing__btn__image');
+function colorButtonsEditing() {
+    editingBtnText.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnArticle.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnLogoImage.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnButtons.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnHeaderFooter.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnBorders.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnImage.style.backgroundColor = 'rgb(69, 69, 69)';
+};
 
 
+// Color Picker for Design
 editingBtnText.addEventListener('mousedown', () => {
     colorBtnForEditingSection();
+    colorButtonsEditing();
+    editingBtnText.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerHueMain.style.display = 'none') {
-        colorPickerMainBorder.style.display = 'none';
+        typeEditing();
         colorPickerHueMain.style.display = 'block';
-        colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none';
-        colorPickerMainImage.style.display = 'none'
     };
 });
 
 editingBtnArticle.addEventListener('mousedown', () => {
     colorBtnForArticle();
+    colorButtonsEditing();
+    editingBtnArticle.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainArticle.style.display = 'none') {
-        colorPickerMainBorder.style.display = 'none';
+        typeEditing();
         colorPickerMainArticle.style.display = 'block';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none';
-        colorPickerMainImage.style.display = 'none';
     };
 });
 
 editingBtnLogoImage.addEventListener('mousedown', () => {
     colorBtnForLogoImage();
+    colorButtonsEditing();
+    editingBtnLogoImage.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainLogoImage.style.display = 'none') {
-        colorPickerMainBorder.style.display = 'none';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none';
-        colorPickerMainArticle.style.display = 'none';
+        typeEditing();
         colorPickerMainLogoImage.style.display = 'block';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerMainImage.style.display = 'none'
     };
 });
 
 editingBtnButtons.addEventListener('mousedown', () => {
     colorBtnForButtons();
+    colorButtonsEditing();
+    editingBtnButtons.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainButtons.style.display = 'none') {
-        colorPickerMainBorder.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none';
+        typeEditing();
         colorPickerMainButtons.style.display = 'block';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
-        colorPickerMainImage.style.display = 'none'
     };
 });
 
 editingBtnHeaderFooter.addEventListener('mousedown', () => {
     colorBtnForFooterHeader();
+    colorButtonsEditing();
+    editingBtnHeaderFooter.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainFooterHeader.style.display = 'none') {
-        colorPickerMainBorder.style.display = 'none';
+        typeEditing();
         colorPickerMainFooterHeader.style.display = 'block';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
-        colorPickerMainImage.style.display = 'none'
     };
 });
 
 editingBtnBorders.addEventListener('mousedown', () => {
     colorBtnForBorder();
+    colorButtonsEditing();
+    editingBtnBorders.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainBorder.style.display = 'none') {
+        typeEditing();
         colorPickerMainBorder.style.display = 'block';
-        colorPickerMainFooterHeader.style.display = 'none';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
-        colorPickerMainImage.style.display = 'none'
     };
 });
 
 editingBtnImage.addEventListener('mousedown', () => {
     colorBtnForImage();
+    colorButtonsEditing();
+    editingBtnImage.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainImage.style.display = 'none') {
+        typeEditing();
         colorPickerMainImage.style.display = 'block';
-        colorPickerMainBorder.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
     };
 });
 
