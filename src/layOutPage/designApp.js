@@ -459,6 +459,8 @@ function colorButtonsEditing() {
 
 
 // Color Picker for Design
+editingBtnText.style.backgroundColor = 'rgb(255, 0, 0)';
+
 editingBtnText.addEventListener('mousedown', () => {
     colorBtnForEditingSection();
     colorButtonsEditing();
