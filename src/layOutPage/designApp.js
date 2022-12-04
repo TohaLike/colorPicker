@@ -455,16 +455,25 @@ function colorButtonsEditing() {
     editingBtnHeaderFooter.style.backgroundColor = '';
     editingBtnBorders.style.backgroundColor = '';
     editingBtnImage.style.backgroundColor = '';
+    editingBtnText.style.color = '';
+    editingBtnArticle.style.color = '';
+    editingBtnLogoImage.style.color = '';
+    editingBtnButtons.style.color = '';
+    editingBtnHeaderFooter.style.color = '';
+    editingBtnBorders.style.color = '';
+    editingBtnImage.style.color = '';
 };
 
 
 // Color Picker for Design
 editingBtnText.style.backgroundColor = 'rgb(255, 0, 0)';
+editingBtnText.style.color = 'rgb(0, 0, 0)';
 
 editingBtnText.addEventListener('mousedown', () => {
     colorBtnForEditingSection();
     colorButtonsEditing();
     editingBtnText.style.backgroundColor = 'rgb(255, 0, 0)';
+    editingBtnText.style.color = 'rgb(0, 0, 0)';
 
     if (colorPickerHueMain.style.display = 'none') {
         typeEditing();
@@ -476,6 +485,7 @@ editingBtnArticle.addEventListener('mousedown', () => {
     colorBtnForArticle();
     colorButtonsEditing();
     editingBtnArticle.style.backgroundColor = 'rgb(255, 0, 0)';
+    editingBtnArticle.style.color = 'rgb(0, 0, 0)';
 
     if (colorPickerMainArticle.style.display = 'none') {
         typeEditing();
@@ -487,6 +497,7 @@ editingBtnLogoImage.addEventListener('mousedown', () => {
     colorBtnForLogoImage();
     colorButtonsEditing();
     editingBtnLogoImage.style.backgroundColor = 'rgb(255, 0, 0)';
+    editingBtnLogoImage.style.color = 'rgb(0, 0, 0)';
 
     if (colorPickerMainLogoImage.style.display = 'none') {
         typeEditing();
@@ -498,6 +509,7 @@ editingBtnButtons.addEventListener('mousedown', () => {
     colorBtnForButtons();
     colorButtonsEditing();
     editingBtnButtons.style.backgroundColor = 'rgb(255, 0, 0)';
+    editingBtnButtons.style.color = 'rgb(0, 0, 0)';
 
     if (colorPickerMainButtons.style.display = 'none') {
         typeEditing();
@@ -509,6 +521,7 @@ editingBtnHeaderFooter.addEventListener('mousedown', () => {
     colorBtnForFooterHeader();
     colorButtonsEditing();
     editingBtnHeaderFooter.style.backgroundColor = 'rgb(255, 0, 0)';
+    editingBtnHeaderFooter.style.color = 'rgb(0, 0, 0)';
 
     if (colorPickerMainFooterHeader.style.display = 'none') {
         typeEditing();
@@ -520,6 +533,7 @@ editingBtnBorders.addEventListener('mousedown', () => {
     colorBtnForBorder();
     colorButtonsEditing();
     editingBtnBorders.style.backgroundColor = 'rgb(255, 0, 0)';
+    editingBtnBorders.style.color = 'rgb(0, 0, 0)';
 
     if (colorPickerMainBorder.style.display = 'none') {
         typeEditing();
@@ -531,6 +545,7 @@ editingBtnImage.addEventListener('mousedown', () => {
     colorBtnForImage();
     colorButtonsEditing();
     editingBtnImage.style.backgroundColor = 'rgb(255, 0, 0)';
+    editingBtnImage.style.color = 'rgb(0, 0, 0)';
 
     if (colorPickerMainImage.style.display = 'none') {
         typeEditing();
