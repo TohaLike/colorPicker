@@ -71,7 +71,7 @@ let colorsForBtn = [
     'rgb(127, 0, 255)',
     'rgb(255, 255, 255)',
     'rgb(231, 84, 128)',
-    'rgb(255,255,0)',
+    'rgb(255, 255, 0)',
     'rgb(255, 165, 0)',
     'rgb(200, 162, 200)',
     'rgb(0, 0, 0)'
@@ -124,11 +124,10 @@ for (let i = 0; i < colorsForBtn.length; i++) {
         rgbIndexHue.innerHTML = colorsForBtn[i];
         hslIndexHue.innerHTML = colorsForBtnHsl[i];
         hexIndexHue.innerHTML = colorsForBtnHex[i];
+        colorForSave = rgbIndexHue.innerHTML;
         rgbIndex.innerHTML = colorsForBtn[i];
         hslIndex.innerHTML = colorsForBtnHsl[i];
         hexIndex.innerHTML = colorsForBtnHex[i];
-
-        hexInputIndex.value = colorsForBtnHex[i];
 
         // console.log(colorsForBtn[i]);
     };
@@ -262,6 +261,9 @@ function getColorPicker() {
     rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;
     hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+    
+    colorForSave = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+
     rgbR.value = `${imageData[0]}`;
     rgbG.value = `${imageData[1]}`;
     rgbB.value = `${imageData[2]}`;
@@ -438,6 +440,7 @@ function getHueColor() {
     hslL.value = `${Math.round(l)}`;
 };
 
+
 function getColorCursor() {
     let dataImage = contextHueBox.getImageData(positionHueX, positionHueY, 1, 1).data;
     let [r, g, b] = dataImage;
@@ -447,6 +450,9 @@ function getColorCursor() {
     rgbIndexHue.innerHTML = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
     hexIndexHue.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndexHue.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+
+    colorForSave = `rgb(${dataImage[0]}, ${dataImage[1]}, ${dataImage[2]})`;
+
     rgbR.value = `${dataImage[0]}`;
     rgbG.value = `${dataImage[1]}`;
     rgbB.value = `${dataImage[2]}`;
@@ -536,7 +542,7 @@ btnDeleteAll.addEventListener('click', () => {
 
 function createDeleteElement() { 
     const btn = document.createElement('button');   
-    btn.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+    btn.style.backgroundColor = colorForSave;
     btn.className = 'type__color__btn';
     colorBlock.appendChild(btn);
 

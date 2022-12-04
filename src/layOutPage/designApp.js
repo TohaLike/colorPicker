@@ -20,6 +20,34 @@ const colorBlock = document.querySelector('.color__block');
 const notificationColorSaved = document.querySelector('.chips__color__notification');
 const textSave = document.querySelector('.text__save');
 
+// Color Picker for LayOut
+const layoutContainer = document.querySelector('.layout__container');
+const layOutHeader = document.querySelector('.header__main');
+const layOutFooter = document.querySelector('.footer__layout__main');
+const layOutArticle = document.querySelector('.article__layout__main');
+const firstSimpleButton = document.querySelector('.first__simple__button');
+const secondSimpleButton = document.querySelector('.second__simple__button');
+const imageMainLayout = document.querySelector('.img__layout');
+const layoutLogoImage = document.querySelector('.layout__logo__image');
+
+// Main Containers LayOut
+const colorPickerHueMain = document.querySelector('.color__picker__hue__main');
+const colorPickerMainArticle = document.querySelector('.color__picker__main__Article');
+const colorPickerMainLogoImage = document.querySelector('.color__picker__main__LogoImage');
+const colorPickerMainButtons = document.querySelector('.color__picker__main__Buttons');
+const colorPickerMainFooterHeader = document.querySelector('.color__picker__main__footerHeader');
+const colorPickerMainBorder = document.querySelector('.color__picker__main__Border');
+const colorPickerMainImage = document.querySelector('.color__picker__main__Image');
+
+
+// Buttons LayOut
+const editingBtnText = document.querySelector('.editing__btn__text');
+const editingBtnArticle = document.querySelector('.editing__btn__article');
+const editingBtnLogoImage = document.querySelector('.editing__btn__logoImage');
+const editingBtnButtons = document.querySelector('.editing__btn__buttons');
+const editingBtnHeaderFooter = document.querySelector('.editing__btn__header__footer');
+const editingBtnBorders = document.querySelector('.editing__btn__borders');
+const editingBtnImage = document.querySelector('.editing__btn__image');
 
 
 // Closed Context
@@ -35,7 +63,7 @@ let colorsForBtn = [
     'rgb(0, 0, 255)',
     'rgb(127, 0, 255)',
     'rgb(231, 84, 128)',
-    'rgb(255,255,0)',
+    'rgb(255, 255, 0)',
     'rgb(255, 165, 0)',
     'rgb(200, 162, 200)',
     'rgb(41, 49, 51)',
@@ -87,6 +115,7 @@ function colorBtnForEditingSection() {
             rgbIndexHue.innerHTML = colorsForBtn[i];
             hslIndexHue.innerHTML = colorsForBtnHsl[i];
             hexIndexHue.innerHTML = colorsForBtnHex[i];
+            colorForSave = rgbIndexHue.innerHTML;
         };
     }; 
 };
@@ -98,7 +127,8 @@ function colorBtnForArticle() {
             layOutArticle.style.backgroundColor = colorsForBtn[i];
             rgbIndexArticle.innerHTML = colorsForBtn[i];
             hslIndexArticle.innerHTML = colorsForBtnHsl[i];
-            hexIndexArticle.innerHTML = colorsForBtnHex[i];          
+            hexIndexArticle.innerHTML = colorsForBtnHex[i];    
+            colorForSave = rgbIndexArticle.innerHTML;
         };
     }; 
 };
@@ -110,7 +140,8 @@ function colorBtnForLogoImage() {
             layoutLogoImage.style.backgroundColor = colorsForBtn[i];
             rgbIndexLogoImage.innerHTML = colorsForBtn[i];
             hslIndexLogoImage.innerHTML = colorsForBtnHsl[i];
-            hexIndexLogoImage.innerHTML = colorsForBtnHex[i];    
+            hexIndexLogoImage.innerHTML = colorsForBtnHex[i];   
+            colorForSave = rgbIndexLogoImage.innerHTML;
         };
     }; 
 };
@@ -124,6 +155,7 @@ function colorBtnForButtons() {
             rgbIndexButtons.innerHTML = colorsForBtn[i];
             hslIndexButtons.innerHTML = colorsForBtnHsl[i];
             hexIndexButtons.innerHTML = colorsForBtnHex[i];    
+            colorForSave = rgbIndexButtons.innerHTML;
         };
     }; 
 };
@@ -136,7 +168,8 @@ function colorBtnForFooterHeader() {
             layOutFooter.style.backgroundColor = colorsForBtn[i];
             rgbIndexFooterHeader.innerHTML = colorsForBtn[i];
             hslIndexFooterHeader.innerHTML = colorsForBtnHsl[i];
-            hexIndexFooterHeader.innerHTML = colorsForBtnHex[i];   
+            hexIndexFooterHeader.innerHTML = colorsForBtnHex[i];  
+            colorForSave = rgbIndexFooterHeader.innerHTML; 
         };
     }; 
 };
@@ -150,6 +183,7 @@ function colorBtnForBorder() {
             rgbIndexBorder.innerHTML = colorsForBtn[i];
             hslIndexBorder.innerHTML = colorsForBtnHsl[i];
             hexIndexBorder.innerHTML = colorsForBtnHex[i];   
+            colorForSave = rgbIndexBorder.innerHTML;
         };
     }; 
 };
@@ -161,7 +195,8 @@ function colorBtnForImage() {
             imageMainLayout.style.backgroundColor = colorsForBtn[i];
             rgbIndexImage.innerHTML = colorsForBtn[i];
             hslIndexImage.innerHTML = colorsForBtnHsl[i];
-            hexIndexImage.innerHTML = colorsForBtnHex[i];   
+            hexIndexImage.innerHTML = colorsForBtnHex[i];  
+            colorForSave = rgbIndexImage.innerHTML; 
         };
     }; 
 };
@@ -368,7 +403,7 @@ function createDeleteElement() {
     btn.style.backgroundColor = colorForSave;
     btn.className = 'type__color__btn';
     colorBlock.appendChild(btn);
-    
+
     let colorBtnForm = {
         color: btn.style.backgroundColor,
         value: colorSaveStorage.length
@@ -402,125 +437,104 @@ function chips() {
     console.log(colorChip)
 };
 
+function typeEditing() {
+    colorPickerHueMain.style.display = 'none';
+    colorPickerMainArticle.style.display = 'none';
+    colorPickerMainLogoImage.style.display = 'none';
+    colorPickerMainButtons.style.display = 'none';
+    colorPickerMainFooterHeader.style.display = 'none';
+    colorPickerMainBorder.style.display = 'none';
+    colorPickerMainImage.style.display = 'none'
+};
 
-// Color Picker for LayOut
-const layoutContainer = document.querySelector('.layout__container');
-const layOutHeader = document.querySelector('.header__main');
-const layOutFooter = document.querySelector('.footer__layout__main');
-const layOutArticle = document.querySelector('.article__layout__main');
-const firstSimpleButton = document.querySelector('.first__simple__button');
-const secondSimpleButton = document.querySelector('.second__simple__button');
-const imageMainLayout = document.querySelector('.img__layout');
-const layoutLogoImage = document.querySelector('.layout__logo__image');
-
-// Main Containers LayOut
-const colorPickerHueMain = document.querySelector('.color__picker__hue__main');
-const colorPickerMainArticle = document.querySelector('.color__picker__main__Article');
-const colorPickerMainLogoImage = document.querySelector('.color__picker__main__LogoImage');
-const colorPickerMainButtons = document.querySelector('.color__picker__main__Buttons');
-const colorPickerMainFooterHeader = document.querySelector('.color__picker__main__footerHeader');
-const colorPickerMainBorder = document.querySelector('.color__picker__main__Border');
-const colorPickerMainImage = document.querySelector('.color__picker__main__Image');
+function colorButtonsEditing() {
+    editingBtnText.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnArticle.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnLogoImage.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnButtons.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnHeaderFooter.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnBorders.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnImage.style.backgroundColor = 'rgb(69, 69, 69)';
+};
 
 
-// Buttons LayOut
-const editingBtnText = document.querySelector('.editing__btn__text');
-const editingBtnArticle = document.querySelector('.editing__btn__article');
-const editingBtnLogoImage = document.querySelector('.editing__btn__logoImage');
-const editingBtnButtons = document.querySelector('.editing__btn__buttons');
-const editingBtnHeaderFooter = document.querySelector('.editing__btn__header__footer');
-const editingBtnBorders = document.querySelector('.editing__btn__borders');
-const editingBtnImage = document.querySelector('.editing__btn__image');
-
+// Color Picker for Design
+editingBtnText.style.backgroundColor = 'rgb(255, 0, 0)';
 
 editingBtnText.addEventListener('mousedown', () => {
     colorBtnForEditingSection();
+    colorButtonsEditing();
+    editingBtnText.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerHueMain.style.display = 'none') {
-        colorPickerMainBorder.style.display = 'none';
+        typeEditing();
         colorPickerHueMain.style.display = 'block';
-        colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none';
-        colorPickerMainImage.style.display = 'none'
     };
 });
 
 editingBtnArticle.addEventListener('mousedown', () => {
     colorBtnForArticle();
+    colorButtonsEditing();
+    editingBtnArticle.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainArticle.style.display = 'none') {
-        colorPickerMainBorder.style.display = 'none';
+        typeEditing();
         colorPickerMainArticle.style.display = 'block';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none';
-        colorPickerMainImage.style.display = 'none';
     };
 });
 
 editingBtnLogoImage.addEventListener('mousedown', () => {
     colorBtnForLogoImage();
+    colorButtonsEditing();
+    editingBtnLogoImage.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainLogoImage.style.display = 'none') {
-        colorPickerMainBorder.style.display = 'none';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none';
-        colorPickerMainArticle.style.display = 'none';
+        typeEditing();
         colorPickerMainLogoImage.style.display = 'block';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerMainImage.style.display = 'none'
     };
 });
 
 editingBtnButtons.addEventListener('mousedown', () => {
     colorBtnForButtons();
+    colorButtonsEditing();
+    editingBtnButtons.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainButtons.style.display = 'none') {
-        colorPickerMainBorder.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none';
+        typeEditing();
         colorPickerMainButtons.style.display = 'block';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
-        colorPickerMainImage.style.display = 'none'
     };
 });
 
 editingBtnHeaderFooter.addEventListener('mousedown', () => {
     colorBtnForFooterHeader();
+    colorButtonsEditing();
+    editingBtnHeaderFooter.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainFooterHeader.style.display = 'none') {
-        colorPickerMainBorder.style.display = 'none';
+        typeEditing();
         colorPickerMainFooterHeader.style.display = 'block';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
-        colorPickerMainImage.style.display = 'none'
     };
 });
 
 editingBtnBorders.addEventListener('mousedown', () => {
     colorBtnForBorder();
+    colorButtonsEditing();
+    editingBtnBorders.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainBorder.style.display = 'none') {
+        typeEditing();
         colorPickerMainBorder.style.display = 'block';
-        colorPickerMainFooterHeader.style.display = 'none';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
-        colorPickerMainImage.style.display = 'none'
     };
 });
 
 editingBtnImage.addEventListener('mousedown', () => {
     colorBtnForImage();
+    colorButtonsEditing();
+    editingBtnImage.style.backgroundColor = 'rgb(255, 0, 0)';
+
     if (colorPickerMainImage.style.display = 'none') {
+        typeEditing();
         colorPickerMainImage.style.display = 'block';
-        colorPickerMainBorder.style.display = 'none';
-        colorPickerMainFooterHeader.style.display = 'none';
-        colorPickerMainButtons.style.display = 'none';
-        colorPickerHueMain.style.display = 'none';
-        colorPickerMainArticle.style.display = 'none';
-        colorPickerMainLogoImage.style.display = 'none';
     };
 });
 
