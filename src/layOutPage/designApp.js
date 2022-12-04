@@ -11,7 +11,6 @@ const hslIndexHue = document.querySelector('.hsl__indexHue');
 const hexIndexHue = document.querySelector('.hex__indexHue');
 const pickerHue = document.querySelector('.color__picker__hue__main');
 
-
 const btnColors = document.querySelectorAll('.btn__colors');
 const btnDeleteAll = document.querySelector('.btn__delete__all');
 const btnSaveMain = document.querySelector('.btn__save__main');
@@ -38,7 +37,6 @@ const colorPickerMainButtons = document.querySelector('.color__picker__main__But
 const colorPickerMainFooterHeader = document.querySelector('.color__picker__main__footerHeader');
 const colorPickerMainBorder = document.querySelector('.color__picker__main__Border');
 const colorPickerMainImage = document.querySelector('.color__picker__main__Image');
-
 
 // Buttons LayOut
 const editingBtnText = document.querySelector('.editing__btn__text');
@@ -200,6 +198,8 @@ function colorBtnForImage() {
         };
     }; 
 };
+
+
 
 
 // LinearGradiet Hue
@@ -448,13 +448,13 @@ function typeEditing() {
 };
 
 function colorButtonsEditing() {
-    editingBtnText.style.backgroundColor = 'rgb(69, 69, 69)';
-    editingBtnArticle.style.backgroundColor = 'rgb(69, 69, 69)';
-    editingBtnLogoImage.style.backgroundColor = 'rgb(69, 69, 69)';
-    editingBtnButtons.style.backgroundColor = 'rgb(69, 69, 69)';
-    editingBtnHeaderFooter.style.backgroundColor = 'rgb(69, 69, 69)';
-    editingBtnBorders.style.backgroundColor = 'rgb(69, 69, 69)';
-    editingBtnImage.style.backgroundColor = 'rgb(69, 69, 69)';
+    editingBtnText.style.backgroundColor = '';
+    editingBtnArticle.style.backgroundColor = '';
+    editingBtnLogoImage.style.backgroundColor = '';
+    editingBtnButtons.style.backgroundColor = '';
+    editingBtnHeaderFooter.style.backgroundColor = '';
+    editingBtnBorders.style.backgroundColor = '';
+    editingBtnImage.style.backgroundColor = '';
 };
 
 

@@ -568,6 +568,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .editing__btn:hover {
+    background-color: #ebebeb;
     color: #000000;
 }
 
