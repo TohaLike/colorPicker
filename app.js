@@ -77,6 +77,19 @@ let colorsForBtn = [
     'rgb(0, 0, 0)'
 ];
 
+let colorsForBtnRgbInput = [
+    ``,
+    ``,
+    ``,
+    ``,
+    ``,
+    ``,
+    ``,
+    ``,
+    ``,
+    ``
+];
+
 let colorsForBtnHsl = [
     'hsl(0, 100%, 50%)',
     'hsl(120, 100%, 50%)',
@@ -114,6 +127,8 @@ for (let i = 0; i < colorsForBtn.length; i++) {
         rgbIndex.innerHTML = colorsForBtn[i];
         hslIndex.innerHTML = colorsForBtnHsl[i];
         hexIndex.innerHTML = colorsForBtnHex[i];
+
+        hexInputIndex.value = colorsForBtnHex[i];
 
         // console.log(colorsForBtn[i]);
     };
