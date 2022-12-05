@@ -58,8 +58,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .article {
-    height: 1200px;
     max-width: 1366px;
+    height: 800px;
     margin: 0 auto;
     background-color: #454545;
     box-shadow: 17px 25px 23px 11px rgba(0, 0, 0, 0.25), 
@@ -170,7 +170,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 91px;
     margin: 0;
     position: relative;
-    top: 10px;
+    top: 20px;
 }
 
 .toha__img {
@@ -189,8 +189,8 @@ body::-webkit-scrollbar-thumb {
     position: relative;
     top: 15px;
     left: 15px;
-    height: 1170px;
-    max-width: 1336px;
+    max-width: 1336px; 
+    height: 775px;
     border-radius: 15px;
     background-color: #ffffff;
 }
