@@ -167,8 +167,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .name__website {
-    font-size: 90px;
-    margin: 0px 0px 0px 10px;
+    font-size: 91px;
+    margin: 0;
+    position: relative;
+    top: 10px;
 }
 
 .toha__img {
@@ -199,7 +201,7 @@ body::-webkit-scrollbar-thumb {
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: 0px;
     grid-template-rows: 0px;
-    margin-top: 50px;
+    margin-top: 73px;
     margin-left: 10px;
 }
 
