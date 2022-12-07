@@ -116,6 +116,8 @@ let colorsForBtnHex = [
     '#000000'
 ];
 
+let colorForSave = 'rgb(255, 255, 255)';
+
 
 for (let i = 0; i < colorsForBtn.length; i++) {
     btnColors[i].style.background = colorsForBtn[i];
@@ -124,7 +126,10 @@ for (let i = 0; i < colorsForBtn.length; i++) {
         rgbIndexHue.innerHTML = colorsForBtn[i];
         hslIndexHue.innerHTML = colorsForBtnHsl[i];
         hexIndexHue.innerHTML = colorsForBtnHex[i];
+        
+        colorForSave = rgbIndex.innerHTML;
         colorForSave = rgbIndexHue.innerHTML;
+        
         rgbIndex.innerHTML = colorsForBtn[i];
         hslIndex.innerHTML = colorsForBtnHsl[i];
         hexIndex.innerHTML = colorsForBtnHex[i];
@@ -262,7 +267,7 @@ function getColorPicker() {
     hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
     
-    colorForSave = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`;
+    colorForSave = rgbIndex.innerHTML;
 
     rgbR.value = `${imageData[0]}`;
     rgbG.value = `${imageData[1]}`;
