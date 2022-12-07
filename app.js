@@ -537,6 +537,18 @@ btnSaveMain.addEventListener('click', (event) => {
 
 btnClear.addEventListener('click', () => {
     colorResult.style.backgroundColor = `rgb(${rgbR.value = 0}, ${rgbG.value = 0}, ${rgbB.value = 0})`;
+    colorResult.style.backgroundColor = `hsl(${hslH.value = 0}, ${hslS.value = 0}, ${hslL.value = 0};`;
+    hexInputIndex.value = '#000000';
+
+    rgbIndexHue.innerHTML = 'rgb(0, 0, 0)';
+    hslIndexHue.innerHTML = 'hsl(0, 0%, 0%)';
+    hexIndexHue.innerHTML = '#000000';
+
+    rgbIndex.innerHTML = 'rgb(0, 0, 0)';
+    hslIndex.innerHTML = 'hsl(0, 0%, 0%)';
+    hexIndex.innerHTML = '#000000';
+
+    
 });
 
 btnDeleteAll.addEventListener('click', () => {
