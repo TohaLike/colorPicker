@@ -263,12 +263,13 @@ function getColorPicker() {
     let [h, s, l] = RGBToHSL(r, g, b);
     let hex = (num) => (Math.round(num) < 16 ? '0' : '') + Math.round(num).toString(16);
     colorResult.style.backgroundColor = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;
+    
+    colorForSave = rgbIndex.innerHTML;
+    
     rgbIndex.innerHTML = `rgb(${imageData[0]}, ${imageData[1]}, ${imageData[2]})`;
     hexIndex.innerHTML = `#${hex(r)}${hex(g)}${hex(b)}`;
     hslIndex.innerHTML = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
     
-    colorForSave = rgbIndex.innerHTML;
-
     rgbR.value = `${imageData[0]}`;
     rgbG.value = `${imageData[1]}`;
     rgbB.value = `${imageData[2]}`;
