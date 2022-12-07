@@ -57,9 +57,9 @@ body::-webkit-scrollbar-thumb {
     padding-right: 223px;
 }
 
-.article {
-    height: 1021px;
+.article {    
     max-width: 1366px;
+    height: 1021px;
     margin: 0 auto;
     background-color: #454545;
     box-shadow: 17px 25px 23px 11px rgba(0, 0, 0, 0.25), 
