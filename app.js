@@ -486,6 +486,8 @@ hslBtn.addEventListener('click', () => {
 
 
 // Search Section
+
+// RGB Search
 function eventColorSearch() {
     colorResult.style.backgroundColor = `rgb(${rgbR.value}, ${rgbG.value}, ${rgbB.value})`
 };
@@ -493,8 +495,6 @@ function eventColorSearch() {
 rgbR.onchange = () => eventColorSearch();
 rgbG.onchange = () => eventColorSearch();
 rgbB.onchange = () => eventColorSearch();
-
-
 searchBtnRgb.onmousedown = () => eventColorSearch();
 
 typeColorRgb.addEventListener('click', () => {
@@ -504,15 +504,15 @@ typeColorRgb.addEventListener('click', () => {
     };
 });
 
-searchBtnHex.addEventListener('click', () => {
-    colorResult.style.backgroundColor = `${hexInputIndex.value}`;
-});
-typeColorHex.addEventListener('click', () => {
-    if (inputHSL.style.display = 'none') {
-        inputHEX.style.display = 'none';
-        inputHSL.style.display = 'block';
-    };
-});
+
+// HSL Search
+function eventColorSearchHsl() {
+    colorResult.style.backgroundColor = `hsl(${hslH.value}, ${hslS.value}%, ${hslL.value}%)`;
+};
+
+hslH.onchange = () => eventColorSearchHsl();
+hslS.onchange = () => eventColorSearchHsl();
+hslL.onchange = () => eventColorSearchHsl();
 
 searchBtnHsl.addEventListener('click', () => {
     colorResult.style.backgroundColor = `hsl(${hslH.value}, ${hslS.value}%, ${hslL.value}%)`;
@@ -521,6 +521,25 @@ typeColorHsl.addEventListener('click', () => {
     if (inputRGB.style.display = 'none') {
         inputRGB.style.display = 'block';
         inputHSL.style.display = 'none';
+    };
+});
+
+
+// HEX Search
+function eventColorSearchHex() {
+    colorResult.style.backgroundColor = `${hexInputIndex.value}`;
+};
+
+hexInputIndex.onchange = () => eventColorSearchHex();
+
+searchBtnHex.addEventListener('click', () => {
+    colorResult.style.backgroundColor = `${hexInputIndex.value}`;
+});
+
+typeColorHex.addEventListener('click', () => {
+    if (inputHSL.style.display = 'none') {
+        inputHEX.style.display = 'none';
+        inputHSL.style.display = 'block';
     };
 });
 
@@ -537,7 +556,7 @@ btnSaveMain.addEventListener('click', (event) => {
 
 btnClear.addEventListener('click', () => {
     colorResult.style.backgroundColor = `rgb(${rgbR.value = 0}, ${rgbG.value = 0}, ${rgbB.value = 0})`;
-    colorResult.style.backgroundColor = `hsl(${hslH.value = 0}, ${hslS.value = 0}, ${hslL.value = 0};`;
+    colorResult.style.backgroundColor = `hsl(${hslH.value = 0}, ${hslS.value = 0}, ${hslL.value = 0})`;
     hexInputIndex.value = '#000000';
 
     rgbIndexHue.innerHTML = 'rgb(0, 0, 0)';
@@ -547,8 +566,6 @@ btnClear.addEventListener('click', () => {
     rgbIndex.innerHTML = 'rgb(0, 0, 0)';
     hslIndex.innerHTML = 'hsl(0, 0%, 0%)';
     hexIndex.innerHTML = '#000000';
-
-    
 });
 
 btnDeleteAll.addEventListener('click', () => {
@@ -571,7 +588,6 @@ function createDeleteElement() {
     colorSaveStorage.push(colorBtnForm);
     
     btn.onclick = () => chips(); 
-
 
     btn.addEventListener('mousedown', (event) => {
         colorSaveBtn = btn.style.backgroundColor;
