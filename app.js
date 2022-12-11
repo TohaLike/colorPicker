@@ -59,9 +59,9 @@ const textSave = document.querySelector('.text__save');
 const typeColorBtn = document.querySelector('.type__color__btn');
 
 // Closed Context
-// document.oncontextmenu = (e) => {
-//     e.preventDefault();
-// };
+document.oncontextmenu = (e) => {
+    e.preventDefault();
+};
 
 // Colors Buttons
 let colorsForBtn = [

@@ -49,9 +49,9 @@ const editingBtnImage = document.querySelector('.editing__btn__image');
 
 
 // Closed Context
-// document.oncontextmenu = (e) => {
-//     e.preventDefault();
-// };
+document.oncontextmenu = (e) => {
+    e.preventDefault();
+};
 
 
 // Colors Buttons
