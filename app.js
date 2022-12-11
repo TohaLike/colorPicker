@@ -77,18 +77,88 @@ let colorsForBtn = [
     'rgb(0, 0, 0)'
 ];
 
-let colorsForBtnRgbInput = [
-    ``,
-    ``,
-    ``,
-    ``,
-    ``,
-    ``,
-    ``,
-    ``,
-    ``,
-    ``
+
+// RGB
+let colorsForBtnRgbR = [
+    `255`,
+    `0`,
+    `0`,
+    `127`,
+    `255`,
+    `231`,
+    `255`,
+    `255`,
+    `200`,
+    `0`
 ];
+
+let colorsForBtnRgbG = [
+    `0`,
+    `255`,
+    `0`,
+    `0`,
+    `255`,
+    `84`,
+    `255`,
+    `165`,
+    `162`,
+    `0`
+];
+
+let colorsForBtnRgbB = [
+    `0`,
+    `0`,
+    `255`,
+    `255`,
+    `255`,
+    `128`,
+    `0`,
+    `0`,
+    `200`,
+    `0`
+];
+
+
+// HSL
+let colorsForBtnHslH = [
+    `0`,
+    `120`,
+    `240`,
+    `270`,
+    `0`,
+    `342`,
+    `60`,
+    `39`,
+    `300`,
+    `0`
+];
+
+let colorsForBtnHslS = [
+    `100`,
+    `100`,
+    `100`,
+    `100`,
+    `0`,
+    `100`,
+    `100`,
+    `100`,
+    `26`,
+    `0`
+];
+
+let colorsForBtnHslL = [
+    `50`,
+    `50`,
+    `50`,
+    `50`,
+    `100`,
+    `50`,
+    `50`,
+    `50`,
+    `71`,
+    `0`
+];
+
 
 let colorsForBtnHsl = [
     'hsl(0, 100%, 50%)',
@@ -127,6 +197,16 @@ for (let i = 0; i < colorsForBtn.length; i++) {
         hslIndexHue.innerHTML = colorsForBtnHsl[i];
         hexIndexHue.innerHTML = colorsForBtnHex[i];
         
+        rgbR.value = colorsForBtnRgbR[i];
+        rgbG.value = colorsForBtnRgbG[i];
+        rgbB.value = colorsForBtnRgbB[i];
+
+        hexInputIndex.value = colorsForBtnHex[i];
+
+        hslH.value = colorsForBtnHslH[i];
+        hslS.value = colorsForBtnHslS[i];
+        hslL.value = colorsForBtnHslL[i];
+
         colorForSave = rgbIndex.innerHTML;
         colorForSave = rgbIndexHue.innerHTML;
         
