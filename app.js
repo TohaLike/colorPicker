@@ -687,7 +687,7 @@ function chips() {
     const btnChips = document.createElement('div');
     btnChips.className = 'btn__chips';
     btnChips.classList.remove('remove__message');
-    btnChips.textContent = 'Saved!'
+    btnChips.textContent = 'Saved!';
     btnChips.style.backgroundColor = colorSaveBtn;
     notificationColorSaved.appendChild(btnChips);
     setTimeout(() => btnChips.remove(), 5000);
